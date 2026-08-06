@@ -49,6 +49,13 @@ cifras de cartera, precios, y cualquier análisis de mercado.
   área de resguardo ya desbordó una vez a 360.
 - **Los dos temas se prueban.** El sitio responde a `prefers-color-scheme` y al
   toggle; un color que solo funciona en claro es un bug, no una preferencia.
+- **El sitio cumple sus propias reglas.** El logo del header no tiene un tamaño
+  elegido a ojo: sale del mínimo publicado. El isologotipo es 759 × 284 (razón
+  2,673:1) y su mínimo es 180 px de ancho, o sea **67,3 px de alto** — por eso
+  va a 68. Por debajo de 900 px ya no entra sin incumplirlo, así que ahí el
+  header pasa al **isotipo**, que es lo que la matriz de uso indica para
+  espacios chicos. Si alguien achica ese logo, rompe la regla de la página que
+  tiene al lado.
 
 ## Regla de contenido: nada se publica sin verificar
 

@@ -18,7 +18,7 @@
   --amber:#F5A623; --amber-text:#8A5A00; --amber-wash:#FFF3E6;
   --no:#A81E12; --no-wash:#FCEEEC;
   --shadow:0 1px 2px rgba(0,42,82,.06),0 8px 24px -12px rgba(0,42,82,.18);
-  --rail:260px; --bar:60px;
+  --rail:260px; --bar:92px;
   --d:'SPDisplay','Segoe UI',system-ui,sans-serif;
   --t:'SPText',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
 }
@@ -59,9 +59,16 @@ a{color:inherit;text-decoration:none}
 .tnum{font-variant-numeric:tabular-nums}
 
 /* ---------- barra superior ---------- */
-.bar{position:sticky;top:0;z-index:60;height:var(--bar);display:flex;align-items:center;gap:26px;
- padding:0 22px;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.09)}
-.bar img{height:30px;display:block}
+.bar{position:sticky;top:0;z-index:60;height:var(--bar);display:flex;align-items:center;gap:30px;
+ padding:0 28px;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.09)}
+/* El tamaño del logo del header NO es una decision estetica: sale de la regla
+   que este mismo sitio publica. El isologotipo es 759x284 (razon 2,673:1) y su
+   minimo digital es 180 px de ANCHO. Por lo tanto su alto minimo es
+   180 / 2,673 = 67,3 px. Va a 68, el primer entero que cumple.
+   (Antes estaba a 30 px de alto = 80 px de ancho: el header incumplia la regla
+   de la pagina que tiene al lado.) */
+.bar .logo-full{height:68px;display:block}
+.bar .logo-icon{display:none}
 .navwrap{position:relative}
 .navbtn{font-family:var(--d);font-weight:700;font-size:13.5px;color:rgba(255,255,255,.88);
  background:none;border:0;padding:8px 2px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;letter-spacing:.005em}
@@ -208,6 +215,13 @@ tr:last-child td{border-bottom:0}
 .stamp{margin-top:26px;font-size:12px;color:var(--faint)}
 
 @media(max-width:900px){
+  /* En movil el isologotipo no entra sin bajar de su minimo de 180 px de ancho.
+     La matriz de uso de este sitio dice que ahi va el ISOTIPO ("espacio chico
+     donde el texto no se lee"), cuyo minimo es 24 px de ancho: a 46 px de alto
+     mide 40 px de ancho. La regla se aplica, no solo se publica. */
+  :root{--bar:66px}
+  .bar .logo-full{display:none}
+  .bar .logo-icon{display:block;height:46px}
   .shell{grid-template-columns:1fr}
   .rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);display:none;padding:18px 20px}
   .rail.open{display:block}
@@ -222,7 +236,9 @@ tr:last-child td{border-bottom:0}
 <body>
 
 <header class="bar">
-  <a href="#/" aria-label="Centro de Marca de Salud Protegida"><img src="assets/logos/SP_Isologotipo_Blanco_RGB.png" alt="Salud Protegida"></a>
+  <a href="#/" aria-label="Centro de Marca de Salud Protegida"
+     ><img class="logo-full" src="assets/logos/SP_Isologotipo_Blanco_RGB.png" alt="Salud Protegida"
+     ><img class="logo-icon" src="assets/logos/SP_Isotipo_Blanco_RGB.png" alt="Salud Protegida"></a>
   <div class="navwrap hide-sm" data-nav>
     <button class="navbtn" data-drop>Guía de marca <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
     <div class="drop">
