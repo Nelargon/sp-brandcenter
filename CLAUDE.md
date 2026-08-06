@@ -1,0 +1,79 @@
+# Instrucciones del proyecto — `sp-brandcenter` (para Claude)
+
+Este repo es el **Centro de Marca** de Salud Protegida: el sitio público donde
+agencias, imprentas y cualquier proveedor sacan los recursos y las reglas.
+Leé el `README.md` para saber qué hay dónde.
+
+## Regla cero: actualizarse antes de trabajar
+
+Hay varias sesiones trabajando en paralelo sobre este ecosistema, y el clon de
+cada sesión es una foto del momento en que arrancó su contenedor. Antes de
+empezar: `git fetch origin main && git checkout main && git pull`. Y toda rama
+de trabajo nace de `origin/main` recién traído.
+
+## Qué distingue a este repo de los otros
+
+- **`sp-prototipo`** es el sitio de clientes. Cambia cada semana, va con
+  `noindex`, y algún día se reemplaza.
+- **`sp-interno`** es privado y **no se comparte con proveedores**.
+- **Este repo lo lee gente de afuera de SP.** Todo lo que se escribe acá lo va
+  a leer alguien que no conoce el proyecto y que va a producir una pieza con
+  eso. Se escribe para esa persona.
+
+## La regla que ordena qué entra
+
+Ante cualquier contenido nuevo, la pregunta es: **¿le sirve a un competidor si
+lo lee?** Si la respuesta es sí, va a `sp-interno` y acá no queda ni un
+puntero con datos.
+
+Concretamente **no entra acá**: qué puede prometer SP hoy frente a lo que está
+en camino, la política sobre competidores, los registros de voz y su gating,
+cifras de cartera, precios, y cualquier análisis de mercado.
+
+## Reglas técnicas
+
+- **No hay build, y es a propósito.** `index.html` es un solo archivo estático
+  con las rutas relativas a `assets/` y `descargas/`. No introducir un
+  framework ni un bundler sin una razón que se escriba en el `README`.
+- **Los archivos de marca no se renombran.** Los nombres de `assets/logos/`
+  son canónicos y el sitio los referencia; además son los que el proveedor ve
+  al descargar. Un rename rompe las dos cosas.
+- **La convención de nombres codifica el espacio de color**, no el formato:
+  `SP_Isologotipo_Fullcolor_RGB.png`. Cuando lleguen los vectoriales serán
+  `SP_Isologotipo_Fullcolor_CMYK.eps` y `..._RGB.svg`.
+- **Verificar los estilos computados en el navegador**, no el código fuente.
+  En este mismo sitio, dos reglas de fondo (`.f-busy`, `.f-pattern`) las ganaba
+  en silencio un selector más específico: en el código estaban, en la pantalla
+  no. Por eso llevan la especificidad explícita y un comentario.
+- **Verificaciones móviles: 360 / 390 / 430 px como mínimo.** El diagrama del
+  área de resguardo ya desbordó una vez a 360.
+- **Los dos temas se prueban.** El sitio responde a `prefers-color-scheme` y al
+  toggle; un color que solo funciona en claro es un bug, no una preferencia.
+
+## Regla de contenido: nada se publica sin verificar
+
+Este sitio corrige tres afirmaciones del manual anterior que no resistían la
+verificación. Esa es la vara: **un número que se publica acá es un número que
+alguien midió.**
+
+- Los ratios de contraste se calculan, no se estiman.
+- Los tamaños mínimos se derivan de la dimensión real del archivo.
+- Lo que no está verificado se publica **marcado como pendiente**, nunca
+  omitido y nunca afirmado. Un "pendiente" honesto vale más que un dato
+  completado por inferencia.
+
+## Tipografía y lenguaje
+
+Valen las reglas del ecosistema, y acá se predican además de aplicarse:
+
+- **Nunito Sans es display, Inter es lectura.** Si el texto tiene más de una
+  línea o termina en punto, va en Inter.
+- **Se escribe en el idioma del cliente.** Prohibido "cartilla", "prestación",
+  "práctica". Ante una palabra nueva: ¿la dice una familia en su casa?
+- **Gilroy no se distribuye desde acá.** Licencia comercial no transferible.
+  Si alguien pide agregarla, la respuesta está en la página Legal.
+
+## Flujo git
+
+Rama propia por sesión → PR en borrador → verificar el sitio en navegador →
+fusionar. El `README.md` se actualiza en el mismo PR que cambia el sitio.

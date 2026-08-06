@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="assets/logos/SP_Favicon.ico">
+<meta name="description" content="Centro de Marca de Salud Protegida: logos, color, tipografia, voz y descargas.">
+<title>Salud Protegida — Centro de Marca</title>
+<style>
+@font-face{font-family:'SPDisplay';font-weight:200 1000;font-style:normal;font-display:swap;src:url(assets/fonts/NunitoSans-Variable.woff2) format('woff2')}
+@font-face{font-family:'SPText';font-weight:100 900;font-style:normal;font-display:swap;src:url(assets/fonts/Inter-Variable.woff2) format('woff2')}
+
+:root{
+  --ground:#FBFCFC; --surface:#FFFFFF; --surface-2:#F2F6F6; --line:#E1E9E9; --line-strong:#C9D6D6;
+  --ink:#1D1D1B; --body:#3D3D3D; --muted:#6B6B6B; --faint:#94A3A3;
+  --teal:#00BCB4; --teal-text:#006B66; --teal-mid:#009690; --teal-wash:#E6F7F6;
+  --navy:#003B71; --navy-deep:#002A52; --navy-wash:#E6EDF4;
+  --amber:#F5A623; --amber-text:#8A5A00; --amber-wash:#FFF3E6;
+  --no:#A81E12; --no-wash:#FCEEEC;
+  --shadow:0 1px 2px rgba(0,42,82,.06),0 8px 24px -12px rgba(0,42,82,.18);
+  --rail:260px; --bar:60px;
+  --d:'SPDisplay','Segoe UI',system-ui,sans-serif;
+  --t:'SPText',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --ground:#04121F; --surface:#0A1F33; --surface-2:#0F2A42; --line:#1B3C56; --line-strong:#2A5473;
+  --ink:#EAF4F3; --body:#C3D6D8; --muted:#93AEB3; --faint:#6B8894;
+  --teal-text:#80DDD8; --teal-mid:#4FCFC7; --teal-wash:#062B33;
+  --navy-wash:#0B2942; --amber-text:#F5C271; --amber-wash:#2E2007;
+  --no:#FF8A7A; --no-wash:#33110D;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -14px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --ground:#04121F; --surface:#0A1F33; --surface-2:#0F2A42; --line:#1B3C56; --line-strong:#2A5473;
+  --ink:#EAF4F3; --body:#C3D6D8; --muted:#93AEB3; --faint:#6B8894;
+  --teal-text:#80DDD8; --teal-mid:#4FCFC7; --teal-wash:#062B33;
+  --navy-wash:#0B2942; --amber-text:#F5C271; --amber-wash:#2E2007;
+  --no:#FF8A7A; --no-wash:#33110D;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -14px rgba(0,0,0,.7);
+}
+:root[data-theme="light"]{
+  --ground:#FBFCFC; --surface:#FFFFFF; --surface-2:#F2F6F6; --line:#E1E9E9; --line-strong:#C9D6D6;
+  --ink:#1D1D1B; --body:#3D3D3D; --muted:#6B6B6B; --faint:#94A3A3;
+  --teal-text:#006B66; --teal-mid:#009690; --teal-wash:#E6F7F6;
+  --navy-wash:#E6EDF4; --amber-text:#8A5A00; --amber-wash:#FFF3E6;
+  --no:#A81E12; --no-wash:#FCEEEC;
+  --shadow:0 1px 2px rgba(0,42,82,.06),0 8px 24px -12px rgba(0,42,82,.18);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--body);font-family:var(--t);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.disp{font-family:var(--d);color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,4.4vw,44px);font-weight:800;letter-spacing:-.021em;line-height:1.1}
+h2{font-size:23px;font-weight:800;letter-spacing:-.012em;margin-top:8px}
+h3{font-size:17px;font-weight:700}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:4px}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- barra superior ---------- */
+.bar{position:sticky;top:0;z-index:60;height:var(--bar);display:flex;align-items:center;gap:26px;
+ padding:0 22px;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.09)}
+.bar img{height:30px;display:block}
+.navwrap{position:relative}
+.navbtn{font-family:var(--d);font-weight:700;font-size:13.5px;color:rgba(255,255,255,.88);
+ background:none;border:0;padding:8px 2px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;letter-spacing:.005em}
+.navbtn:hover,.navbtn[aria-current="true"]{color:#fff}
+.navbtn[aria-current="true"]{box-shadow:inset 0 -2px 0 var(--teal)}
+.drop{position:absolute;top:calc(100% + 6px);left:-12px;min-width:246px;background:var(--surface);
+ border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:6px;display:none;z-index:70}
+.navwrap.on .drop{display:block}
+.drop a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;color:var(--body)}
+.drop a:hover{background:var(--surface-2);color:var(--ink)}
+.spacer{flex:1}
+.themebtn{background:rgba(255,255,255,.12);border:0;color:#fff;width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:15px;line-height:1}
+.burger{display:none;background:rgba(255,255,255,.12);border:0;color:#fff;width:34px;height:34px;border-radius:9px;cursor:pointer}
+
+/* ---------- estructura ---------- */
+.shell{display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:0;align-items:start}
+.rail{position:sticky;top:var(--bar);height:calc(100vh - var(--bar));overflow-y:auto;
+ padding:26px 14px 40px 22px;border-right:1px solid var(--line)}
+.rail .grp{font-family:var(--d);font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+ color:var(--faint);margin:20px 0 7px 10px}
+.rail .grp:first-child{margin-top:0}
+.rail a{display:block;padding:6px 10px;border-radius:7px;font-size:13.5px;color:var(--muted);line-height:1.4}
+.rail a:hover{color:var(--ink);background:var(--surface-2)}
+.rail a.on{color:var(--ink);background:var(--surface-2);font-weight:600}
+.rail a.sub{padding-left:22px;font-size:13px}
+.main{padding:40px 44px 90px;min-width:0}
+.wrap{max-width:860px}
+.prose{max-width:66ch}
+
+/* ---------- piezas ---------- */
+.verdict{font-family:var(--d);font-weight:700;font-size:clamp(19px,2.3vw,25px);line-height:1.32;
+ color:var(--teal-text);letter-spacing:-.011em;max-width:23ch;margin:14px 0 0}
+.verdict.long{max-width:34ch}
+.lede{margin-top:16px;font-size:16.5px;color:var(--body)}
+.eyebrow{font-family:var(--d);font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+.rule{height:1px;background:var(--line);border:0;margin:44px 0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.stack-lg{display:flex;flex-direction:column;gap:34px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:18px}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(196px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(158px,1fr))}
+.note{border-left:3px solid var(--teal);background:var(--teal-wash);padding:13px 16px;border-radius:0 9px 9px 0;font-size:14.5px}
+.warn{border-left:3px solid var(--amber);background:var(--amber-wash);padding:13px 16px;border-radius:0 9px 9px 0;font-size:14.5px}
+.warn b,.note b{color:var(--ink)}
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th,td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--d);font-weight:700;font-size:11.5px;letter-spacing:.055em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;letter-spacing:-.01em}
+
+/* ---------- color ---------- */
+.sw{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.sw .chip{height:82px}
+.sw .meta{padding:10px 12px 12px}
+.sw .nm{font-family:var(--d);font-weight:700;font-size:13.5px;color:var(--ink)}
+.copy{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--muted);background:none;border:0;padding:2px 0;cursor:pointer;display:block;text-align:left}
+.copy:hover{color:var(--teal-text)}
+.pill{display:inline-block;font-family:var(--d);font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:2.5px 7px;border-radius:5px}
+.p-ok{background:var(--teal-wash);color:var(--teal-text)}
+.p-no{background:var(--no-wash);color:var(--no)}
+.p-mid{background:var(--surface-2);color:var(--muted)}
+.p-gap{background:var(--amber-wash);color:var(--amber-text)}
+
+/* ---------- muro de usos indebidos ---------- */
+.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:14px}
+.bad{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.bad .stage{position:relative;height:118px;display:grid;place-items:center;overflow:hidden;background:#F7F8F6}
+:root[data-theme="dark"] .bad .stage{background:#101B22}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .bad .stage{background:#101B22}}
+.bad .stage img{width:132px;display:block}
+.bad .stage::after{content:"";position:absolute;inset:0;
+ background:linear-gradient(to top right,transparent calc(50% - 1px),rgba(168,30,18,.28) 50%,transparent calc(50% + 1px)),
+            linear-gradient(to top left ,transparent calc(50% - 1px),rgba(168,30,18,.28) 50%,transparent calc(50% + 1px));
+ pointer-events:none}
+.bad .cap{padding:9px 12px 12px;font-size:12.8px;line-height:1.4;color:var(--no);font-weight:600}
+.bad .cap span{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:3px}
+.f-recolor{filter:hue-rotate(128deg) saturate(1.5)}
+.f-stretch{transform:scaleX(1.5)}
+.f-rotate{transform:rotate(-9deg)}
+.f-shadow{filter:drop-shadow(4px 6px 2px rgba(0,0,0,.55))}
+/* Las dos reglas de fondo van con la misma especificidad que `.bad .stage`
+   (0,2,0) o el fondo plano de la tarjeta las gana en silencio. */
+.f-outline{filter:brightness(0) invert(1)
+  drop-shadow(1.5px 0 0 #003B71) drop-shadow(-1.5px 0 0 #003B71)
+  drop-shadow(0 1.5px 0 #003B71) drop-shadow(0 -1.5px 0 #003B71)
+  drop-shadow(1px 1px 0 #003B71) drop-shadow(-1px -1px 0 #003B71)
+  drop-shadow(1px -1px 0 #003B71) drop-shadow(-1px 1px 0 #003B71)}
+.f-tiny{width:44px !important}
+.bad .stage.f-busy{background:repeating-conic-gradient(from 20deg,#6C3FA8 0 12%,#F5A623 0 25%) 0 0/34px 34px}
+.bad .stage.f-pattern{background-repeat:repeat;background-size:58px;background-color:var(--surface-2)}
+.f-box{background:#6C3FA8;padding:12px 16px;border-radius:9px}
+.f-over{position:absolute;inset:0;display:grid;place-items:center}
+.f-over b{background:var(--amber);color:#1D1D1B;font-family:var(--d);font-size:12px;padding:4px 9px;border-radius:5px;transform:rotate(-6deg)}
+.lockup{display:flex;align-items:center;gap:9px}
+.lockup em{font-family:var(--d);font-style:normal;font-weight:800;font-size:17px;color:var(--navy);letter-spacing:-.01em}
+:root[data-theme="dark"] .lockup em{color:#9FC4E6}
+
+/* ---------- descargas ---------- */
+.asset{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.asset .prev{height:132px;display:grid;place-items:center;padding:18px}
+.asset .prev img{max-width:78%;max-height:88px;display:block}
+.bg-light{background:#F5F7F4}
+.bg-navy{background:#003B71}
+.bg-teal{background:#00BCB4}
+.bg-check{background:
+  linear-gradient(45deg,#E4E9E9 25%,transparent 25%,transparent 75%,#E4E9E9 75%),
+  linear-gradient(45deg,#E4E9E9 25%,#F7F9F9 25%,#F7F9F9 75%,#E4E9E9 75%);
+  background-size:16px 16px;background-position:0 0,8px 8px}
+.asset .info{padding:10px 13px 13px;border-top:1px solid var(--line)}
+.asset .fn{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--ink);word-break:break-all}
+.asset .mt{margin-top:5px;font-size:11.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.fmt{font-family:var(--d);font-size:9.5px;font-weight:800;letter-spacing:.06em;background:var(--surface-2);color:var(--muted);padding:2px 6px;border-radius:4px}
+.dl{display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-family:var(--d);font-weight:700;font-size:12.5px;
+ color:var(--teal-text);border:1px solid var(--line-strong);padding:5px 11px;border-radius:8px;background:var(--surface)}
+.dl:hover{border-color:var(--teal);background:var(--teal-wash)}
+.packrow{display:flex;flex-wrap:wrap;gap:12px}
+.pack{flex:1 1 210px;border:1px solid var(--line);border-radius:12px;padding:15px;background:var(--surface)}
+.pack .t{font-family:var(--d);font-weight:800;font-size:15px;color:var(--ink)}
+.pack .s{font-size:13px;color:var(--muted);margin-top:3px}
+
+/* ---------- home ---------- */
+.hero{background:linear-gradient(133deg,var(--navy-deep) 0%,var(--navy) 46%,#00706B 100%);
+ border-radius:16px;padding:44px 40px;color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:290px;height:290px;border-radius:50%;
+ background:radial-gradient(circle,rgba(0,188,180,.42),transparent 68%)}
+.hero h1{color:#fff;position:relative;z-index:1}
+.hero p{color:rgba(255,255,255,.86);margin-top:14px;max-width:52ch;position:relative;z-index:1;font-size:16.5px}
+.hero .eyebrow{color:rgba(255,255,255,.62);position:relative;z-index:1}
+.qcard{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--surface);display:block}
+.qcard:hover{border-color:var(--teal)}
+.qcard .top{height:96px;display:grid;place-items:center}
+.qcard .bot{padding:12px 14px 14px}
+.qcard .t{font-family:var(--d);font-weight:800;font-size:15px;color:var(--ink)}
+.qcard .s{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.45}
+
+/* ---------- pie de página ---------- */
+.pager{display:flex;justify-content:space-between;gap:18px;margin-top:52px;padding-top:22px;border-top:1px solid var(--line)}
+.pager a{font-size:13.5px}
+.pager .lb{display:block;font-family:var(--d);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.pager .tt{color:var(--teal-text);font-weight:600}
+.stamp{margin-top:26px;font-size:12px;color:var(--faint)}
+
+@media(max-width:900px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);display:none;padding:18px 20px}
+  .rail.open{display:block}
+  .main{padding:26px 20px 70px}
+  .burger{display:grid;place-items:center}
+  .bar{gap:14px;padding:0 14px}
+  .navwrap.hide-sm{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <a href="#/" aria-label="Centro de Marca de Salud Protegida"><img src="assets/logos/SP_Isologotipo_Blanco_RGB.png" alt="Salud Protegida"></a>
+  <div class="navwrap hide-sm" data-nav>
+    <button class="navbtn" data-drop>Guía de marca <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="drop">
+      <a href="#/empeza">Empezá acá</a>
+      <a href="#/logo">Logo y variantes</a>
+      <a href="#/color">Color</a>
+      <a href="#/tipografia">Tipografía</a>
+      <a href="#/voz">Voz y lenguaje</a>
+      <a href="#/formatos">Formatos locales</a>
+    </div>
+  </div>
+  <div class="navwrap hide-sm" data-nav>
+    <button class="navbtn" data-drop>Descargas <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="drop">
+      <a href="#/descargas-logos">Logos</a>
+      <a href="#/descargas-tipografias">Tipografías</a>
+      <a href="#/descargas-paleta">Paleta y tokens</a>
+    </div>
+  </div>
+  <div class="navwrap hide-sm"><a class="navbtn" href="#/agencias">Para agencias</a></div>
+  <div class="navwrap hide-sm"><a class="navbtn" href="#/legal">Legal</a></div>
+  <div class="spacer"></div>
+  <button class="themebtn" id="theme" title="Cambiar tema" aria-label="Cambiar entre tema claro y oscuro">◐</button>
+  <button class="burger" id="burger" aria-label="Abrir índice">☰</button>
+</header>
+
+<div class="shell">
+  <nav class="rail" id="rail"></nav>
+  <main class="main"><div class="wrap" id="view"></div></main>
+</div>
+
+<script>
+const A = {"isologoFull": "assets/logos/SP_Isologotipo_Fullcolor_RGB.png", "isologoFullSize": 16397, "isologoWhite": "assets/logos/SP_Isologotipo_Blanco_RGB.png", "isologoWhiteSize": 14770, "isologoNavy": "assets/logos/SP_Isologotipo_Navy_RGB.png", "isologoNavySize": 14853, "isologoBlack": "assets/logos/SP_Isologotipo_Negro_RGB.png", "isologoBlackSize": 14810, "isotipoTurq": "assets/logos/SP_Isotipo_Turquesa_RGB.png", "isotipoTurqSize": 163754, "isotipoWhite": "assets/logos/SP_Isotipo_Blanco_RGB.png", "isotipoWhiteSize": 163906, "isotipoNavy": "assets/logos/SP_Isotipo_Navy_RGB.png", "isotipoNavySize": 163766, "isotipoBlack": "assets/logos/SP_Isotipo_Negro_RGB.png", "isotipoBlackSize": 163675, "perfilTurq": "assets/logos/SP_Perfil_Turquesa_1024.png", "perfilTurqSize": 74164, "perfilNavy": "assets/logos/SP_Perfil_Navy_1024.png", "perfilNavySize": 80315, "perfilBlanco": "assets/logos/SP_Perfil_Blanco_1024.png", "perfilBlancoSize": 82515, "marcaAguaTurq": "assets/logos/SP_MarcaDeAgua_Turquesa15.png", "marcaAguaTurqSize": 123933, "marcaAguaBlanco": "assets/logos/SP_MarcaDeAgua_Blanco30.png", "marcaAguaBlancoSize": 154189, "favicon512": "assets/logos/SP_Favicon_512.png", "favicon512Size": 57154, "favicon192": "assets/logos/SP_Favicon_192.png", "favicon192Size": 18633, "favicon64": "assets/logos/SP_Favicon_64.png", "favicon64Size": 5264, "favicon32": "assets/logos/SP_Favicon_32.png", "favicon32Size": 1889, "faviconIco": "assets/logos/SP_Favicon.ico", "faviconIcoSize": 11959, "fontNunito": "assets/fonts/NunitoSans-Variable.woff2", "fontNunitoSize": 49648, "fontInter": "assets/fonts/Inter-Variable.woff2", "fontInterSize": 349132, "oflNunito": "assets/fonts/OFL-NunitoSans.txt", "oflNunitoSize": 4395, "oflInter": "assets/fonts/OFL-Inter.txt", "oflInterSize": 4377, "zipLogos": "descargas/SP_Logos_Pack.zip", "zipLogosSize": 1279603, "zipFonts": "descargas/SP_Tipografias.zip", "zipFontsSize": 403174, "zipPal": "descargas/SP_Paleta.zip", "zipPalSize": 2960, "ase": "descargas/SP_Paleta.ase", "aseSize": 2386, "css": "descargas/SP_Tokens.css", "cssSize": 1306, "scss": "descargas/SP_Tokens.scss", "scssSize": 1052, "json": "descargas/SP_Tokens.json", "jsonSize": 1799};
+const CONTRAST = [{"fg": "Turquesa 500", "fgh": "#00BCB4", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Turquesa 700", "fgh": "#009690", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.64, "cuerpo": "✗", "grande": "AA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "Blanco", "bgh": "#FFFFFF", "r": 6.37, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "Blanco", "bgh": "#FFFFFF", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Cuerpo", "fgh": "#3D3D3D", "bg": "Blanco", "bgh": "#FFFFFF", "r": 10.86, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Secundario", "fgh": "#6B6B6B", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.33, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Ambar 500", "fgh": "#F5A623", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.03, "cuerpo": "✗", "grande": "✗"}, {"fg": "Ambar 700", "fgh": "#C47E00", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.32, "cuerpo": "✗", "grande": "AA"}, {"fg": "Sage 500", "fgh": "#7FB396", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.39, "cuerpo": "✗", "grande": "✗"}, {"fg": "Sage 700", "fgh": "#457A5A", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.02, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Lavender 500", "fgh": "#9B84C0", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.25, "cuerpo": "✗", "grande": "AA"}, {"fg": "Lavender 700", "fgh": "#6F5A95", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.88, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Terracota 500", "fgh": "#C67B5C", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.29, "cuerpo": "✗", "grande": "AA"}, {"fg": "Terracota 700", "fgh": "#A05640", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.38, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Navy 500", "bgh": "#003B71", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Turquesa 500", "bgh": "#00BCB4", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "SP-50", "bgh": "#E6F7F6", "r": 10.19, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "SP-50", "bgh": "#E6F7F6", "r": 5.77, "cuerpo": "AA", "grande": "AAA"}];
+
+/* ---- estructura de navegación: id, título, grupo, sub-secciones ---- */
+const PAGES = [
+  {id:'/',            t:'Inicio',              g:''},
+  {id:'/empeza',      t:'Empezá acá',          g:'Intro'},
+  {id:'/legal',       t:'Uso legal de la marca',g:'Intro'},
+  {id:'/logo',        t:'Logo y variantes',    g:'Logo', sub:['Versiones','Área de resguardo','Tamaño mínimo','Usos indebidos','Matriz de uso']},
+  {id:'/color',       t:'Color',               g:'Identidad visual', sub:['Núcleo','Escalas','Narrativas','Contraste']},
+  {id:'/tipografia',  t:'Tipografía',          g:'Identidad visual'},
+  {id:'/voz',         t:'Voz y lenguaje',      g:'Identidad visual'},
+  {id:'/formatos',    t:'Formatos locales',    g:'Identidad visual'},
+  {id:'/descargas-logos',      t:'Logos',          g:'Descargas'},
+  {id:'/descargas-tipografias',t:'Tipografías',    g:'Descargas'},
+  {id:'/descargas-paleta',     t:'Paleta y tokens',g:'Descargas'},
+  {id:'/agencias',    t:'Para agencias y proveedores', g:'Terceros'},
+  {id:'/cambios',     t:'Versión y cambios',   g:'Terceros'},
+];
+
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const anchor = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const kb = n => n<1024 ? n+' B' : (n<1048576 ? Math.round(n/1024)+' KB' : (n/1048576).toFixed(1)+' MB');
+
+/* ---------- contenido ---------- */
+const swatch = (nm,hex,extra='') => `<div class="sw"><div class="chip" style="background:${hex}"></div>
+  <div class="meta"><div class="nm">${esc(nm)}</div>
+  <button class="copy" data-copy="${hex}">${hex} ⧉</button>${extra}</div></div>`;
+
+const badge = v => v==='si' ? '<span class="pill p-ok">Preferido</span>'
+  : v==='ok' ? '<span class="pill p-mid">Permitido</span>'
+  : v==='gap'? '<span class="pill p-gap">Falta archivo</span>'
+  : '<span class="pill p-no">No usar</span>';
+
+const MATRIX = {
+  cols:['Isologotipo','Isotipo','Perfil de redes','Marca de agua','Favicon'],
+  rows:[
+    ['Hero o portada de una pieza',            'si','no','no','no','no'],
+    ['Primera aparición en cualquier pieza',   'si','no','no','no','no'],
+    ['Header de sitio, documento o membrete',  'si','ok','no','no','no'],
+    ['Footer, cuando ya apareció arriba',      'ok','si','no','no','no'],
+    ['Firma de correo',                        'si','ok','no','no','no'],
+    ['Pestaña del navegador o ícono de app',   'no','no','no','no','si'],
+    ['Foto de perfil de WhatsApp, IG o FB',    'no','no','si','no','no'],
+    ['Marca de agua sobre foto o documento',   'no','ok','no','si','no'],
+    ['Espacio chico donde el texto no se lee', 'no','si','no','no','ok'],
+    ['Impresión de más de 6,4 cm de ancho',    'gap','gap','no','no','no'],
+  ]
+};
+
+const BAD = [
+  ['recolor','No recolorees el logo','Solo existe en fullcolor, navy, negro y blanco.'],
+  ['stretch','No lo estires ni lo deformes','La proporción del isologotipo es fija: 759 × 284.'],
+  ['rotate','No lo rotes ni lo inclines','En piezas estáticas va siempre a nivel.'],
+  ['outline','No lo uses en contorno','El logo es una forma llena, no un trazo.'],
+  ['shadow','No le apliques efectos','Nada de sombras, degradados ni brillos.'],
+  ['busy','No lo pongas sobre una imagen cargada','Sobre foto va la versión blanca, y sobre zona tranquila.'],
+  ['tiny','No bajes del tamaño mínimo','Debajo del mínimo el texto deja de leerse.'],
+  ['over','No le pongas elementos encima','El área de resguardo tiene que quedar vacía.'],
+  ['pattern','No lo uses como patrón de fondo','El logo identifica; no decora.'],
+  ['box','No lo encierres en un color no aprobado','Sobre color va la versión blanca, sin caja.'],
+  ['lockup','No armes lockups con nombres no aprobados','Las sub-marcas no existen en público hasta su lanzamiento.'],
+];
+
+const badCard = ([k,t,s]) => {
+  const stage = {
+    recolor:`<img class="f-recolor" src="${A.isologoFull}" alt="">`,
+    stretch:`<img class="f-stretch" src="${A.isologoFull}" alt="">`,
+    rotate:`<img class="f-rotate" src="${A.isologoFull}" alt="">`,
+    outline:`<img class="f-outline" src="${A.isologoNavy}" alt="">`,
+    shadow:`<img class="f-shadow" src="${A.isologoFull}" alt="">`,
+    tiny:`<img class="f-tiny" src="${A.isologoFull}" alt="">`,
+    over:`<img src="${A.isologoFull}" alt=""><div class="f-over"><b>20% OFF</b></div>`,
+    box:`<span class="f-box"><img src="${A.isologoFull}" alt="" style="width:112px"></span>`,
+    lockup:`<span class="lockup"><img src="${A.isologoFull}" alt="" style="width:96px"><em>| FAMILIA</em></span>`,
+  }[k];
+  const cls = k==='busy'?' f-busy':(k==='pattern'?' f-pattern':'');
+  const st  = k==='pattern'?` style="background-image:url(${A.isotipoTurq})"`:'';
+  const inner = stage || (k==='busy'?`<img src="${A.isologoFull}" alt="">`:'');
+  return `<figure class="bad" style="margin:0"><div class="stage${cls}"${st}>${inner}</div>
+    <figcaption class="cap">${esc(t)}<span>${esc(s)}</span></figcaption></figure>`;
+};
+
+const ASSETS_LOGOS = [
+  ['isologoFull','SP_Isologotipo_Fullcolor_RGB.png','PNG','759 × 284 px','bg-light','Por defecto. Fondos claros o blancos.'],
+  ['isologoWhite','SP_Isologotipo_Blanco_RGB.png','PNG','759 × 284 px','bg-navy','Fondos navy, turquesa, oscuros o foto.'],
+  ['isologoNavy','SP_Isologotipo_Navy_RGB.png','PNG','759 × 284 px','bg-light','Monocromo sobre claro, sin fullcolor.'],
+  ['isologoBlack','SP_Isologotipo_Negro_RGB.png','PNG','759 × 284 px','bg-light','Impresión a una tinta o escala de grises.'],
+  ['isotipoTurq','SP_Isotipo_Turquesa_RGB.png','PNG','1759 × 2048 px','bg-light','Ícono por defecto, fondos claros.'],
+  ['isotipoWhite','SP_Isotipo_Blanco_RGB.png','PNG','1759 × 2048 px','bg-navy','Ícono sobre oscuro, color o foto.'],
+  ['isotipoNavy','SP_Isotipo_Navy_RGB.png','PNG','1759 × 2048 px','bg-light','Ícono monocromo sobre claro.'],
+  ['isotipoBlack','SP_Isotipo_Negro_RGB.png','PNG','1759 × 2048 px','bg-light','Ícono a una tinta o escala de grises.'],
+  ['perfilTurq','SP_Perfil_Turquesa_1024.png','PNG','1024 × 1024 px','bg-check','Avatar de WhatsApp, IG y FB. Trae fondo.'],
+  ['perfilNavy','SP_Perfil_Navy_1024.png','PNG','1024 × 1024 px','bg-check','Variante navy del avatar.'],
+  ['perfilBlanco','SP_Perfil_Blanco_1024.png','PNG','1024 × 1024 px','bg-check','Variante blanca del avatar.'],
+  ['marcaAguaTurq','SP_MarcaDeAgua_Turquesa15.png','PNG','1759 × 2048 px','bg-light','Sobre fotos o documentos claros. Opacidad ya aplicada: no re-atenuar.'],
+  ['marcaAguaBlanco','SP_MarcaDeAgua_Blanco30.png','PNG','1759 × 2048 px','bg-navy','Sobre fotos oscuras o de color. Opacidad ya aplicada.'],
+  ['favicon512','SP_Favicon_512.png','PNG','512 × 512 px','bg-check','Ícono de app y PWA.'],
+  ['favicon192','SP_Favicon_192.png','PNG','192 × 192 px','bg-check','Ícono de app en Android.'],
+  ['favicon64','SP_Favicon_64.png','PNG','64 × 64 px','bg-check','Pestaña en pantallas densas.'],
+  ['favicon32','SP_Favicon_32.png','PNG','32 × 32 px','bg-check','Pestaña del navegador.'],
+  ['faviconIco','SP_Favicon.ico','ICO','16 – 64 px','bg-check','Multi-tamaño para <link rel="icon">.'],
+];
+
+const V = {};
+
+V['/'] = () => `
+<section class="hero">
+  <div class="eyebrow">Salud Protegida</div>
+  <h1>Centro de Marca</h1>
+  <p>Todo lo que hace falta para usar la marca bien: los archivos, las reglas y los límites.
+     Si trabajás con nosotros o para nosotros, esta es la única fuente.</p>
+</section>
+
+<div class="stack-lg" style="margin-top:34px">
+<section>
+  <h2>Por dónde empezar</h2>
+  <div class="grid g4" style="margin-top:14px">
+    <a class="qcard" href="#/logo"><div class="top bg-light"><img src="${A.isologoFull}" alt="" style="width:118px"></div>
+      <div class="bot"><div class="t">Logo</div><div class="s">Versiones, resguardo, mínimos y los once errores más comunes</div></div></a>
+    <a class="qcard" href="#/color"><div class="top" style="background:linear-gradient(120deg,#00BCB4 0 34%,#003B71 34% 67%,#F5A623 67%)"></div>
+      <div class="bot"><div class="t">Color</div><div class="s">Hex, Pantone y CMYK, con los pares de contraste ya resueltos</div></div></a>
+    <a class="qcard" href="#/tipografia"><div class="top bg-light" style="display:grid;place-items:center">
+      <span style="font-family:var(--d);font-weight:800;font-size:40px;color:#003B71;letter-spacing:-.02em">Aa</span></div>
+      <div class="bot"><div class="t">Tipografía</div><div class="s">Nunito Sans para titular, Inter para leer — y las dos se bajan acá</div></div></a>
+    <a class="qcard" href="#/agencias"><div class="top" style="background:var(--navy-wash);display:grid;place-items:center">
+      <span style="font-family:var(--d);font-weight:800;font-size:15px;color:var(--teal-text)">Para agencias</span></div>
+      <div class="bot"><div class="t">Trabajás con SP</div><div class="s">Qué podés hacer con la marca, qué no, y a quién preguntarle</div></div></a>
+  </div>
+</section>
+
+<section>
+  <h2>Bajate el paquete completo</h2>
+  <div class="packrow" style="margin-top:14px">
+    <div class="pack"><div class="t">Logos</div><div class="s">18 archivos PNG: isologotipo, isotipo, perfiles, marcas de agua y favicons.</div>
+      <a class="dl" download="SP_Logos_Pack.zip" href="${A.zipLogos}">Descargar · ${kb(A.zipLogosSize)}</a></div>
+    <div class="pack"><div class="t">Tipografías</div><div class="s">Nunito Sans e Inter en woff2, con sus licencias SIL OFL.</div>
+      <a class="dl" download="SP_Tipografias.zip" href="${A.zipFonts}">Descargar · ${kb(A.zipFontsSize)}</a></div>
+    <div class="pack"><div class="t">Paleta</div><div class="s">Muestras .ase para Illustrator, más tokens en CSS, SCSS y JSON.</div>
+      <a class="dl" download="SP_Paleta.zip" href="${A.zipPal}">Descargar · ${kb(A.zipPalSize)}</a></div>
+  </div>
+</section>
+
+<div class="warn"><b>Falta lo vectorial.</b> Hoy solo hay PNG en RGB. El isologotipo mide 759 px de ancho:
+  a 300 dpi eso son <b>6,4 cm</b> — no da para tapa de folleto, banner ni vía pública.
+  Hasta que existan el SVG y el EPS en CMYK, <b>ninguna pieza de imprenta grande puede salir de acá</b>.</div>
+</div>`;
+
+V['/empeza'] = () => `
+<div class="eyebrow">Intro</div>
+<h1>Empezá acá</h1>
+<p class="verdict long">Este centro existe para que nadie tenga que adivinar cómo se usa la marca de Salud Protegida.</p>
+<div class="prose stack" style="margin-top:24px">
+  <p>Salud Protegida es una medicina prepaga paraguaya, familiar, en funcionamiento desde 2002. La marca tiene que sonar
+     y verse como eso: cercana, clara, honesta y serena. Cuatro palabras que no son adorno — son el criterio con el que
+     se aprueba o se rechaza una pieza.</p>
+  <h3>Las tres reglas que resuelven casi todo</h3>
+  <ol class="stack" style="margin:0;padding-left:20px">
+    <li><b>El turquesa manda.</b> 60% de superficie neutra, 30% de un solo color ancla, 10% de acento. Nunca dos colores narrativos en la misma pieza.</li>
+    <li><b>Nunito Sans titula, Inter se lee.</b> Si el texto tiene más de una línea o termina en punto, va en Inter. Si es titular, botón o etiqueta, Nunito Sans.</li>
+    <li><b>Se habla como habla una familia.</b> Nada de "prestación", "cartilla" ni "práctica". Ante una palabra nueva: ¿la dice una familia en su casa?</li>
+  </ol>
+  <div class="note"><b>Si tenés que elegir una sola página para leer</b>, que sea
+     <a href="#/logo" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Logo y variantes</a>:
+     ahí están los once errores que aparecen una y otra vez.</div>
+</div>`;
+
+V['/logo'] = () => `
+<div class="eyebrow">Logo</div>
+<h1>Logo y variantes</h1>
+<p class="verdict">El isologotipo es el activo más valioso de la marca: si algo se cuida, es esto.</p>
+
+<h2 id="versiones" style="margin-top:44px">Versiones</h2>
+<p class="prose" style="margin-top:10px">El <b>isologotipo</b> es el conjunto completo: el isotipo —el grupo humano en arco— más el texto
+  "SALUD PROTEGIDA MEDICINA PREPAGA". Existe en cuatro colores y ninguno más.
+  <b>Cualquier variación de estos colores no está permitida.</b></p>
+<div class="grid g4" style="margin-top:16px">
+  <div class="asset"><div class="prev bg-light"><img src="${A.isologoFull}" alt="Isologotipo fullcolor"></div>
+    <div class="info"><div class="fn">Fullcolor</div><div class="mt">Por defecto. Sobre fondo claro o blanco.</div></div></div>
+  <div class="asset"><div class="prev bg-navy"><img src="${A.isologoWhite}" alt="Isologotipo blanco"></div>
+    <div class="info"><div class="fn">Blanco</div><div class="mt">Sobre navy, turquesa, oscuro o foto.</div></div></div>
+  <div class="asset"><div class="prev bg-light"><img src="${A.isologoNavy}" alt="Isologotipo navy"></div>
+    <div class="info"><div class="fn">Navy</div><div class="mt">Monocromo sobre claro.</div></div></div>
+  <div class="asset"><div class="prev bg-light"><img src="${A.isologoBlack}" alt="Isologotipo negro"></div>
+    <div class="info"><div class="fn">Negro</div><div class="mt">Una sola tinta o escala de grises.</div></div></div>
+</div>
+<div class="note" style="margin-top:16px"><b>Isologotipo o isotipo, la regla de oro:</b> si existe alguna posibilidad
+  de que quien mira no sepa quién es SP, va el isologotipo completo. El isotipo solo se usa cuando ya saben —
+  dentro de una pieza donde el logo completo ya apareció, o en espacios donde el texto no se leería.</div>
+
+<h2 id="area-de-resguardo" style="margin-top:44px">Área de resguardo</h2>
+<p class="prose" style="margin-top:10px">Alrededor del logo tiene que quedar aire, y ese aire tiene una medida:
+  <b>la altura de la letra "a" del logotipo</b>. Ningún otro elemento entra ahí — ni texto, ni imagen, ni el borde de la página.</p>
+<div class="card" style="margin-top:16px;display:grid;place-items:center;padding:clamp(14px,4vw,34px);background:var(--surface-2)">
+  <div style="position:relative;padding:clamp(20px,6vw,34px);outline:1.5px dashed var(--teal);outline-offset:0;background:var(--surface);max-width:100%">
+    <img src="${A.isologoFull}" alt="Isologotipo con su área de resguardo" style="width:min(250px,44vw);display:block">
+    <span style="position:absolute;left:8px;top:50%;transform:translateY(-50%);font-family:var(--d);font-size:10px;font-weight:800;color:var(--teal-text)">a</span>
+    <span style="position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--d);font-size:10px;font-weight:800;color:var(--teal-text)">a</span>
+    <span style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-family:var(--d);font-size:10px;font-weight:800;color:var(--teal-text)">a</span>
+    <span style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-family:var(--d);font-size:10px;font-weight:800;color:var(--teal-text)">a</span>
+  </div>
+</div>
+
+<h2 id="tamano-minimo" style="margin-top:44px">Tamaño mínimo</h2>
+<p class="prose" style="margin-top:10px">El isologotipo lleva dos líneas de texto adentro. Por eso su mínimo es mucho
+  más alto que el del isotipo, que no tiene texto que perder.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Pieza</th><th>Digital</th><th>Impreso</th><th>Por qué</th></tr></thead>
+  <tbody>
+    <tr><td><b>Isologotipo</b></td><td class="tnum">180 px de ancho</td><td class="tnum">2,5 cm de ancho</td>
+        <td>Debajo de eso "MEDICINA PREPAGA" deja de leerse.</td></tr>
+    <tr><td><b>Isotipo</b></td><td class="tnum">24 px de ancho</td><td class="tnum">8 mm de ancho</td>
+        <td>Es una forma sola: aguanta mucho más chico.</td></tr>
+  </tbody>
+</table></div>
+<div class="warn" style="margin-top:14px"><b>Estos dos mínimos están pendientes de confirmación.</b> El manual traía un
+  solo número —72 px— para las dos piezas, y no resiste la cuenta: a 72 px de ancho el isologotipo queda en 27 px de alto,
+  con el texto en unos 3 px por línea. Los valores de arriba son la propuesta corregida; hay que validarlos con el diseñador
+  antes de tratarlos como definitivos.</div>
+
+<h2 id="usos-indebidos" style="margin-top:44px">Usos indebidos</h2>
+<p class="prose" style="margin-top:10px">Nadie deforma un logo a propósito. Se deforma porque se arrastró la esquina
+  equivocada y no se tenía la imagen del error en la cabeza. Acá está esa imagen — once veces.</p>
+<div class="wall" style="margin-top:18px">${BAD.map(badCard).join('')}</div>
+
+<h2 id="matriz-de-uso" style="margin-top:44px">Matriz de uso</h2>
+<p class="prose" style="margin-top:10px">Qué versión va en cada lugar, sin tener que preguntar.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Dónde</th>${MATRIX.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr></thead>
+  <tbody>${MATRIX.rows.map(r=>`<tr><td>${esc(r[0])}</td>${r.slice(1).map(v=>`<td>${badge(v)}</td>`).join('')}</tr>`).join('')}</tbody>
+</table></div>
+<p style="margin-top:12px;font-size:13px;color:var(--muted)">
+  <span class="pill p-gap">Falta archivo</span> señala lo que hoy no se puede hacer por falta de vectoriales, no algo prohibido.</p>`;
+
+V['/color'] = () => {
+  const fails = CONTRAST.filter(c=>c.cuerpo==='✗');
+  return `
+<div class="eyebrow">Identidad visual</div>
+<h1>Color</h1>
+<p class="verdict">El turquesa es el color primario de Salud Protegida y tiene que predominar siempre.</p>
+
+<h2 id="nucleo" style="margin-top:44px">Núcleo</h2>
+<p class="prose" style="margin-top:10px">Tres colores sostienen la marca. Son los únicos con equivalencia de imprenta
+  definida: si una pieza va a papel, estos son los valores que se le pasan al impresor.</p>
+<div class="grid g3" style="margin-top:16px">
+  ${swatch('Turquesa SP','#00BCB4','<div style="font-size:11.5px;color:var(--muted);margin-top:3px">Pantone 3262 C<br>C84 M0 Y39 K0</div>')}
+  ${swatch('Azul Marino SP','#003B71','<div style="font-size:11.5px;color:var(--muted);margin-top:3px">Pantone 541 C<br>C100 M76 Y33 K22</div>')}
+  ${swatch('Negro SP','#1D1D1B','<div style="font-size:11.5px;color:var(--muted);margin-top:3px">Process Black C<br>C0 M0 Y0 K100</div>')}
+</div>
+<div class="note" style="margin-top:16px"><b>La regla 60-30-10.</b> 60% de superficie neutra, 30% de un solo color ancla,
+  10% de acento. El ámbar nunca es fondo de una sección grande: si domina visualmente, está mal usado.</div>
+
+<h2 id="escalas" style="margin-top:44px">Escalas</h2>
+<div class="stack" style="margin-top:16px">
+  <div><div class="eyebrow" style="margin-bottom:8px">Turquesa</div><div class="grid g4">
+    ${['#E6F7F6','#B3EAE7','#80DDD8','#00BCB4','#009690','#006B66'].map((h,i)=>swatch(['SP-50','SP-100','SP-200','SP-500','SP-700','SP-900'][i],h)).join('')}</div></div>
+  <div><div class="eyebrow" style="margin-bottom:8px">Navy</div><div class="grid g4">
+    ${['#E6EDF4','#B3C7DB','#003B71','#002A52'].map((h,i)=>swatch(['Navy-50','Navy-200','Navy-500','Navy-800'][i],h)).join('')}</div></div>
+  <div><div class="eyebrow" style="margin-bottom:8px">Ámbar — solo acento</div><div class="grid g4">
+    ${['#FFF3E6','#FFD699','#F5A623','#C47E00'].map((h,i)=>swatch(['Ámbar-50','Ámbar-200','Ámbar-500','Ámbar-700'][i],h)).join('')}</div></div>
+  <div><div class="eyebrow" style="margin-bottom:8px">Grises</div><div class="grid g4">
+    ${['#F5F5F5','#E8E8E8','#B0B0B0','#6B6B6B','#3D3D3D','#1D1D1B'].map((h,i)=>swatch(['Fondo','Borde','Placeholder','Secundario','Cuerpo','Heading'][i],h)).join('')}</div></div>
+</div>
+
+<h2 id="narrativas" style="margin-top:44px">Narrativas</h2>
+<p class="prose" style="margin-top:10px">Tres colores más, cada uno con un territorio propio. <b>No son acentos genéricos</b>
+  y nunca conviven en la misma pieza: reemplazan al turquesa como ancla solo dentro de su contexto.</p>
+<div class="stack" style="margin-top:16px">
+  <div><div class="eyebrow" style="margin-bottom:8px">Sage — bienestar y prevención</div><div class="grid g4">
+    ${['#EEF5F0','#D4E8DB','#A9D1B4','#7FB396','#457A5A','#2E5740'].map((h,i)=>swatch(['Sage-50','Sage-100','Sage-200','Sage-500','Sage-700','Sage-900'][i],h)).join('')}</div></div>
+  <div><div class="eyebrow" style="margin-bottom:8px">Lavender — empatía y maternidad</div><div class="grid g4">
+    ${['#F3EFF8','#E2D9EE','#C4B3DD','#9B84C0','#6F5A95','#4A3A6E'].map((h,i)=>swatch(['Lavender-50','Lavender-100','Lavender-200','Lavender-500','Lavender-700','Lavender-900'][i],h)).join('')}</div></div>
+  <div><div class="eyebrow" style="margin-bottom:8px">Terracota — adulto mayor y trayectoria</div><div class="grid g4">
+    ${['#F8EDE6','#EBD0C0','#DDB29C','#C67B5C','#A05640','#7A3D2E'].map((h,i)=>swatch(['Terracota-50','Terracota-100','Terracota-200','Terracota-500','Terracota-700','Terracota-900'][i],h)).join('')}</div></div>
+</div>
+
+<h2 id="contraste" style="margin-top:44px">Contraste</h2>
+<p class="prose" style="margin-top:10px">Los pares ya están calculados, así que no hace falta que los verifique cada pieza.
+  <b>Los tonos 500 no son colores de texto</b> — son colores de superficie.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Texto</th><th>Sobre</th><th>Ratio</th><th>Cuerpo</th><th>Título grande</th></tr></thead>
+  <tbody>${CONTRAST.map(c=>`<tr>
+    <td><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:${c.fgh};border:1px solid var(--line);vertical-align:-1px;margin-right:7px"></span>${esc(c.fg)}</td>
+    <td>${esc(c.bg)}</td><td class="tnum">${c.r}:1</td>
+    <td>${c.cuerpo==='✗'?'<span class="pill p-no">Falla</span>':`<span class="pill p-ok">${c.cuerpo}</span>`}</td>
+    <td>${c.grande==='✗'?'<span class="pill p-no">Falla</span>':`<span class="pill p-mid">${c.grande}</span>`}</td></tr>`).join('')}
+  </tbody>
+</table></div>
+<div class="warn" style="margin-top:16px"><b>Dos recomendaciones del manual anterior no pasan la verificación</b>
+  y quedan corregidas acá:
+  <ul style="margin:8px 0 0;padding-left:19px">
+    <li><b>SP-700 sobre SP-50</b> da 3,30:1 — falla. Para texto sobre fondo turquesa claro va <b>SP-900</b> (5,77:1).</li>
+    <li><b>Ámbar-700 sobre Ámbar-50</b> da 3,03:1 — falla. Sobre fondo ámbar claro el texto va en <b>Cuerpo #3D3D3D</b>;
+        el sistema todavía no tiene un ámbar lo bastante oscuro para texto.</li>
+  </ul></div>`;
+};
+
+V['/tipografia'] = () => `
+<div class="eyebrow">Identidad visual</div>
+<h1>Tipografía</h1>
+<p class="verdict long">Dos tipografías, una regla: Nunito Sans titula, Inter se lee.</p>
+<p class="lede prose">Si el texto tiene más de una línea o termina en punto, va en Inter. Si es un titular, un botón o una
+  etiqueta corta, va en Nunito Sans. No hay una tercera familia.</p>
+
+<div class="grid g2" style="margin-top:26px">
+  <div class="card"><div class="eyebrow">Display</div>
+    <div style="font-family:var(--d);font-weight:800;font-size:44px;color:var(--ink);letter-spacing:-.025em;margin:10px 0 4px">Nunito Sans</div>
+    <p style="font-size:14px;color:var(--muted)">Títulos, títulos de tarjeta, botones, etiquetas en mayúscula, navegación
+      y cifras grandes. Siempre en peso 600 o más.</p></div>
+  <div class="card"><div class="eyebrow">Lectura</div>
+    <div style="font-family:var(--t);font-weight:600;font-size:44px;color:var(--ink);letter-spacing:-.022em;margin:10px 0 4px">Inter</div>
+    <p style="font-size:14px;color:var(--muted)">Párrafos, bajadas, descripciones, listas, citas, tablas, metadatos,
+      notas al pie y estados vacíos.</p></div>
+</div>
+
+<h2 style="margin-top:44px">Escala</h2>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Nivel</th><th>Familia</th><th>Tamaño y peso</th><th>Color</th></tr></thead>
+  <tbody>
+    <tr><td>Display</td><td>Nunito Sans</td><td class="tnum">36 px · 800</td><td>Navy</td></tr>
+    <tr><td>H1</td><td>Nunito Sans</td><td class="tnum">28 px · 800</td><td>Navy</td></tr>
+    <tr><td>H2</td><td>Nunito Sans</td><td class="tnum">22 px · 700</td><td>Negro SP</td></tr>
+    <tr><td>H3</td><td>Nunito Sans</td><td class="tnum">18 px · 700</td><td>Negro SP</td></tr>
+    <tr><td>Cuerpo</td><td>Inter</td><td class="tnum">16 px · 400 · interlínea 1,7</td><td>#3D3D3D</td></tr>
+    <tr><td>Small</td><td>Inter</td><td class="tnum">14 px · 400</td><td>#6B6B6B</td></tr>
+    <tr><td>Caption</td><td>Inter</td><td class="tnum">12 px · 500</td><td>#9A9590</td></tr>
+    <tr><td>Datos y tablas</td><td>Inter</td><td class="tnum">tabular-nums siempre</td><td>#3D3D3D</td></tr>
+  </tbody>
+</table></div>
+
+<div class="note" style="margin-top:20px"><b>La trampa más común:</b> un texto en negrita a 14 px dentro de un párrafo
+  <i>parece</i> una etiqueta, pero es cuerpo. Va en <b>Inter SemiBold</b>, no en Nunito Sans. La display aparece recién
+  desde tamaño de título.</div>
+
+<h2 style="margin-top:44px">Por qué no está Gilroy</h2>
+<p class="prose" style="margin-top:10px">Hasta el <b>20 de julio de 2026</b> la tipografía display de la marca era Gilroy.
+  Se reemplazó por Nunito Sans y no vuelve. Gilroy es una tipografía comercial: su licencia
+  <b>no es transferible</b> y no puede distribuirse desde una página de descarga.
+  Nunito Sans e Inter son SIL Open Font License — libres de usar, incrustar y repartir, que es justamente
+  lo que permite que este centro exista.</p>
+<div class="warn" style="margin-top:14px"><b>Si tenés piezas viejas en Gilroy</b>, no hace falta rehacer el logotipo:
+  un logo trazado a curvas es artwork, no software de fuente, y sigue siendo válido. Lo que cambia es la tipografía
+  de los textos nuevos.</div>`;
+
+V['/voz'] = () => `
+<div class="eyebrow">Identidad visual</div>
+<h1>Voz y lenguaje</h1>
+<p class="verdict long">Escribimos en el idioma del cliente, no en la jerga del rubro.</p>
+<p class="lede prose">SP habla como el médico de familia que te conoce: cálido, directo, claro, empático.
+  Nunca frío como un hospital, nunca insistente como un vendedor.</p>
+
+<h2 style="margin-top:38px">Palabras que no usamos</h2>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>No</th><th>Sí</th><th>Por qué</th></tr></thead>
+  <tbody>
+    <tr><td><b>cartilla</b></td><td>qué cubre · cobertura · Guía Médica</td><td>Nadie fuera del rubro sabe qué es.</td></tr>
+    <tr><td><b>prestación</b></td><td>servicio</td><td>Palabra de contrato, no de conversación.</td></tr>
+    <tr><td><b>práctica</b></td><td>estudio · consulta · lo que necesitás</td><td>Ambigua para quien no es del rubro.</td></tr>
+    <tr><td><b>su contrato</b></td><td>tu plan</td><td>Distancia innecesaria.</td></tr>
+    <tr><td><b>excelencia</b> y superlativos vacíos</td><td>el dato concreto</td><td>Un dato específico gana siempre.</td></tr>
+    <tr><td><b>"no se puede"</b> sin alternativa</td><td>qué sí se puede, y cómo</td><td>Deja a la persona sin salida.</td></tr>
+  </tbody>
+</table></div>
+<div class="note" style="margin-top:16px">La prueba rápida ante una palabra nueva: <b>¿la dice una familia en su casa?</b>
+  Si no, buscá la que sí.</div>
+
+<h2 style="margin-top:38px">Cómo tratamos a la persona</h2>
+<div class="grid g2" style="margin-top:14px">
+  <div class="card"><h3>Voseo</h3><p style="font-size:14px;color:var(--muted);margin-top:6px">
+    Web, redes y blog. "Tenés", "elegí", "mirá".</p></div>
+  <div class="card"><h3>Usted</h3><p style="font-size:14px;color:var(--muted);margin-top:6px">
+    Todo trato directo con un paciente: WhatsApp, teléfono, mostrador, correo formal, contratos.
+    <b>Ante la duda, usted.</b></p></div>
+</div>
+
+<h2 style="margin-top:38px">El patrón que resuelve el miedo</h2>
+<p class="prose" style="margin-top:10px">Frente a algo que puede preocupar, el orden es siempre el mismo:
+  <b>(1)</b> reconocer que puede preocupar, <b>(2)</b> explicar qué es y por qué, <b>(3)</b> decir qué pasa después.
+  Y en cualquier escenario negativo —un reclamo, un rechazo, un error— <b>primero se valida la frustración</b>,
+  antes de explicar, defender o proponer.</p>
+
+<div class="warn" style="margin-top:20px"><b>Lo que no está en esta página.</b> Qué puede prometer SP hoy frente a lo que
+  todavía está en camino, la política sobre competidores y los registros de voz completos son material interno.
+  Si estás produciendo una pieza y necesitás esa definición, pedila — no la deduzcas.</div>`;
+
+V['/formatos'] = () => `
+<div class="eyebrow">Identidad visual</div>
+<h1>Formatos locales</h1>
+<p class="verdict long">Escribimos como se escribe en Paraguay. Un formato importado delata que la pieza no se hizo acá.</p>
+<div class="tbl-scroll" style="margin-top:26px"><table>
+  <thead><tr><th>Qué</th><th>Así</th><th>Nunca</th></tr></thead>
+  <tbody>
+    <tr><td>Moneda</td><td class="mono">Gs. 1.250.000</td><td class="mono">$1,250,000 · ₲ 1.250.000 · 1.250.000 Gs</td></tr>
+    <tr><td>Fecha</td><td class="mono">15/04/2026</td><td class="mono">04/15/2026 · 2026-04-15</td></tr>
+    <tr><td>Fecha formal</td><td class="mono">15 de abril de 2026</td><td class="mono">Abril 15, 2026</td></tr>
+    <tr><td>Teléfono fijo</td><td class="mono">+595 21 319 00 00</td><td class="mono">021 3190000</td></tr>
+    <tr><td>Celular</td><td class="mono">+595 981 654 234</td><td class="mono">0981 654234</td></tr>
+    <tr><td>Decimales</td><td class="mono">37,5%</td><td class="mono">37.5%</td></tr>
+    <tr><td>Porcentaje</td><td class="mono">85%</td><td class="mono">85 %</td></tr>
+    <tr><td>Rango</td><td class="mono">18 – 65 años</td><td class="mono">18-65 años</td></tr>
+    <tr><td>Números en tabla</td><td>Siempre <span class="mono">tabular-nums</span></td><td>Cifras que no alinean</td></tr>
+  </tbody>
+</table></div>`;
+
+const dlLogos = () => `
+<div class="eyebrow">Descargas</div>
+<h1>Logos</h1>
+<p class="lede prose">Bajá el paquete completo, o el archivo suelto que necesites. Todos son PNG en RGB.</p>
+<div class="packrow" style="margin-top:22px">
+  <div class="pack"><div class="t">Paquete completo</div><div class="s">Los 18 archivos, con nombres canónicos y un léeme.</div>
+    <a class="dl" download="SP_Logos_Pack.zip" href="${A.zipLogos}">Descargar · ${kb(A.zipLogosSize)}</a></div>
+</div>
+<div class="warn" style="margin-top:18px"><b>Para imprenta todavía no hay nada.</b> Faltan el SVG (RGB) y el EPS (CMYK).
+  El isologotipo PNG no debe imprimirse a más de <b>6,4 cm de ancho</b> a 300 dpi.</div>
+<h2 style="margin-top:38px">Archivos</h2>
+<div class="grid g3" style="margin-top:16px">
+  ${ASSETS_LOGOS.map(([k,fn,fmt,dim,bg,use])=>`
+  <div class="asset"><div class="prev ${bg}"><img src="${A[k]}" alt="${esc(fn)}"></div>
+    <div class="info"><div class="fn">${esc(fn)}</div>
+      <div class="mt"><span class="fmt">${fmt}</span><span class="tnum">${dim}</span><span class="tnum">${kb(A[k+'Size'])}</span></div>
+      <div style="font-size:12.5px;color:var(--muted);margin-top:6px">${esc(use)}</div>
+      <a class="dl" download="${fn}" href="${A[k]}">Descargar</a></div></div>`).join('')}
+</div>
+<p style="margin-top:14px;font-size:13px;color:var(--muted)">La versión blanca se previsualiza sobre navy y los archivos
+  con fondo propio sobre damero, para que se vea qué trae cada uno realmente.</p>`;
+
+V['/descargas-logos'] = dlLogos;
+
+V['/descargas-tipografias'] = () => `
+<div class="eyebrow">Descargas</div>
+<h1>Tipografías</h1>
+<p class="verdict long">Las dos tipografías de la marca son libres: podés usarlas, incrustarlas y repartirlas.</p>
+<div class="packrow" style="margin-top:24px">
+  <div class="pack"><div class="t">Nunito Sans + Inter</div>
+    <div class="s">Ambas en woff2 variable —todos los pesos en un archivo— con sus licencias SIL OFL.</div>
+    <a class="dl" download="SP_Tipografias.zip" href="${A.zipFonts}">Descargar · ${kb(A.zipFontsSize)}</a></div>
+</div>
+<div class="grid g2" style="margin-top:22px">
+  <div class="card"><div class="eyebrow">Display · SIL OFL</div>
+    <div style="font-family:var(--d);font-weight:800;font-size:34px;color:var(--ink);margin:8px 0">Nunito Sans</div>
+    <div style="font-size:13px;color:var(--muted)">Pesos 200 a 1000 en un woff2 variable. Usar de 600 para arriba.</div></div>
+  <div class="card"><div class="eyebrow">Lectura · SIL OFL</div>
+    <div style="font-family:var(--t);font-weight:600;font-size:34px;color:var(--ink);margin:8px 0">Inter</div>
+    <div style="font-size:13px;color:var(--muted)">Pesos 100 a 900 en un woff2 variable.</div></div>
+</div>
+<h2 style="margin-top:38px">Archivos sueltos</h2>
+<div class="grid g2" style="margin-top:14px">
+  ${[['fontNunito','NunitoSans-Variable.woff2'],['fontInter','Inter-Variable.woff2'],
+     ['oflNunito','OFL-NunitoSans.txt'],['oflInter','OFL-Inter.txt']].map(([k,fn])=>`
+  <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px">
+    <div><div class="fn" style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--ink)">${esc(fn)}</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px" class="tnum">${kb(A[k+'Size'])}</div></div>
+    <a class="dl" style="margin:0;flex:none" download="${fn}" href="${A[k]}">Descargar</a></div>`).join('')}
+</div>
+<div class="warn" style="margin-top:20px"><b>Gilroy no está acá, y no es un olvido.</b> Es una tipografía comercial con
+  licencia no transferible: distribuirla desde esta página estaría fuera de sus términos.
+  Ver <a href="#/legal" style="color:var(--amber-text);font-weight:600;text-decoration:underline">Uso legal de la marca</a>.</div>`;
+
+V['/descargas-paleta'] = () => `
+<div class="eyebrow">Descargas</div>
+<h1>Paleta y tokens</h1>
+<p class="lede prose">La paleta en los formatos que se abren directamente en la herramienta que estés usando,
+  para que nadie tenga que tipear un hex a mano.</p>
+<div class="packrow" style="margin-top:24px">
+  <div class="pack"><div class="t">Paquete de paleta</div><div class="s">Los cuatro archivos juntos.</div>
+    <a class="dl" download="SP_Paleta.zip" href="${A.zipPal}">Descargar · ${kb(A.zipPalSize)}</a></div>
+</div>
+<div class="grid g2" style="margin-top:20px">
+  <div class="card"><h3>SP_Paleta.ase</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
+    Muestras para Illustrator, Photoshop e InDesign. Ocho grupos, más el núcleo en CMYK como tintas planas.</p>
+    <a class="dl" download="SP_Paleta.ase" href="${A.ase}">Descargar · ${kb(A.aseSize)}</a></div>
+  <div class="card"><h3>SP_Tokens.css</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
+    Custom properties listas para pegar: <span class="mono">--sp-turquesa-sp</span>, <span class="mono">--sp-navy-500</span>…</p>
+    <a class="dl" download="SP_Tokens.css" href="${A.css}">Descargar · ${kb(A.cssSize)}</a></div>
+  <div class="card"><h3>SP_Tokens.scss</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
+    Las mismas variables en Sass.</p>
+    <a class="dl" download="SP_Tokens.scss" href="${A.scss}">Descargar · ${kb(A.scssSize)}</a></div>
+  <div class="card"><h3>SP_Tokens.json</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
+    Para design tokens, Figma o cualquier pipeline. Incluye Pantone y CMYK del núcleo.</p>
+    <a class="dl" download="SP_Tokens.json" href="${A.json}">Descargar · ${kb(A.jsonSize)}</a></div>
+</div>`;
+
+V['/agencias'] = () => `
+<div class="eyebrow">Terceros</div>
+<h1>Para agencias y proveedores</h1>
+<p class="verdict long">Si producís piezas para Salud Protegida, la marca primaria es la nuestra y la tuya no aparece.</p>
+<p class="lede prose">Esto vale para agencias de marketing, diseñadores, imprentas y productoras que trabajan por encargo
+  de SP. Es distinto del caso de un aliado comercial, que sí aparece junto a nuestra marca.</p>
+
+<h2 style="margin-top:38px">Lo que podés hacer sin preguntar</h2>
+<ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
+  <li>Usar los archivos de este centro tal cual vienen, en cualquiera de las cuatro versiones aprobadas.</li>
+  <li>Aplicar la paleta y las dos tipografías, incluyendo incrustarlas en una web que produzcas para SP.</li>
+  <li>Maquetar piezas siguiendo la matriz de uso y el área de resguardo.</li>
+</ul>
+
+<h2 style="margin-top:32px">Lo que necesita aprobación previa</h2>
+<ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
+  <li><b>Cualquier nombre nuevo.</b> No se inventan sub-marcas ni nombres de campaña que se lean como marca de SP.
+      Los nombres de línea todavía no existen en público y no pueden aparecer en una pieza antes de su lanzamiento.</li>
+  <li><b>Cualquier lockup</b> del logo de SP con otro logo, incluido el de tu propia agencia.</li>
+  <li><b>Afirmaciones sobre cobertura, precios o plazos.</b> Van contra la grilla vigente, no contra el borrador.</li>
+  <li><b>Notas de prensa y publicaciones</b> que mencionen a SP.</li>
+</ul>
+
+<h2 style="margin-top:32px">Lo que no se hace nunca</h2>
+<ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
+  <li><b>Prometer lo que todavía no está funcionando.</b> Es el principio que ordena toda la comunicación de SP:
+      no se promete lo que no se puede probar.</li>
+  <li><b>Decir "el único", "el mejor", "el más grande", "el primero", "exclusivo".</b> Sin respaldo documentado y vigente,
+      una afirmación así es un riesgo — y contradice el principio de arriba.</li>
+  <li><b>Comparar con competidores nombrados.</b> Se habla de la categoría, nunca de empresas.</li>
+  <li><b>Testimonios sin consentimiento firmado</b>, ni personas reales representadas sin autorización.</li>
+  <li><b>Modificar el logo</b> de cualquier forma. La lista completa está en
+      <a href="#/logo" style="color:var(--teal-text);font-weight:600;text-decoration:underline">usos indebidos</a>.</li>
+</ul>
+
+<div class="warn" style="margin-top:26px"><b>Falta definir el circuito de aprobación.</b> A quién se le manda una pieza,
+  con cuánta anticipación y quién responde. Hasta que exista, cualquier duda va por el canal habitual con la persona
+  de SP que te contrató. <span class="pill p-gap" style="margin-left:4px">Pendiente</span></div>
+
+<div class="note" style="margin-top:16px"><b>Nota sobre aliados.</b> SP convive hoy con más de diez marcas aliadas en sus
+  piezas, y las reglas de ese lockup conjunto todavía no están escritas. Si tu pieza necesita mostrar la marca de SP
+  junto a otra, preguntá antes de maquetar.</div>`;
+
+V['/legal'] = () => `
+<div class="eyebrow">Intro</div>
+<h1>Uso legal de la marca</h1>
+<p class="verdict long">Los archivos de este centro se entregan para producir piezas de Salud Protegida, y para nada más.</p>
+
+<h2 style="margin-top:36px">Marca y logotipo</h2>
+<p class="prose" style="margin-top:10px">El isologotipo, el isotipo y el nombre Salud Protegida son propiedad de
+  Odontomédica S.A. Se entregan para producir material de SP o por encargo de SP. No se autoriza su uso para sugerir
+  respaldo, asociación o pertenencia sin un acuerdo escrito.</p>
+
+<h2 style="margin-top:32px">Tipografías</h2>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Tipografía</th><th>Licencia</th><th>¿Se puede repartir?</th></tr></thead>
+  <tbody>
+    <tr><td><b>Nunito Sans</b></td><td>SIL Open Font License 1.1</td><td><span class="pill p-ok">Sí</span></td></tr>
+    <tr><td><b>Inter</b></td><td>SIL Open Font License 1.1</td><td><span class="pill p-ok">Sí</span></td></tr>
+    <tr><td><b>Gilroy</b></td><td>Comercial (Fontspring / Radomir Tinkov)</td><td><span class="pill p-no">No</span></td></tr>
+  </tbody>
+</table></div>
+<p class="prose" style="margin-top:14px">Gilroy fue la tipografía display de la marca hasta el <b>20 de julio de 2026</b>.
+  Su licencia es <b>no transferible</b>: solo permite entregarla de forma temporal a un tercero que trabaje por encargo,
+  con acuerdo escrito de uso exclusivo para ese trabajo y sin conservar copias al terminar. Una página pública de descarga
+  no cumple ninguna de esas tres condiciones, así que <b>Gilroy no se distribuye desde acá</b>.</p>
+<div class="warn" style="margin-top:14px"><b>Pendiente de verificación interna:</b> confirmar si SP mantiene una licencia
+  paga de Gilroy y con qué alcance. Hasta entonces, tratar cualquier uso de Gilroy en piezas nuevas como riesgo, no como
+  derecho adquirido. <span class="pill p-gap">Pendiente</span></div>
+<div class="note" style="margin-top:14px"><b>Esto no invalida el logo.</b> Un logotipo trazado a curvas es artwork,
+  no software de fuente: se puede usar y distribuir sin límite, independientemente de qué tipografía le dio origen.</div>`;
+
+V['/cambios'] = () => `
+<div class="eyebrow">Terceros</div>
+<h1>Versión y cambios</h1>
+<p class="lede prose">Cada cambio con su fecha, para que se pueda saber con qué versión se produjo una pieza.</p>
+<div class="tbl-scroll" style="margin-top:22px"><table>
+  <thead><tr><th>Fecha</th><th>Versión</th><th>Qué cambió</th></tr></thead>
+  <tbody>
+    <tr><td class="tnum">06/08/2026</td><td>1.0</td><td>Primera versión del centro: logo, color, tipografía, voz, formatos, descargas y reglas para terceros.</td></tr>
+    <tr><td class="tnum">06/08/2026</td><td>1.0</td><td><b>Contraste corregido.</b> SP-700 sobre SP-50 y Ámbar-700 sobre Ámbar-50 no llegan a AA; se documentan los reemplazos.</td></tr>
+    <tr><td class="tnum">06/08/2026</td><td>1.0</td><td><b>Tamaño mínimo separado</b> en isologotipo e isotipo. El valor único anterior dejaba el texto ilegible.</td></tr>
+    <tr><td class="tnum">20/07/2026</td><td>—</td><td><b>Nunito Sans reemplaza a Gilroy</b> como tipografía display de la marca.</td></tr>
+  </tbody>
+</table></div>
+<h2 style="margin-top:38px">Lo que falta</h2>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Qué</th><th>Por qué importa</th><th>Estado</th></tr></thead>
+  <tbody>
+    <tr><td><b>Vectoriales SVG y EPS en CMYK</b></td><td>Sin esto no hay imprenta ni gran formato.</td><td><span class="pill p-gap">Bloqueante</span></td></tr>
+    <tr><td>Confirmar los dos tamaños mínimos</td><td>La regla publicada tiene que ser verdadera.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td>Dueño y correo de marca</td><td>El centro necesita a quién preguntarle.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td>Circuito de aprobación de piezas</td><td>Hoy no hay plazo ni responsable definido.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td>Reglas de lockup con aliados</td><td>Ya hay más de diez conviviendo con la marca.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td>Guía de fotografía e iconografía</td><td>Hay material, no hay criterio escrito.</td><td><span class="pill p-mid">Nivel 4</span></td></tr>
+    <tr><td>Plantillas: membrete, presentación, firma</td><td>Es lo que más se pide y lo que más se improvisa.</td><td><span class="pill p-mid">Nivel 4</span></td></tr>
+    <tr><td>Buscador, filtros y selección múltiple</td><td>Con más archivos se vuelve necesario.</td><td><span class="pill p-mid">Nivel 5</span></td></tr>
+  </tbody>
+</table></div>`;
+
+/* ---------- router ---------- */
+function railFor(id){
+  let html=''; let last=null;
+  PAGES.forEach(p=>{
+    if(!p.g){return}
+    if(p.g!==last){html+=`<div class="grp">${esc(p.g)}</div>`;last=p.g}
+    html+=`<a href="#${p.id}" class="${p.id===id?'on':''}">${esc(p.t)}</a>`;
+    if(p.id===id && p.sub){p.sub.forEach(s=>{html+=`<a class="sub" href="#${p.id}#${anchor(s)}">${esc(s)}</a>`})}
+  });
+  return `<a href="#/" class="${id==='/'?'on':''}" style="font-family:var(--d);font-weight:700">Inicio</a>`+html;
+}
+function pagerFor(id){
+  const i=PAGES.findIndex(p=>p.id===id); if(i<0)return'';
+  const prev=PAGES[i-1], next=PAGES[i+1];
+  return `<nav class="pager">
+    <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
+    <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
+  </nav>
+  <div class="stamp">Actualizado el 06/08/2026 · Centro de Marca v1.0</div>`;
+}
+function route(){
+  const raw=location.hash.slice(1)||'/';
+  const [id,frag]=raw.split('#');
+  const view=V[id]||V['/'];
+  document.getElementById('view').innerHTML=view()+pagerFor(id);
+  document.getElementById('rail').innerHTML=railFor(id);
+  document.querySelectorAll('[data-nav]').forEach(n=>n.classList.remove('on'));
+  if(frag){const el=document.getElementById(frag); if(el){el.scrollIntoView({block:'start'})} else {scrollTo(0,0)}}
+  else scrollTo(0,0);
+  if(innerWidth<=900) document.getElementById('rail').classList.remove('open');
+}
+addEventListener('hashchange',route);
+
+document.querySelectorAll('[data-drop]').forEach(b=>{
+  b.addEventListener('click',e=>{
+    e.stopPropagation();
+    const w=b.parentElement, was=w.classList.contains('on');
+    document.querySelectorAll('[data-nav]').forEach(n=>n.classList.remove('on'));
+    if(!was) w.classList.add('on');
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('[data-nav]').forEach(n=>n.classList.remove('on')));
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-copy]'); if(!b) return;
+  const v=b.dataset.copy; const old=b.textContent;
+  navigator.clipboard?.writeText(v).then(()=>{b.textContent=v+' ✓';setTimeout(()=>b.textContent=old,1100)}).catch(()=>{});
+});
+
+const root=document.documentElement;
+document.getElementById('theme').addEventListener('click',()=>{
+  const dark=matchMedia('(prefers-color-scheme:dark)').matches;
+  const cur=root.dataset.theme||(dark?'dark':'light');
+  root.dataset.theme = cur==='dark'?'light':'dark';
+});
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('rail').classList.toggle('open'));
+
+route();
+</script>
+
+</body>
+</html>

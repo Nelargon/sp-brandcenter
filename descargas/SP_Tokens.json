@@ -1,0 +1,81 @@
+{
+  "Nucleo": {
+    "Turquesa SP": "#00BCB4",
+    "Azul Marino SP": "#003B71",
+    "Negro SP": "#1D1D1B"
+  },
+  "Turquesa": {
+    "SP-50": "#E6F7F6",
+    "SP-100": "#B3EAE7",
+    "SP-200": "#80DDD8",
+    "SP-500": "#00BCB4",
+    "SP-700": "#009690",
+    "SP-900": "#006B66"
+  },
+  "Navy": {
+    "Navy-50": "#E6EDF4",
+    "Navy-200": "#B3C7DB",
+    "Navy-500": "#003B71",
+    "Navy-800": "#002A52"
+  },
+  "Grises": {
+    "Fondo": "#F5F5F5",
+    "Borde": "#E8E8E8",
+    "Placeholder": "#B0B0B0",
+    "Secundario": "#6B6B6B",
+    "Cuerpo": "#3D3D3D",
+    "Heading": "#1D1D1B"
+  },
+  "Ambar": {
+    "Ambar-50": "#FFF3E6",
+    "Ambar-200": "#FFD699",
+    "Ambar-500": "#F5A623",
+    "Ambar-700": "#C47E00"
+  },
+  "Sage": {
+    "Sage-50": "#EEF5F0",
+    "Sage-100": "#D4E8DB",
+    "Sage-200": "#A9D1B4",
+    "Sage-500": "#7FB396",
+    "Sage-700": "#457A5A",
+    "Sage-900": "#2E5740"
+  },
+  "Lavender": {
+    "Lavender-50": "#F3EFF8",
+    "Lavender-100": "#E2D9EE",
+    "Lavender-200": "#C4B3DD",
+    "Lavender-500": "#9B84C0",
+    "Lavender-700": "#6F5A95",
+    "Lavender-900": "#4A3A6E"
+  },
+  "Terracota": {
+    "Terracota-50": "#F8EDE6",
+    "Terracota-100": "#EBD0C0",
+    "Terracota-200": "#DDB29C",
+    "Terracota-500": "#C67B5C",
+    "Terracota-700": "#A05640",
+    "Terracota-900": "#7A3D2E"
+  },
+  "_meta": {
+    "marca": "Salud Protegida",
+    "version": "1.0",
+    "actualizado": "2026-08-06",
+    "nucleo_cmyk": {
+      "Turquesa SP": {
+        "hex": "#00BCB4",
+        "pantone": "3262 C",
+        "cmyk": "C84 M0 Y39 K0"
+      },
+      "Azul Marino SP": {
+        "hex": "#003B71",
+        "pantone": "541 C",
+        "cmyk": "C100 M76 Y33 K22"
+      },
+      "Negro SP": {
+        "hex": "#1D1D1B",
+        "pantone": "Process Black C",
+        "cmyk": "C0 M0 Y0 K100"
+      }
+    }
+  }
+}
