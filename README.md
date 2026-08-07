@@ -17,8 +17,28 @@ ni trabajar con una versión vieja de la marca.
 |---|---|
 | `index.html` | El sitio completo. Un solo archivo, sin build ni dependencias. |
 | `assets/logos/` | Los 18 archivos de marca, con nombres canónicos. |
+| `assets/aliados/` | Los 12 logos de aliados. **Marcas de terceros**, no de SP — ver abajo. |
 | `assets/fonts/` | Nunito Sans e Inter (woff2 variable) con sus licencias SIL OFL. |
 | `descargas/` | Los paquetes `.zip` y la paleta en `.ase`, CSS, SCSS y JSON. |
+
+## Marcas que no son de SP
+
+`assets/aliados/` tiene doce logos de terceros. SP los usa por el acuerdo
+comercial que tiene con cada aliado; el permiso es tácito y su versión escrita
+está declarada como pendiente en el sitio.
+
+Dos cosas que conviene saber antes de tocarlos:
+
+- **No sirven para imprenta.** Miden de 29 a 124 px de ancho — entre 0,2 y
+  1,0 cm a 300 dpi. Son los archivos de la franja de aliados del sitio de
+  socios, y nada más. El vectorial lo tiene que dar cada aliado.
+- **Las reglas para ponerlos al lado de la marca de SP** están en el sitio, en
+  *Marca junto a otra marca* (`#/lockup`). La separación no se eligió a ojo:
+  sale del área de resguardo que el centro ya publicaba.
+
+Los **prestadores** y las **fotos de profesionales** tienen su espacio armado
+en `#/red`, pero **sin contenido**: falta la lista y los permisos en un caso, y
+el consentimiento de cada persona en el otro.
 
 **No hay proceso de build.** Es HTML estático: se edita `index.html` y se
 publica. Esa fue una decisión deliberada — un manual de marca cambia una vez
@@ -64,7 +84,18 @@ Lo único que se repite, porque ordena todo lo demás:
 
 ## Correcciones que este centro introduce
 
-Al publicarlo aparecieron tres cosas que el manual anterior daba por buenas:
+Al publicarlo aparecieron cinco cosas que el manual anterior daba por buenas.
+Las dos últimas salieron de mirar el archivo del logo, no el manual:
+
+4. **El isologotipo no dice "MEDICINA PREPAGA".** Dice `SALUD PROTEGIDA`, en
+   dos líneas. El sitio justificaba el mínimo de 180 px con que por debajo
+   "MEDICINA PREPAGA deja de leerse" — texto que no está en el archivo. El
+   número no cambia; la razón sí: la línea que se pierde primero es PROTEGIDA.
+5. **El área de resguardo se medía con una letra que no existe.** La regla
+   pedía "la altura de la letra «a» del logotipo", pero el logotipo va todo en
+   mayúsculas. Ahora dice la **A** de SALUD, que sí se puede señalar y medir.
+
+Y las tres originales:
 
 1. **`SP-700` sobre `SP-50` da 3,30:1** — no llega a AA. El manual lo
    recomendaba para texto. El correcto es `SP-900` (5,77:1).
