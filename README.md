@@ -56,7 +56,7 @@ de cualquiera que lo use. Se anotan acá para que no se pierdan:
 | Dueño y correo de marca | El centro no tiene todavía a quién derivar una consulta. |
 | Circuito de aprobación de piezas | No hay plazo ni responsable definido. |
 | Reglas de lockup con aliados | Ya hay más de diez marcas conviviendo con la de SP. |
-| Verificar `SP_Paleta.ase` en Illustrator | Se generó siguiendo la especificación del formato, sin abrirlo en Adobe. |
+| Abrir `SP_Paleta.ase` en Illustrator | El archivo se lee de vuelta y es correcto según la especificación: 62 bloques, 9 grupos, 44 colores y 3 tintas CMYK con sus valores. Eso descarta que esté mal escrito, pero no prueba que Adobe lo acepte — falta abrirlo una vez. |
 | Guía de fotografía, iconografía y plantillas | Hay material, falta criterio escrito. |
 
 ## Correcciones que este centro introduce
