@@ -89,8 +89,13 @@ Valen las reglas del ecosistema, y acá se predican además de aplicarse:
   línea o termina en punto, va en Inter.
 - **Se escribe en el idioma del cliente.** Prohibido "cartilla", "prestación",
   "práctica". Ante una palabra nueva: ¿la dice una familia en su casa?
-- **Gilroy no se distribuye desde acá.** Licencia comercial no transferible.
-  Si alguien pide agregarla, la respuesta está en la página Legal.
+- **Este centro solo distribuye tipografías con licencia libre.** Nunito Sans e
+  Inter son SIL OFL: se pueden repartir sin trámite, y por eso el sitio existe.
+  **Nunca subir una tipografía comercial acá**, aunque aparezca en los archivos
+  internos de la marca — una página pública de descarga no cumple los términos
+  de casi ninguna licencia comercial. Si hace falta discutir el estado de una
+  licencia, esa conversación va a `sp-interno`, no a una página que lee
+  cualquiera.
 
 ## Flujo git
 
