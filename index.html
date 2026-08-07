@@ -134,6 +134,21 @@ tr:last-child td{border-bottom:0}
 .p-no{background:var(--no-wash);color:var(--no)}
 .p-mid{background:var(--surface-2);color:var(--muted)}
 .p-gap{background:var(--amber-wash);color:var(--amber-text)}
+/* Bloque tecnico plegado. El sitio le habla a dos lectores: quien necesita la
+   regla y quien necesita el numero. La regla va siempre primero, en castellano;
+   el numero vive acá adentro, rotulado, para el que lo busca. */
+.tech{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:0 16px}
+.tech summary{cursor:pointer;padding:13px 0;font-family:var(--d);font-weight:700;font-size:14px;
+ color:var(--ink);display:flex;align-items:center;gap:9px;list-style:none}
+.tech summary::-webkit-details-marker{display:none}
+.tech summary::after{content:"▾";margin-left:auto;color:var(--faint);font-size:12px;transition:transform .2s}
+.tech[open] summary::after{transform:rotate(180deg)}
+.tech summary:hover{color:var(--teal-text)}
+.tag-tec{font-family:var(--d);font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+ background:var(--navy-wash);color:var(--teal-text);padding:3px 7px;border-radius:5px;flex:none}
+.para-quien{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);
+ margin-top:10px;background:var(--surface-2);padding:5px 11px;border-radius:999px}
+.para-quien b{font-family:var(--d);font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
 
 /* ---------- muro de usos indebidos ---------- */
 .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(212px,1fr));gap:14px}
@@ -247,7 +262,7 @@ tr:last-child td{border-bottom:0}
       <a href="#/color">Color</a>
       <a href="#/tipografia">Tipografía</a>
       <a href="#/voz">Voz y lenguaje</a>
-      <a href="#/formatos">Formatos locales</a>
+      <a href="#/formatos">Cifras, fechas y plata</a>
     </div>
   </div>
   <div class="navwrap hide-sm" data-nav>
@@ -255,7 +270,7 @@ tr:last-child td{border-bottom:0}
     <div class="drop">
       <a href="#/descargas-logos">Logos</a>
       <a href="#/descargas-tipografias">Tipografías</a>
-      <a href="#/descargas-paleta">Paleta y tokens</a>
+      <a href="#/descargas-paleta">Paleta y códigos de color</a>
     </div>
   </div>
   <div class="navwrap hide-sm"><a class="navbtn" href="#/agencias">Para agencias</a></div>
@@ -271,7 +286,7 @@ tr:last-child td{border-bottom:0}
 </div>
 
 <script>
-const A = {"isologoFull": "assets/logos/SP_Isologotipo_Fullcolor_RGB.png", "isologoFullSize": 16397, "isologoWhite": "assets/logos/SP_Isologotipo_Blanco_RGB.png", "isologoWhiteSize": 14770, "isologoNavy": "assets/logos/SP_Isologotipo_Navy_RGB.png", "isologoNavySize": 14853, "isologoBlack": "assets/logos/SP_Isologotipo_Negro_RGB.png", "isologoBlackSize": 14810, "isotipoTurq": "assets/logos/SP_Isotipo_Turquesa_RGB.png", "isotipoTurqSize": 163754, "isotipoWhite": "assets/logos/SP_Isotipo_Blanco_RGB.png", "isotipoWhiteSize": 163906, "isotipoNavy": "assets/logos/SP_Isotipo_Navy_RGB.png", "isotipoNavySize": 163766, "isotipoBlack": "assets/logos/SP_Isotipo_Negro_RGB.png", "isotipoBlackSize": 163675, "perfilTurq": "assets/logos/SP_Perfil_Turquesa_1024.png", "perfilTurqSize": 74164, "perfilNavy": "assets/logos/SP_Perfil_Navy_1024.png", "perfilNavySize": 80315, "perfilBlanco": "assets/logos/SP_Perfil_Blanco_1024.png", "perfilBlancoSize": 82515, "marcaAguaTurq": "assets/logos/SP_MarcaDeAgua_Turquesa15.png", "marcaAguaTurqSize": 123933, "marcaAguaBlanco": "assets/logos/SP_MarcaDeAgua_Blanco30.png", "marcaAguaBlancoSize": 154189, "favicon512": "assets/logos/SP_Favicon_512.png", "favicon512Size": 57154, "favicon192": "assets/logos/SP_Favicon_192.png", "favicon192Size": 18633, "favicon64": "assets/logos/SP_Favicon_64.png", "favicon64Size": 5264, "favicon32": "assets/logos/SP_Favicon_32.png", "favicon32Size": 1889, "faviconIco": "assets/logos/SP_Favicon.ico", "faviconIcoSize": 11959, "fontNunito": "assets/fonts/NunitoSans-Variable.woff2", "fontNunitoSize": 49648, "fontInter": "assets/fonts/Inter-Variable.woff2", "fontInterSize": 349132, "oflNunito": "assets/fonts/OFL-NunitoSans.txt", "oflNunitoSize": 4395, "oflInter": "assets/fonts/OFL-Inter.txt", "oflInterSize": 4377, "zipLogos": "descargas/SP_Logos_Pack.zip", "zipLogosSize": 1279603, "zipFonts": "descargas/SP_Tipografias.zip", "zipFontsSize": 403174, "zipPal": "descargas/SP_Paleta.zip", "zipPalSize": 2960, "ase": "descargas/SP_Paleta.ase", "aseSize": 2386, "css": "descargas/SP_Tokens.css", "cssSize": 1306, "scss": "descargas/SP_Tokens.scss", "scssSize": 1052, "json": "descargas/SP_Tokens.json", "jsonSize": 1799};
+const A = {"isologoFull": "assets/logos/SP_Isologotipo_Fullcolor_RGB.png", "isologoFullSize": 16397, "isologoWhite": "assets/logos/SP_Isologotipo_Blanco_RGB.png", "isologoWhiteSize": 14770, "isologoNavy": "assets/logos/SP_Isologotipo_Navy_RGB.png", "isologoNavySize": 14853, "isologoBlack": "assets/logos/SP_Isologotipo_Negro_RGB.png", "isologoBlackSize": 14810, "isotipoTurq": "assets/logos/SP_Isotipo_Turquesa_RGB.png", "isotipoTurqSize": 163754, "isotipoWhite": "assets/logos/SP_Isotipo_Blanco_RGB.png", "isotipoWhiteSize": 163906, "isotipoNavy": "assets/logos/SP_Isotipo_Navy_RGB.png", "isotipoNavySize": 163766, "isotipoBlack": "assets/logos/SP_Isotipo_Negro_RGB.png", "isotipoBlackSize": 163675, "perfilTurq": "assets/logos/SP_Perfil_Turquesa_1024.png", "perfilTurqSize": 74164, "perfilNavy": "assets/logos/SP_Perfil_Navy_1024.png", "perfilNavySize": 80315, "perfilBlanco": "assets/logos/SP_Perfil_Blanco_1024.png", "perfilBlancoSize": 82515, "marcaAguaTurq": "assets/logos/SP_MarcaDeAgua_Turquesa15.png", "marcaAguaTurqSize": 123933, "marcaAguaBlanco": "assets/logos/SP_MarcaDeAgua_Blanco30.png", "marcaAguaBlancoSize": 154189, "favicon512": "assets/logos/SP_Favicon_512.png", "favicon512Size": 57154, "favicon192": "assets/logos/SP_Favicon_192.png", "favicon192Size": 18633, "favicon64": "assets/logos/SP_Favicon_64.png", "favicon64Size": 5264, "favicon32": "assets/logos/SP_Favicon_32.png", "favicon32Size": 1889, "faviconIco": "assets/logos/SP_Favicon.ico", "faviconIcoSize": 11959, "fontNunito": "assets/fonts/NunitoSans-Variable.woff2", "fontNunitoSize": 49648, "fontInter": "assets/fonts/Inter-Variable.woff2", "fontInterSize": 349132, "ttfNunitoSemi": "assets/fonts/NunitoSans-SemiBold.ttf", "ttfNunitoSemiSize": 106832, "ttfNunitoExtra": "assets/fonts/NunitoSans-ExtraBold.ttf", "ttfNunitoExtraSize": 106804, "ttfInterReg": "assets/fonts/Inter_18pt-Regular.ttf", "ttfInterRegSize": 342680, "ttfInterMed": "assets/fonts/Inter_18pt-Medium.ttf", "ttfInterMedSize": 343200, "ttfInterSemi": "assets/fonts/Inter_18pt-SemiBold.ttf", "ttfInterSemiSize": 343828, "ttfInterBold": "assets/fonts/Inter_18pt-Bold.ttf", "ttfInterBoldSize": 344152, "oflNunito": "assets/fonts/OFL-NunitoSans.txt", "oflNunitoSize": 4395, "oflInter": "assets/fonts/OFL-Inter.txt", "oflInterSize": 4377, "zipLogos": "descargas/SP_Logos_Pack.zip", "zipLogosSize": 1279603, "zipFonts": "descargas/SP_Tipografias.zip", "zipFontsSize": 1175120, "zipPal": "descargas/SP_Paleta.zip", "zipPalSize": 2960, "ase": "descargas/SP_Paleta.ase", "aseSize": 2386, "css": "descargas/SP_Tokens.css", "cssSize": 1306, "scss": "descargas/SP_Tokens.scss", "scssSize": 1052, "json": "descargas/SP_Tokens.json", "jsonSize": 1799};
 const CONTRAST = [{"fg": "Turquesa 500", "fgh": "#00BCB4", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Turquesa 700", "fgh": "#009690", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.64, "cuerpo": "✗", "grande": "AA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "Blanco", "bgh": "#FFFFFF", "r": 6.37, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "Blanco", "bgh": "#FFFFFF", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Cuerpo", "fgh": "#3D3D3D", "bg": "Blanco", "bgh": "#FFFFFF", "r": 10.86, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Secundario", "fgh": "#6B6B6B", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.33, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Ambar 500", "fgh": "#F5A623", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.03, "cuerpo": "✗", "grande": "✗"}, {"fg": "Ambar 700", "fgh": "#C47E00", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.32, "cuerpo": "✗", "grande": "AA"}, {"fg": "Sage 500", "fgh": "#7FB396", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.39, "cuerpo": "✗", "grande": "✗"}, {"fg": "Sage 700", "fgh": "#457A5A", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.02, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Lavender 500", "fgh": "#9B84C0", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.25, "cuerpo": "✗", "grande": "AA"}, {"fg": "Lavender 700", "fgh": "#6F5A95", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.88, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Terracota 500", "fgh": "#C67B5C", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.29, "cuerpo": "✗", "grande": "AA"}, {"fg": "Terracota 700", "fgh": "#A05640", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.38, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Navy 500", "bgh": "#003B71", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Turquesa 500", "bgh": "#00BCB4", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "SP-50", "bgh": "#E6F7F6", "r": 10.19, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "SP-50", "bgh": "#E6F7F6", "r": 5.77, "cuerpo": "AA", "grande": "AAA"}];
 
 /* ---- estructura de navegación: id, título, grupo, sub-secciones ---- */
@@ -280,13 +295,13 @@ const PAGES = [
   {id:'/empeza',      t:'Empezá acá',          g:'Intro'},
   {id:'/legal',       t:'Uso legal de la marca',g:'Intro'},
   {id:'/logo',        t:'Logo y variantes',    g:'Logo', sub:['Versiones','Área de resguardo','Tamaño mínimo','Usos indebidos','Matriz de uso']},
-  {id:'/color',       t:'Color',               g:'Identidad visual', sub:['Núcleo','Escalas','Narrativas','Contraste']},
+  {id:'/color',       t:'Color',               g:'Identidad visual', sub:['Núcleo','Escalas','Narrativas','Qué color va en el texto']},
   {id:'/tipografia',  t:'Tipografía',          g:'Identidad visual'},
   {id:'/voz',         t:'Voz y lenguaje',      g:'Identidad visual'},
-  {id:'/formatos',    t:'Formatos locales',    g:'Identidad visual'},
+  {id:'/formatos',    t:'Cifras, fechas y plata', g:'Identidad visual'},
   {id:'/descargas-logos',      t:'Logos',          g:'Descargas'},
   {id:'/descargas-tipografias',t:'Tipografías',    g:'Descargas'},
-  {id:'/descargas-paleta',     t:'Paleta y tokens',g:'Descargas'},
+  {id:'/descargas-paleta',     t:'Paleta y códigos de color',g:'Descargas'},
   {id:'/agencias',    t:'Para agencias y proveedores', g:'Terceros'},
   {id:'/cambios',     t:'Versión y cambios',   g:'Terceros'},
 ];
@@ -306,7 +321,9 @@ const badge = v => v==='si' ? '<span class="pill p-ok">Preferido</span>'
   : '<span class="pill p-no">No usar</span>';
 
 const MATRIX = {
-  cols:['Isologotipo','Isotipo','Perfil de redes','Marca de agua','Favicon'],
+  cols:[['Isologotipo','símbolo + nombre'],['Isotipo','solo el símbolo'],
+        ['Perfil de redes','avatar con fondo'],['Marca de agua','sello translúcido'],
+        ['Favicon','ícono de pestaña']],
   rows:[
     ['Hero o portada de una pieza',            'si','no','no','no','no'],
     ['Primera aparición en cualquier pieza',   'si','no','no','no','no'],
@@ -407,15 +424,16 @@ V['/'] = () => `
   <div class="packrow" style="margin-top:14px">
     <div class="pack"><div class="t">Logos</div><div class="s">18 archivos PNG: isologotipo, isotipo, perfiles, marcas de agua y favicons.</div>
       <a class="dl" download="SP_Logos_Pack.zip" href="${A.zipLogos}">Descargar · ${kb(A.zipLogosSize)}</a></div>
-    <div class="pack"><div class="t">Tipografías</div><div class="s">Nunito Sans e Inter en woff2, con sus licencias SIL OFL.</div>
+    <div class="pack"><div class="t">Tipografías</div><div class="s">Nunito Sans e Inter, para instalar en tu computadora y para la web.</div>
       <a class="dl" download="SP_Tipografias.zip" href="${A.zipFonts}">Descargar · ${kb(A.zipFontsSize)}</a></div>
     <div class="pack"><div class="t">Paleta</div><div class="s">Muestras .ase para Illustrator, más tokens en CSS, SCSS y JSON.</div>
       <a class="dl" download="SP_Paleta.zip" href="${A.zipPal}">Descargar · ${kb(A.zipPalSize)}</a></div>
   </div>
 </section>
 
-<div class="warn"><b>Falta lo vectorial.</b> Hoy solo hay PNG en RGB. El isologotipo mide 759 px de ancho:
-  a 300 dpi eso son <b>6,4 cm</b> — no da para tapa de folleto, banner ni vía pública.
+<div class="warn"><b>Falta el logo en formato de imprenta.</b> Hoy solo hay imágenes de pantalla (PNG).
+  El isologotipo mide 759 píxeles de ancho: impreso a buena calidad eso son <b>6,4 cm</b> — no da para tapa
+  de folleto, banner ni vía pública.
   Hasta que existan el SVG y el EPS en CMYK, <b>ninguna pieza de imprenta grande puede salir de acá</b>.</div>
 </div>`;
 
@@ -436,6 +454,12 @@ V['/empeza'] = () => `
   <div class="note"><b>Si tenés que elegir una sola página para leer</b>, que sea
      <a href="#/logo" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Logo y variantes</a>:
      ahí están los once errores que aparecen una y otra vez.</div>
+
+  <h3 style="margin-top:12px">Esto está escrito para cualquiera</h3>
+  <p>No hace falta saber de diseño para usar este sitio. Todo lo que sí requiere saber de programación
+     —códigos, medidas, formatos— vive dentro de bloques plegados con la etiqueta
+     <span class="tag-tec">Para quien programa</span>. Si no es lo tuyo, pasalos de largo: la regla siempre
+     está escrita arriba, en castellano.</p>
 </div>`;
 
 V['/logo'] = () => `
@@ -462,7 +486,8 @@ V['/logo'] = () => `
   dentro de una pieza donde el logo completo ya apareció, o en espacios donde el texto no se leería.</div>
 
 <h2 id="area-de-resguardo" style="margin-top:44px">Área de resguardo</h2>
-<p class="prose" style="margin-top:10px">Alrededor del logo tiene que quedar aire, y ese aire tiene una medida:
+<p class="prose" style="margin-top:10px">También se le dice <i>el aire del logo</i>.
+  Alrededor del logo tiene que quedar espacio vacío, y ese espacio tiene una medida:
   <b>la altura de la letra "a" del logotipo</b>. Ningún otro elemento entra ahí — ni texto, ni imagen, ni el borde de la página.</p>
 <div class="card" style="margin-top:16px;display:grid;place-items:center;padding:clamp(14px,4vw,34px);background:var(--surface-2)">
   <div style="position:relative;padding:clamp(20px,6vw,34px);outline:1.5px dashed var(--teal);outline-offset:0;background:var(--surface);max-width:100%">
@@ -499,7 +524,7 @@ V['/logo'] = () => `
 <h2 id="matriz-de-uso" style="margin-top:44px">Matriz de uso</h2>
 <p class="prose" style="margin-top:10px">Qué versión va en cada lugar, sin tener que preguntar.</p>
 <div class="tbl-scroll" style="margin-top:14px"><table>
-  <thead><tr><th>Dónde</th>${MATRIX.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr></thead>
+  <thead><tr><th>Dónde</th>${MATRIX.cols.map(([c,d])=>`<th>${esc(c)}<span style="display:block;font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;color:var(--faint);margin-top:2px">${esc(d)}</span></th>`).join('')}</tr></thead>
   <tbody>${MATRIX.rows.map(r=>`<tr><td>${esc(r[0])}</td>${r.slice(1).map(v=>`<td>${badge(v)}</td>`).join('')}</tr>`).join('')}</tbody>
 </table></div>
 <p style="margin-top:12px;font-size:13px;color:var(--muted)">
@@ -515,6 +540,12 @@ V['/color'] = () => {
 <h2 id="nucleo" style="margin-top:44px">Núcleo</h2>
 <p class="prose" style="margin-top:10px">Tres colores sostienen la marca. Son los únicos con equivalencia de imprenta
   definida: si una pieza va a papel, estos son los valores que se le pasan al impresor.</p>
+<div class="note" style="margin-top:14px"><b>Los tres códigos, y para qué es cada uno.</b>
+  El <b>HEX</b> (<span class="mono">#00BCB4</span>) es para pantalla: web, redes, presentaciones.
+  El <b>CMYK</b> es para imprenta — el papel no mezcla luz sino tinta, así que necesita otros números.
+  El <b>Pantone</b> es una tinta ya preparada: se lo dás al impresor cuando el color tiene que salir
+  idéntico siempre, como en un cartel o un folleto grande.
+  <b>Mandar un HEX a la imprenta es la forma más común de que el turquesa salga distinto.</b></div>
 <div class="grid g3" style="margin-top:16px">
   ${swatch('Turquesa SP','#00BCB4','<div style="font-size:11.5px;color:var(--muted);margin-top:3px">Pantone 3262 C<br>C84 M0 Y39 K0</div>')}
   ${swatch('Azul Marino SP','#003B71','<div style="font-size:11.5px;color:var(--muted);margin-top:3px">Pantone 541 C<br>C100 M76 Y33 K22</div>')}
@@ -547,25 +578,83 @@ V['/color'] = () => {
     ${['#F8EDE6','#EBD0C0','#DDB29C','#C67B5C','#A05640','#7A3D2E'].map((h,i)=>swatch(['Terracota-50','Terracota-100','Terracota-200','Terracota-500','Terracota-700','Terracota-900'][i],h)).join('')}</div></div>
 </div>
 
-<h2 id="contraste" style="margin-top:44px">Contraste</h2>
-<p class="prose" style="margin-top:10px">Los pares ya están calculados, así que no hace falta que los verifique cada pieza.
-  <b>Los tonos 500 no son colores de texto</b> — son colores de superficie.</p>
-<div class="tbl-scroll" style="margin-top:14px"><table>
-  <thead><tr><th>Texto</th><th>Sobre</th><th>Ratio</th><th>Cuerpo</th><th>Título grande</th></tr></thead>
-  <tbody>${CONTRAST.map(c=>`<tr>
-    <td><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:${c.fgh};border:1px solid var(--line);vertical-align:-1px;margin-right:7px"></span>${esc(c.fg)}</td>
-    <td>${esc(c.bg)}</td><td class="tnum">${c.r}:1</td>
-    <td>${c.cuerpo==='✗'?'<span class="pill p-no">Falla</span>':`<span class="pill p-ok">${c.cuerpo}</span>`}</td>
-    <td>${c.grande==='✗'?'<span class="pill p-no">Falla</span>':`<span class="pill p-mid">${c.grande}</span>`}</td></tr>`).join('')}
-  </tbody>
-</table></div>
-<div class="warn" style="margin-top:16px"><b>Dos recomendaciones del manual anterior no pasan la verificación</b>
-  y quedan corregidas acá:
+<h2 id="que-color-va-en-el-texto" style="margin-top:44px">Qué color va en el texto</h2>
+<p class="verdict" style="margin-top:12px">El turquesa sirve para pintar, no para escribir.</p>
+<p class="prose" style="margin-top:14px">Un color puede quedar hermoso como fondo y ser ilegible como letra.
+  Pasa siempre: alguien escribe un titular en turquesa <i>porque es el color de la marca</i>, y lo vuelve
+  imposible de leer para quien tiene sesenta años, para quien mira el celular al sol o para quien ve poco.
+  Mirá la diferencia:</p>
+
+<div class="grid g2" style="margin-top:16px">
+  <div class="card" style="background:#fff">
+    <div class="eyebrow" style="color:var(--no)">Así no</div>
+    <p style="color:#00BCB4;font-size:17px;margin-top:8px">Tu plan cubre las urgencias las 24 horas,
+      todos los días del año, en toda la red de prestadores.</p>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:10px">Turquesa sobre blanco. Se despega menos
+      de la mitad de lo necesario.</p>
+  </div>
+  <div class="card" style="background:#fff">
+    <div class="eyebrow" style="color:var(--teal-text)">Así sí</div>
+    <p style="color:#3D3D3D;font-size:17px;margin-top:8px">Tu plan cubre las urgencias las 24 horas,
+      todos los días del año, en toda la red de prestadores.</p>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:10px">El mismo texto en gris de cuerpo.
+      El turquesa sigue estando en la marca, en los botones y en los fondos.</p>
+  </div>
+</div>
+
+<h3 style="margin-top:32px">La regla, en dos listas</h3>
+<div class="grid g2" style="margin-top:12px">
+  <div class="card">
+    <div class="eyebrow" style="color:var(--teal-text)">Para escribir texto, usá</div>
+    <ul style="margin:10px 0 0;padding-left:18px;font-size:14.5px">
+      <li><b>Gris de cuerpo</b> <span class="mono">#3D3D3D</span> — el que se usa por defecto</li>
+      <li><b>Navy</b> <span class="mono">#003B71</span> — títulos y textos con peso</li>
+      <li><b>Turquesa 900</b> <span class="mono">#006B66</span> — cuando querés que se lea turquesa</li>
+      <li>Los tonos <b>700 y 900</b> de Sage, Lavender y Terracota</li>
+      <li><b>Blanco</b> sobre navy o sobre turquesa 500</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="eyebrow" style="color:var(--no)">Nunca para texto</div>
+    <ul style="margin:10px 0 0;padding-left:18px;font-size:14.5px">
+      <li><b>Turquesa 500</b> <span class="mono">#00BCB4</span> — es color de fondo y de botón</li>
+      <li><b>Ámbar 500 y 700</b> — solo para botones y etiquetas</li>
+      <li>Los tonos <b>500</b> de Sage, Lavender y Terracota</li>
+      <li>Cualquier tono <b>50, 100 o 200</b> — son fondos</li>
+    </ul>
+  </div>
+</div>
+<div class="note" style="margin-top:16px"><b>Atajo mental:</b> los números altos (700, 900) son para
+  <b>escribir</b>. Los del medio (500) son para <b>pintar</b>. Los bajos (50, 100, 200) son <b>fondos</b>.</div>
+
+<div class="warn" style="margin-top:16px"><b>Dos recomendaciones del manual anterior estaban mal</b>, y quedan
+  corregidas acá:
   <ul style="margin:8px 0 0;padding-left:19px">
-    <li><b>SP-700 sobre SP-50</b> da 3,30:1 — falla. Para texto sobre fondo turquesa claro va <b>SP-900</b> (5,77:1).</li>
-    <li><b>Ámbar-700 sobre Ámbar-50</b> da 3,03:1 — falla. Sobre fondo ámbar claro el texto va en <b>Cuerpo #3D3D3D</b>;
-        el sistema todavía no tiene un ámbar lo bastante oscuro para texto.</li>
-  </ul></div>`;
+    <li>El manual decía usar <b>turquesa 700</b> para texto sobre fondo turquesa claro. No se lee bien.
+        Va <b>turquesa 900</b>.</li>
+    <li>Decía usar <b>ámbar 700</b> para texto sobre fondo ámbar claro. Tampoco se lee. Ahí el texto va en
+        <b>gris de cuerpo</b>: el sistema no tiene todavía un ámbar suficientemente oscuro para escribir.</li>
+  </ul></div>
+
+<details class="tech" style="margin-top:24px">
+  <summary><span class="tag-tec">Para quien programa</span> Los números, uno por uno</summary>
+  <div style="padding:16px 0 4px">
+    <p class="prose" style="font-size:14.5px">La medida se llama <b>ratio de contraste</b> y la fija una norma
+      internacional (WCAG). Va de <span class="mono">1:1</span> —texto del mismo color que el fondo, invisible— a
+      <span class="mono">21:1</span>, negro puro sobre blanco puro. Un párrafo normal necesita al menos
+      <b>4,5:1</b> para aprobar el nivel AA; <b>7:1</b> aprueba AAA. Un titular grande (24 px o más) se conforma
+      con 3:1. Los pares ya están calculados: no hace falta recalcularlos por pieza.</p>
+    <div class="tbl-scroll" style="margin-top:14px"><table>
+      <thead><tr><th>Texto</th><th>Sobre</th><th>Ratio</th><th>Párrafo</th><th>Título grande</th></tr></thead>
+      <tbody>${CONTRAST.map(c=>`<tr>
+        <td><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:${c.fgh};border:1px solid var(--line);vertical-align:-1px;margin-right:7px"></span>${esc(c.fg)}</td>
+        <td>${esc(c.bg)}</td><td class="tnum">${c.r}:1</td>
+        <td>${c.cuerpo==='✗'?'<span class="pill p-no">No usar</span>':`<span class="pill p-ok">${c.cuerpo}</span>`}</td>
+        <td>${c.grande==='✗'?'<span class="pill p-no">No usar</span>':`<span class="pill p-mid">${c.grande}</span>`}</td></tr>`).join('')}
+      </tbody>
+    </table></div>
+  </div>
+</details>`;
 };
 
 V['/tipografia'] = () => `
@@ -597,7 +686,7 @@ V['/tipografia'] = () => `
     <tr><td>Cuerpo</td><td>Inter</td><td class="tnum">16 px · 400 · interlínea 1,7</td><td>#3D3D3D</td></tr>
     <tr><td>Small</td><td>Inter</td><td class="tnum">14 px · 400</td><td>#6B6B6B</td></tr>
     <tr><td>Caption</td><td>Inter</td><td class="tnum">12 px · 500</td><td>#9A9590</td></tr>
-    <tr><td>Datos y tablas</td><td>Inter</td><td class="tnum">tabular-nums siempre</td><td>#3D3D3D</td></tr>
+    <tr><td>Datos y tablas</td><td>Inter</td><td>Cifras que alinean en columna <span class="tag-tec" style="margin-left:4px">CSS: tabular-nums</span></td><td>#3D3D3D</td></tr>
   </tbody>
 </table></div>
 
@@ -658,8 +747,8 @@ V['/voz'] = () => `
 
 V['/formatos'] = () => `
 <div class="eyebrow">Identidad visual</div>
-<h1>Formatos locales</h1>
-<p class="verdict long">Escribimos como se escribe en Paraguay. Un formato importado delata que la pieza no se hizo acá.</p>
+<h1>Cifras, fechas y plata</h1>
+<p class="verdict long">Escribimos como se escribe en Paraguay. Una cifra con formato importado delata que la pieza no se hizo acá.</p>
 <div class="tbl-scroll" style="margin-top:26px"><table>
   <thead><tr><th>Qué</th><th>Así</th><th>Nunca</th></tr></thead>
   <tbody>
@@ -683,12 +772,14 @@ const dlLogos = () => `
   <div class="pack"><div class="t">Paquete completo</div><div class="s">Los 18 archivos, con nombres canónicos y un léeme.</div>
     <a class="dl" download="SP_Logos_Pack.zip" href="${A.zipLogos}">Descargar · ${kb(A.zipLogosSize)}</a></div>
 </div>
-<div class="warn" style="margin-top:18px"><b>Para imprenta todavía no hay nada.</b> Faltan el SVG (RGB) y el EPS (CMYK).
-  El isologotipo PNG no debe imprimirse a más de <b>6,4 cm de ancho</b> a 300 dpi.</div>
+<div class="warn" style="margin-top:18px"><b>Para imprenta todavía no hay nada.</b> Estos archivos son
+  imágenes de pantalla: al agrandarlos se pixelan. Falta el logo en <b>formato vectorial</b> —el que se agranda
+  sin perder nitidez, y que además trae los colores en CMYK, los de tinta—. Mientras tanto, el isologotipo
+  <b>no debe imprimirse a más de 6,4 cm de ancho</b>.</div>
 <h2 style="margin-top:38px">Archivos</h2>
 <div class="grid g3" style="margin-top:16px">
   ${ASSETS_LOGOS.map(([k,fn,fmt,dim,bg,use])=>`
-  <div class="asset"><div class="prev ${bg}"><img src="${A[k]}" alt="${esc(fn)}"></div>
+  <div class="asset"><div class="prev ${bg}"><img src="${A[k]}" alt="${esc(fn)}" loading="lazy" decoding="async"></div>
     <div class="info"><div class="fn">${esc(fn)}</div>
       <div class="mt"><span class="fmt">${fmt}</span><span class="tnum">${dim}</span><span class="tnum">${kb(A[k+'Size'])}</span></div>
       <div style="font-size:12.5px;color:var(--muted);margin-top:6px">${esc(use)}</div>
@@ -704,8 +795,9 @@ V['/descargas-tipografias'] = () => `
 <h1>Tipografías</h1>
 <p class="verdict long">Las dos tipografías de la marca son libres: podés usarlas, incrustarlas y repartirlas.</p>
 <div class="packrow" style="margin-top:24px">
-  <div class="pack"><div class="t">Nunito Sans + Inter</div>
-    <div class="s">Ambas en woff2 variable —todos los pesos en un archivo— con sus licencias SIL OFL.</div>
+  <div class="pack"><div class="t">Todo junto</div>
+    <div class="s">Las dos tipografías en los dos formatos: 6 archivos para instalar y 2 para la web,
+      con un léeme que explica cuál usar.</div>
     <a class="dl" download="SP_Tipografias.zip" href="${A.zipFonts}">Descargar · ${kb(A.zipFontsSize)}</a></div>
 </div>
 <div class="grid g2" style="margin-top:22px">
@@ -716,13 +808,41 @@ V['/descargas-tipografias'] = () => `
     <div style="font-family:var(--t);font-weight:600;font-size:34px;color:var(--ink);margin:8px 0">Inter</div>
     <div style="font-size:13px;color:var(--muted)">Pesos 100 a 900 en un woff2 variable.</div></div>
 </div>
-<h2 style="margin-top:38px">Archivos sueltos</h2>
+<h2 style="margin-top:38px">Cuál de los dos formatos necesitás</h2>
+<p class="prose" style="margin-top:10px">Una tipografía viene en formatos distintos según dónde la vayas a usar,
+  y <b>no son intercambiables</b>: si bajás el que no es, tu computadora no lo reconoce.</p>
 <div class="grid g2" style="margin-top:14px">
-  ${[['fontNunito','NunitoSans-Variable.woff2'],['fontInter','Inter-Variable.woff2'],
-     ['oflNunito','OFL-NunitoSans.txt'],['oflInter','OFL-Inter.txt']].map(([k,fn])=>`
+  <div class="card"><h3>Para instalar en tu computadora</h3>
+    <p style="font-size:14px;color:var(--muted);margin-top:6px">Illustrator, Photoshop, InDesign, Word,
+      PowerPoint, Canva. Son los <span class="mono">.ttf</span> — doble click y quedan instalados.</p></div>
+  <div class="card"><h3>Para programar una web</h3>
+    <p style="font-size:14px;color:var(--muted);margin-top:6px">Son los <span class="mono">.woff2</span>.
+      Pesan mucho menos y traen todos los grosores en un archivo. No se instalan: se enlazan desde el CSS.</p></div>
+</div>
+
+<h3 style="margin-top:30px">Para instalar · <span class="mono" style="font-weight:400">.ttf</span></h3>
+<div class="grid g2" style="margin-top:12px">
+  ${[['ttfNunitoSemi','NunitoSans-SemiBold.ttf','Nunito Sans · títulos, peso 600'],
+     ['ttfNunitoExtra','NunitoSans-ExtraBold.ttf','Nunito Sans · títulos grandes, peso 800'],
+     ['ttfInterReg','Inter_18pt-Regular.ttf','Inter · texto normal, peso 400'],
+     ['ttfInterMed','Inter_18pt-Medium.ttf','Inter · peso 500'],
+     ['ttfInterSemi','Inter_18pt-SemiBold.ttf','Inter · negritas de texto, peso 600'],
+     ['ttfInterBold','Inter_18pt-Bold.ttf','Inter · peso 700']].map(([k,fn,d])=>`
   <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px">
-    <div><div class="fn" style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--ink)">${esc(fn)}</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:2px" class="tnum">${kb(A[k+'Size'])}</div></div>
+    <div><div style="font-size:13.5px;color:var(--ink);font-weight:600">${esc(d)}</div>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px" class="tnum">${esc(fn)} · ${kb(A[k+'Size'])}</div></div>
+    <a class="dl" style="margin:0;flex:none" download="${fn}" href="${A[k]}">Descargar</a></div>`).join('')}
+</div>
+
+<h3 style="margin-top:30px">Para la web · <span class="mono" style="font-weight:400">.woff2</span></h3>
+<div class="grid g2" style="margin-top:12px">
+  ${[['fontNunito','NunitoSans-Variable.woff2','Nunito Sans · todos los grosores'],
+     ['fontInter','Inter-Variable.woff2','Inter · todos los grosores'],
+     ['oflNunito','OFL-NunitoSans.txt','Licencia de Nunito Sans'],
+     ['oflInter','OFL-Inter.txt','Licencia de Inter']].map(([k,fn,d])=>`
+  <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px">
+    <div><div style="font-size:13.5px;color:var(--ink);font-weight:600">${esc(d)}</div>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px" class="tnum">${esc(fn)} · ${kb(A[k+'Size'])}</div></div>
     <a class="dl" style="margin:0;flex:none" download="${fn}" href="${A[k]}">Descargar</a></div>`).join('')}
 </div>
 <div class="warn" style="margin-top:20px"><b>Gilroy no está acá, y no es un olvido.</b> Es una tipografía comercial con
@@ -732,24 +852,29 @@ V['/descargas-tipografias'] = () => `
 V['/descargas-paleta'] = () => `
 <div class="eyebrow">Descargas</div>
 <h1>Paleta y tokens</h1>
-<p class="lede prose">La paleta en los formatos que se abren directamente en la herramienta que estés usando,
-  para que nadie tenga que tipear un hex a mano.</p>
+<p class="lede prose">La paleta lista para cargar en la herramienta que uses, para que nadie tenga que
+  copiar un código de color a mano — que es como se cuela un turquesa que no es el turquesa.</p>
 <div class="packrow" style="margin-top:24px">
   <div class="pack"><div class="t">Paquete de paleta</div><div class="s">Los cuatro archivos juntos.</div>
     <a class="dl" download="SP_Paleta.zip" href="${A.zipPal}">Descargar · ${kb(A.zipPalSize)}</a></div>
 </div>
 <div class="grid g2" style="margin-top:20px">
-  <div class="card"><h3>SP_Paleta.ase</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
-    Muestras para Illustrator, Photoshop e InDesign. Ocho grupos, más el núcleo en CMYK como tintas planas.</p>
+  <div class="card"><h3>Muestras para Adobe</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
+    Se abre en Illustrator, Photoshop e InDesign y carga toda la paleta de una: ocho grupos, más los tres
+    colores del núcleo en CMYK para imprenta. <span class="mono">SP_Paleta.ase</span></p>
     <a class="dl" download="SP_Paleta.ase" href="${A.ase}">Descargar · ${kb(A.aseSize)}</a></div>
-  <div class="card"><h3>SP_Tokens.css</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
-    Custom properties listas para pegar: <span class="mono">--sp-turquesa-sp</span>, <span class="mono">--sp-navy-500</span>…</p>
+  <div class="card"><h3>Colores para la web <span class="tag-tec">Para quien programa</span></h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:5px">Variables CSS listas para pegar:
+    <span class="mono">--sp-turquesa-sp</span>, <span class="mono">--sp-navy-500</span>…
+    <span class="mono">SP_Tokens.css</span></p>
     <a class="dl" download="SP_Tokens.css" href="${A.css}">Descargar · ${kb(A.cssSize)}</a></div>
-  <div class="card"><h3>SP_Tokens.scss</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
-    Las mismas variables en Sass.</p>
+  <div class="card"><h3>Colores en Sass <span class="tag-tec">Para quien programa</span></h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:5px">Las mismas variables en formato Sass.
+    <span class="mono">SP_Tokens.scss</span></p>
     <a class="dl" download="SP_Tokens.scss" href="${A.scss}">Descargar · ${kb(A.scssSize)}</a></div>
-  <div class="card"><h3>SP_Tokens.json</h3><p style="font-size:13.5px;color:var(--muted);margin-top:5px">
-    Para design tokens, Figma o cualquier pipeline. Incluye Pantone y CMYK del núcleo.</p>
+  <div class="card"><h3>Colores para Figma y herramientas <span class="tag-tec">Para quien programa</span></h3>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:5px">La paleta en JSON, para importar a Figma o a
+    cualquier sistema de diseño. Incluye Pantone y CMYK del núcleo. <span class="mono">SP_Tokens.json</span></p>
     <a class="dl" download="SP_Tokens.json" href="${A.json}">Descargar · ${kb(A.jsonSize)}</a></div>
 </div>`;
 
@@ -771,7 +896,7 @@ V['/agencias'] = () => `
 <ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
   <li><b>Cualquier nombre nuevo.</b> No se inventan sub-marcas ni nombres de campaña que se lean como marca de SP.
       Los nombres de línea todavía no existen en público y no pueden aparecer en una pieza antes de su lanzamiento.</li>
-  <li><b>Cualquier lockup</b> del logo de SP con otro logo, incluido el de tu propia agencia.</li>
+  <li><b>Poner el logo de SP al lado de otro logo</b> en una misma pieza, incluido el de tu propia agencia.</li>
   <li><b>Afirmaciones sobre cobertura, precios o plazos.</b> Van contra la grilla vigente, no contra el borrador.</li>
   <li><b>Notas de prensa y publicaciones</b> que mencionen a SP.</li>
 </ul>
@@ -810,8 +935,8 @@ V['/legal'] = () => `
 <div class="tbl-scroll" style="margin-top:14px"><table>
   <thead><tr><th>Tipografía</th><th>Licencia</th><th>¿Se puede repartir?</th></tr></thead>
   <tbody>
-    <tr><td><b>Nunito Sans</b></td><td>SIL Open Font License 1.1</td><td><span class="pill p-ok">Sí</span></td></tr>
-    <tr><td><b>Inter</b></td><td>SIL Open Font License 1.1</td><td><span class="pill p-ok">Sí</span></td></tr>
+    <tr><td><b>Nunito Sans</b></td><td>SIL Open Font License 1.1 <span style="color:var(--muted)">— licencia libre: se usa y se reparte sin pagar</span></td><td><span class="pill p-ok">Sí</span></td></tr>
+    <tr><td><b>Inter</b></td><td>SIL Open Font License 1.1 <span style="color:var(--muted)">— licencia libre: se usa y se reparte sin pagar</span></td><td><span class="pill p-ok">Sí</span></td></tr>
     <tr><td><b>Gilroy</b></td><td>Comercial (Fontspring / Radomir Tinkov)</td><td><span class="pill p-no">No</span></td></tr>
   </tbody>
 </table></div>
@@ -832,6 +957,8 @@ V['/cambios'] = () => `
 <div class="tbl-scroll" style="margin-top:22px"><table>
   <thead><tr><th>Fecha</th><th>Versión</th><th>Qué cambió</th></tr></thead>
   <tbody>
+    <tr><td class="tnum">07/08/2026</td><td>1.1</td><td><b>Las tipografías no se podían instalar.</b> La descarga traía solo <span class="mono">.woff2</span>, que es formato de navegador: no se instala en Illustrator, Word ni Canva. Ahora van también los seis <span class="mono">.ttf</span>, y el sitio explica cuál usar.</td></tr>
+    <tr><td class="tnum">07/08/2026</td><td>1.1</td><td><b>Reescrito para quien no es diseñador.</b> "Contraste" pasó a ser <b>"Qué color va en el texto"</b>, con la regla en palabras y una comparación que se ve. Los ratios quedan plegados bajo <i>Para quien programa</i>. Se tradujeron doce términos más: tokens, lockup, formatos locales, SIL OFL, dpi y RGB/CMYK, entre otros.</td></tr>
     <tr><td class="tnum">06/08/2026</td><td>1.0</td><td>Primera versión del centro: logo, color, tipografía, voz, formatos, descargas y reglas para terceros.</td></tr>
     <tr><td class="tnum">06/08/2026</td><td>1.0</td><td><b>Contraste corregido.</b> SP-700 sobre SP-50 y Ámbar-700 sobre Ámbar-50 no llegan a AA; se documentan los reemplazos.</td></tr>
     <tr><td class="tnum">06/08/2026</td><td>1.0</td><td><b>Tamaño mínimo separado</b> en isologotipo e isotipo. El valor único anterior dejaba el texto ilegible.</td></tr>
@@ -848,6 +975,7 @@ V['/cambios'] = () => `
     <tr><td>Circuito de aprobación de piezas</td><td>Hoy no hay plazo ni responsable definido.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
     <tr><td>Reglas de lockup con aliados</td><td>Ya hay más de diez conviviendo con la marca.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
     <tr><td>Guía de fotografía e iconografía</td><td>Hay material, no hay criterio escrito.</td><td><span class="pill p-mid">Nivel 4</span></td></tr>
+    <tr><td>Nunito Sans en pesos 400 y 500 para instalar</td><td>Hoy se entregan el 600 y el 800, que es lo que la regla permite para títulos. Falta el resto por si alguien lo necesita.</td><td><span class="pill p-mid">Menor</span></td></tr>
     <tr><td>Plantillas: membrete, presentación, firma</td><td>Es lo que más se pide y lo que más se improvisa.</td><td><span class="pill p-mid">Nivel 4</span></td></tr>
     <tr><td>Buscador, filtros y selección múltiple</td><td>Con más archivos se vuelve necesario.</td><td><span class="pill p-mid">Nivel 5</span></td></tr>
   </tbody>
@@ -871,7 +999,7 @@ function pagerFor(id){
     <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
     <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
   </nav>
-  <div class="stamp">Actualizado el 06/08/2026 · Centro de Marca v1.0</div>`;
+  <div class="stamp">Actualizado el 07/08/2026 · Centro de Marca v1.1</div>`;
 }
 function route(){
   const raw=location.hash.slice(1)||'/';
