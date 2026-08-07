@@ -46,18 +46,21 @@ El criterio, ante la duda: *¿le sirve a un competidor si lo lee?*
 
 ## Pendientes conocidos
 
-El sitio los declara en su propia página de **Versión y cambios**, a la vista
-de cualquiera que lo use. Se anotan acá para que no se pierdan:
+La lista completa vive en el sitio, en **Qué falta y qué llegó**
+(`#/faltantes`), y **vive solo ahí**. Está separada en dos, porque son dos
+conversaciones distintas: lo que **se le encarga a un diseñador** —con el
+nombre exacto que tiene que tener cada archivo cuando vuelva— y lo que
+**resuelve SP** puertas adentro. Esa página tiene además el pedido escrito en
+texto, listo para copiar y mandar.
 
-| Pendiente | Por qué importa |
-|---|---|
-| **Vectoriales SVG y EPS en CMYK** | Sin esto no hay imprenta ni gran formato. El isologotipo PNG (759 × 284) no pasa de **6,4 cm** a 300 dpi. Es el bloqueante principal. |
-| Confirmar los dos tamaños mínimos | Los valores publicados son una propuesta corregida, no una medición. |
-| Dueño y correo de marca | El centro no tiene todavía a quién derivar una consulta. |
-| Circuito de aprobación de piezas | No hay plazo ni responsable definido. |
-| Reglas de lockup con aliados | Ya hay más de diez marcas conviviendo con la de SP. |
-| Abrir `SP_Paleta.ase` en Illustrator | El archivo se lee de vuelta y es correcto según la especificación: 62 bloques, 9 grupos, 44 colores y 3 tintas CMYK con sus valores. Eso descarta que esté mal escrito, pero no prueba que Adobe lo acepte — falta abrirlo una vez. |
-| Guía de fotografía, iconografía y plantillas | Hay material, falta criterio escrito. |
+No se duplica acá: dos copias de la misma lista se separan con el tiempo y
+después no se sabe cuál es la buena.
+
+Lo único que se repite, porque ordena todo lo demás:
+
+> **No hay un solo archivo vectorial.** El isologotipo más grande es un PNG de
+> 759 × 284 px, que a 300 dpi da **6,4 cm** de ancho. Sin SVG y EPS en CMYK no
+> hay imprenta ni gran formato.
 
 ## Correcciones que este centro introduce
 
