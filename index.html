@@ -162,6 +162,28 @@ tr:last-child td{border-bottom:0}
  pointer-events:none}
 .bad .cap{padding:9px 12px 12px;font-size:12.8px;line-height:1.4;color:var(--no);font-weight:600}
 .bad .cap span{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:3px}
+/* ---------- lockup con otra marca ---------- */
+.lk{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:20px;
+ display:flex;align-items:stretch;justify-content:center;flex-wrap:nowrap;overflow-x:auto}
+.lk img.sp{display:block;height:42px;width:auto;align-self:center;flex:none}
+.lk .otra{display:grid;place-items:center;height:42px;padding:0 15px;flex:none;align-self:center;
+ border:1px dashed var(--line-strong);border-radius:7px;font-family:var(--d);font-weight:800;font-size:10px;
+ letter-spacing:.09em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.lk .aire{flex:none;display:grid;place-items:center;background:var(--teal-wash);
+ border-left:1px dashed var(--teal);border-right:1px dashed var(--teal);padding:0 4px;
+ font-family:var(--d);font-size:9.5px;font-weight:800;letter-spacing:.05em;color:var(--teal-text);white-space:nowrap}
+.lk-cap{font-size:12.5px;color:var(--muted);margin-top:9px}
+.lk-cap b{color:var(--ink)}
+
+/* ---------- grilla de aliados ---------- */
+.ally-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:12px}
+.ally{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--surface)}
+/* La caja queda blanca en los DOS temas a propósito: son marcas ajenas, con sus
+   colores, dibujadas para fondo claro. Invertirlas en oscuro sería alterarlas. */
+.ally .box{height:76px;display:grid;place-items:center;background:#FFFFFF;padding:12px}
+.ally .box img{max-width:100%;max-height:52px;display:block}
+.ally .nm{padding:9px 11px 3px;font-family:var(--d);font-weight:700;font-size:12.5px;color:var(--ink);line-height:1.25}
+.ally .mt{padding:0 11px 10px;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 .f-recolor{filter:hue-rotate(128deg) saturate(1.5)}
 .f-stretch{transform:scaleX(1.5)}
 .f-rotate{transform:rotate(-9deg)}
@@ -290,7 +312,7 @@ tr:last-child td{border-bottom:0}
 </div>
 
 <script>
-const A = {"isologoFull": "assets/logos/SP_Isologotipo_Fullcolor_RGB.png", "isologoFullSize": 16397, "isologoWhite": "assets/logos/SP_Isologotipo_Blanco_RGB.png", "isologoWhiteSize": 14770, "isologoNavy": "assets/logos/SP_Isologotipo_Navy_RGB.png", "isologoNavySize": 14853, "isologoBlack": "assets/logos/SP_Isologotipo_Negro_RGB.png", "isologoBlackSize": 14810, "isotipoTurq": "assets/logos/SP_Isotipo_Turquesa_RGB.png", "isotipoTurqSize": 163754, "isotipoTurqPrev": "assets/miniaturas/SP_Isotipo_Turquesa_RGB_mini.png", "isotipoWhite": "assets/logos/SP_Isotipo_Blanco_RGB.png", "isotipoWhiteSize": 163906, "isotipoWhitePrev": "assets/miniaturas/SP_Isotipo_Blanco_RGB_mini.png", "isotipoNavy": "assets/logos/SP_Isotipo_Navy_RGB.png", "isotipoNavySize": 163766, "isotipoNavyPrev": "assets/miniaturas/SP_Isotipo_Navy_RGB_mini.png", "isotipoBlack": "assets/logos/SP_Isotipo_Negro_RGB.png", "isotipoBlackSize": 163675, "isotipoBlackPrev": "assets/miniaturas/SP_Isotipo_Negro_RGB_mini.png", "perfilTurq": "assets/logos/SP_Perfil_Turquesa_1024.png", "perfilTurqSize": 74164, "perfilTurqPrev": "assets/miniaturas/SP_Perfil_Turquesa_1024_mini.png", "perfilNavy": "assets/logos/SP_Perfil_Navy_1024.png", "perfilNavySize": 80315, "perfilNavyPrev": "assets/miniaturas/SP_Perfil_Navy_1024_mini.png", "perfilBlanco": "assets/logos/SP_Perfil_Blanco_1024.png", "perfilBlancoSize": 82515, "perfilBlancoPrev": "assets/miniaturas/SP_Perfil_Blanco_1024_mini.png", "marcaAguaTurq": "assets/logos/SP_MarcaDeAgua_Turquesa15.png", "marcaAguaTurqSize": 123933, "marcaAguaTurqPrev": "assets/miniaturas/SP_MarcaDeAgua_Turquesa15_mini.png", "marcaAguaBlanco": "assets/logos/SP_MarcaDeAgua_Blanco30.png", "marcaAguaBlancoSize": 154189, "marcaAguaBlancoPrev": "assets/miniaturas/SP_MarcaDeAgua_Blanco30_mini.png", "favicon512": "assets/logos/SP_Favicon_512.png", "favicon512Size": 57154, "favicon512Prev": "assets/miniaturas/SP_Favicon_512_mini.png", "favicon192": "assets/logos/SP_Favicon_192.png", "favicon192Size": 18633, "favicon64": "assets/logos/SP_Favicon_64.png", "favicon64Size": 5264, "favicon32": "assets/logos/SP_Favicon_32.png", "favicon32Size": 1889, "faviconIco": "assets/logos/SP_Favicon.ico", "faviconIcoSize": 11959, "fontNunito": "assets/fonts/NunitoSans-Variable.woff2", "fontNunitoSize": 49648, "fontInter": "assets/fonts/Inter-Variable.woff2", "fontInterSize": 349132, "ttfNunitoSemi": "assets/fonts/NunitoSans-SemiBold.ttf", "ttfNunitoSemiSize": 106832, "ttfNunitoExtra": "assets/fonts/NunitoSans-ExtraBold.ttf", "ttfNunitoExtraSize": 106804, "ttfInterReg": "assets/fonts/Inter_18pt-Regular.ttf", "ttfInterRegSize": 342680, "ttfInterMed": "assets/fonts/Inter_18pt-Medium.ttf", "ttfInterMedSize": 343200, "ttfInterSemi": "assets/fonts/Inter_18pt-SemiBold.ttf", "ttfInterSemiSize": 343828, "ttfInterBold": "assets/fonts/Inter_18pt-Bold.ttf", "ttfInterBoldSize": 344152, "oflNunito": "assets/fonts/OFL-NunitoSans.txt", "oflNunitoSize": 4395, "oflInter": "assets/fonts/OFL-Inter.txt", "oflInterSize": 4377, "zipLogos": "descargas/SP_Logos_Pack.zip", "zipLogosSize": 1279603, "zipFonts": "descargas/SP_Tipografias.zip", "zipFontsSize": 1174661, "zipPal": "descargas/SP_Paleta.zip", "zipPalSize": 2960, "ase": "descargas/SP_Paleta.ase", "aseSize": 2386, "css": "descargas/SP_Tokens.css", "cssSize": 1306, "scss": "descargas/SP_Tokens.scss", "scssSize": 1052, "json": "descargas/SP_Tokens.json", "jsonSize": 1799};
+const A = {"isologoFull": "assets/logos/SP_Isologotipo_Fullcolor_RGB.png", "isologoFullSize": 16397, "isologoWhite": "assets/logos/SP_Isologotipo_Blanco_RGB.png", "isologoWhiteSize": 14770, "isologoNavy": "assets/logos/SP_Isologotipo_Navy_RGB.png", "isologoNavySize": 14853, "isologoBlack": "assets/logos/SP_Isologotipo_Negro_RGB.png", "isologoBlackSize": 14810, "isotipoTurq": "assets/logos/SP_Isotipo_Turquesa_RGB.png", "isotipoTurqSize": 163754, "isotipoTurqPrev": "assets/miniaturas/SP_Isotipo_Turquesa_RGB_mini.png", "isotipoWhite": "assets/logos/SP_Isotipo_Blanco_RGB.png", "isotipoWhiteSize": 163906, "isotipoWhitePrev": "assets/miniaturas/SP_Isotipo_Blanco_RGB_mini.png", "isotipoNavy": "assets/logos/SP_Isotipo_Navy_RGB.png", "isotipoNavySize": 163766, "isotipoNavyPrev": "assets/miniaturas/SP_Isotipo_Navy_RGB_mini.png", "isotipoBlack": "assets/logos/SP_Isotipo_Negro_RGB.png", "isotipoBlackSize": 163675, "isotipoBlackPrev": "assets/miniaturas/SP_Isotipo_Negro_RGB_mini.png", "perfilTurq": "assets/logos/SP_Perfil_Turquesa_1024.png", "perfilTurqSize": 74164, "perfilTurqPrev": "assets/miniaturas/SP_Perfil_Turquesa_1024_mini.png", "perfilNavy": "assets/logos/SP_Perfil_Navy_1024.png", "perfilNavySize": 80315, "perfilNavyPrev": "assets/miniaturas/SP_Perfil_Navy_1024_mini.png", "perfilBlanco": "assets/logos/SP_Perfil_Blanco_1024.png", "perfilBlancoSize": 82515, "perfilBlancoPrev": "assets/miniaturas/SP_Perfil_Blanco_1024_mini.png", "marcaAguaTurq": "assets/logos/SP_MarcaDeAgua_Turquesa15.png", "marcaAguaTurqSize": 123933, "marcaAguaTurqPrev": "assets/miniaturas/SP_MarcaDeAgua_Turquesa15_mini.png", "marcaAguaBlanco": "assets/logos/SP_MarcaDeAgua_Blanco30.png", "marcaAguaBlancoSize": 154189, "marcaAguaBlancoPrev": "assets/miniaturas/SP_MarcaDeAgua_Blanco30_mini.png", "favicon512": "assets/logos/SP_Favicon_512.png", "favicon512Size": 57154, "favicon512Prev": "assets/miniaturas/SP_Favicon_512_mini.png", "favicon192": "assets/logos/SP_Favicon_192.png", "favicon192Size": 18633, "favicon64": "assets/logos/SP_Favicon_64.png", "favicon64Size": 5264, "favicon32": "assets/logos/SP_Favicon_32.png", "favicon32Size": 1889, "faviconIco": "assets/logos/SP_Favicon.ico", "faviconIcoSize": 11959, "fontNunito": "assets/fonts/NunitoSans-Variable.woff2", "fontNunitoSize": 49648, "fontInter": "assets/fonts/Inter-Variable.woff2", "fontInterSize": 349132, "ttfNunitoSemi": "assets/fonts/NunitoSans-SemiBold.ttf", "ttfNunitoSemiSize": 106832, "ttfNunitoExtra": "assets/fonts/NunitoSans-ExtraBold.ttf", "ttfNunitoExtraSize": 106804, "ttfInterReg": "assets/fonts/Inter_18pt-Regular.ttf", "ttfInterRegSize": 342680, "ttfInterMed": "assets/fonts/Inter_18pt-Medium.ttf", "ttfInterMedSize": 343200, "ttfInterSemi": "assets/fonts/Inter_18pt-SemiBold.ttf", "ttfInterSemiSize": 343828, "ttfInterBold": "assets/fonts/Inter_18pt-Bold.ttf", "ttfInterBoldSize": 344152, "oflNunito": "assets/fonts/OFL-NunitoSans.txt", "oflNunitoSize": 4395, "oflInter": "assets/fonts/OFL-Inter.txt", "oflInterSize": 4377, "zipLogos": "descargas/SP_Logos_Pack.zip", "zipLogosSize": 1279603, "zipFonts": "descargas/SP_Tipografias.zip", "zipFontsSize": 1174661, "zipPal": "descargas/SP_Paleta.zip", "zipPalSize": 2960, "ase": "descargas/SP_Paleta.ase", "aseSize": 2386, "css": "descargas/SP_Tokens.css", "cssSize": 1306, "scss": "descargas/SP_Tokens.scss", "scssSize": 1052, "json": "descargas/SP_Tokens.json", "jsonSize": 1799, "zipAliados": "descargas/SP_Aliados_Pack.zip", "zipAliadosSize": 48605};
 const CONTRAST = [{"fg": "Turquesa 500", "fgh": "#00BCB4", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Turquesa 700", "fgh": "#009690", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.64, "cuerpo": "✗", "grande": "AA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "Blanco", "bgh": "#FFFFFF", "r": 6.37, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "Blanco", "bgh": "#FFFFFF", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Cuerpo", "fgh": "#3D3D3D", "bg": "Blanco", "bgh": "#FFFFFF", "r": 10.86, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Secundario", "fgh": "#6B6B6B", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.33, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Ambar 500", "fgh": "#F5A623", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.03, "cuerpo": "✗", "grande": "✗"}, {"fg": "Ambar 700", "fgh": "#C47E00", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.32, "cuerpo": "✗", "grande": "AA"}, {"fg": "Sage 500", "fgh": "#7FB396", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.39, "cuerpo": "✗", "grande": "✗"}, {"fg": "Sage 700", "fgh": "#457A5A", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.02, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Lavender 500", "fgh": "#9B84C0", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.25, "cuerpo": "✗", "grande": "AA"}, {"fg": "Lavender 700", "fgh": "#6F5A95", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.88, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Terracota 500", "fgh": "#C67B5C", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.29, "cuerpo": "✗", "grande": "AA"}, {"fg": "Terracota 700", "fgh": "#A05640", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.38, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Navy 500", "bgh": "#003B71", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Turquesa 500", "bgh": "#00BCB4", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "SP-50", "bgh": "#E6F7F6", "r": 10.19, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "SP-50", "bgh": "#E6F7F6", "r": 5.77, "cuerpo": "AA", "grande": "AAA"}];
 
 /* ---- estructura de navegación: id, título, grupo, sub-secciones ---- */
@@ -299,6 +321,8 @@ const PAGES = [
   {id:'/empeza',      t:'Empezá acá',          g:'Intro'},
   {id:'/legal',       t:'Uso legal de la marca',g:'Intro'},
   {id:'/logo',        t:'Logo y variantes',    g:'Logo', sub:['Versiones','Área de resguardo','Tamaño mínimo','Usos indebidos','Matriz de uso']},
+  {id:'/lockup',      t:'Marca junto a otra marca', g:'Logo', sub:['La separación','Cuál va primero','Qué versión de SP usar','Se igualan por peso, no por ancho','Qué no se hace nunca']},
+  {id:'/red',         t:'Aliados y prestadores', g:'Red', sub:['Los aliados','Prestadores','Profesionales y sanatorios']},
   {id:'/color',       t:'Color',               g:'Identidad visual', sub:['Núcleo','Escalas','Narrativas','Qué color va en el texto']},
   {id:'/tipografia',  t:'Tipografía',          g:'Identidad visual'},
   {id:'/voz',         t:'Voz y lenguaje',      g:'Identidad visual'},
@@ -310,6 +334,12 @@ const PAGES = [
   {id:'/faltantes',   t:'Qué falta y qué llegó', g:'Terceros', sub:['Para encargar a un diseñador','Lo que resuelve SP','El pedido, listo para copiar','Lo último que llegó']},
   {id:'/cambios',     t:'Versión y cambios',   g:'Terceros'},
 ];
+
+/* Los aliados: clave de archivo, nombre, ancho, alto y peso — medidos sobre los
+   archivos reales, no declarados. El ancho es el dato que importa: manda cuánto
+   se puede imprimir. Están ordenados alfabéticamente por nombre. */
+const ALIADOS = [["acuidarte","Acuidarte",72,61,1968],["assistcard","Assist Card",61,58,3954],["barberos","Barberos López",64,63,5356],["billio","Billio",29,46,1864],["charpentier","Charpentier",49,57,2914],["sanjose","Farmacia San José",124,56,6132],["farmatotal","Farmatotal",123,26,4104],["fisiospa","Fisio Spa",74,61,3790],["promedik","Promedik",61,57,4892],["puntofarma","Punto Farma",121,19,3152],["upalala","Upalala",76,61,5396],["meister","Óptica Meister",85,56,3182]];
+const cmPrint = px => (px/300*2.54).toFixed(1).replace('.',',');
 
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const anchor = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
@@ -474,7 +504,7 @@ V['/logo'] = () => `
 
 <h2 id="versiones" style="margin-top:44px">Versiones</h2>
 <p class="prose" style="margin-top:10px">El <b>isologotipo</b> es el conjunto completo: el isotipo —el grupo humano en arco— más el texto
-  "SALUD PROTEGIDA MEDICINA PREPAGA". Existe en cuatro colores y ninguno más.
+  "SALUD PROTEGIDA", en dos líneas y todo en mayúsculas. Existe en cuatro colores y ninguno más.
   <b>Cualquier variación de estos colores no está permitida.</b></p>
 <div class="grid g4" style="margin-top:16px">
   <div class="asset"><div class="prev bg-light"><img src="${A.isologoFull}" alt="Isologotipo fullcolor"></div>
@@ -493,7 +523,8 @@ V['/logo'] = () => `
 <h2 id="area-de-resguardo" style="margin-top:44px">Área de resguardo</h2>
 <p class="prose" style="margin-top:10px">También se le dice <i>el aire del logo</i>.
   Alrededor del logo tiene que quedar espacio vacío, y ese espacio tiene una medida:
-  <b>la altura de la letra "a" del logotipo</b>. Ningún otro elemento entra ahí — ni texto, ni imagen, ni el borde de la página.</p>
+  <b>la altura de la letra "A" del logotipo</b> — la A de SALUD, que va en mayúscula como todo el logotipo.
+  Ningún otro elemento entra ahí — ni texto, ni imagen, ni el borde de la página.</p>
 <div class="card" style="margin-top:16px;display:grid;place-items:center;padding:clamp(14px,4vw,34px);background:var(--surface-2)">
   <div style="position:relative;padding:clamp(20px,6vw,34px);outline:1.5px dashed var(--teal);outline-offset:0;background:var(--surface);max-width:100%">
     <img src="${A.isologoFull}" alt="Isologotipo con su área de resguardo" style="width:min(250px,44vw);display:block">
@@ -511,7 +542,7 @@ V['/logo'] = () => `
   <thead><tr><th>Pieza</th><th>Digital</th><th>Impreso</th><th>Por qué</th></tr></thead>
   <tbody>
     <tr><td><b>Isologotipo</b></td><td class="tnum">180 px de ancho</td><td class="tnum">2,5 cm de ancho</td>
-        <td>Debajo de eso "MEDICINA PREPAGA" deja de leerse.</td></tr>
+        <td>Debajo de eso "PROTEGIDA", que es la línea más larga, deja de leerse.</td></tr>
     <tr><td><b>Isotipo</b></td><td class="tnum">24 px de ancho</td><td class="tnum">8 mm de ancho</td>
         <td>Es una forma sola: aguanta mucho más chico.</td></tr>
   </tbody>
@@ -986,6 +1017,173 @@ const PEDIDO = [
 'Gracias.'
 ].join('\n');
 
+V['/lockup'] = () => `
+<div class="eyebrow">Logo</div>
+<h1>Marca junto a otra marca</h1>
+<p class="verdict long">La marca de SP nunca se pega a otra. Entre las dos hay aire, y ese aire ya tiene una medida.</p>
+<p class="lede prose">SP aparece hoy al lado de una docena de marcas aliadas, y hasta ahora cada pieza lo resolvía a ojo.
+  Esta página fija las reglas. No inventa medidas nuevas: las saca de las que este mismo centro ya publica.</p>
+
+<h2 id="la-separacion" style="margin-top:44px">La separación</h2>
+<p class="prose" style="margin-top:10px">Ya está publicado que alrededor del logo de SP tiene que quedar un espacio vacío
+  del tamaño de <b>la altura de la letra "a" del logotipo</b>, y que ahí no entra nada. Como el logotipo va todo en
+  mayúsculas —dice <span class="mono">SALUD PROTEGIDA</span>—, esa letra es <b>la "A" mayúscula</b>: la altura de la A
+  de SALUD. La otra marca también tiene su propia área de resguardo. Cuando las dos conviven hay que respetar las dos,
+  así que el espacio entre ellas es <b>la suma de ambas</b>, y nunca menos de dos A.</p>
+<div class="lk" style="margin-top:16px">
+  <img class="sp" src="${A.isologoFull}" alt="Isologotipo de Salud Protegida">
+  <div class="aire" style="width:76px">2 × A</div>
+  <div class="otra">Otra marca</div>
+</div>
+<p class="lk-cap"><b>Si no sabés cuánto mide la A de la otra marca</b>, usá dos veces la de SP. Pasarse de aire nunca
+  rompió una pieza; quedarse corto sí. <span style="color:var(--faint)">El diagrama marca dónde va el aire; no está
+  dibujado a escala.</span></p>
+<div class="note" style="margin-top:16px"><b>Una raya en el medio es opcional, y casi siempre sobra.</b> Si la usás, que
+  sea fina, gris, de la mitad de alto que las marcas, y que no coma el aire: va centrada dentro de ese espacio, no
+  en lugar de él.</div>
+
+<h2 id="cual-va-primero" style="margin-top:44px">Cuál va primero</h2>
+<p class="prose" style="margin-top:10px">Manda <b>de quién es la pieza</b>, no quién es más grande ni quién pagó.
+  Si la pieza sale de SP, SP va primera —a la izquierda, o arriba si van apiladas—. Si la pieza es del aliado y SP
+  aparece como respaldo, es al revés. Dentro de una misma campaña el orden no se cambia de pieza en pieza.</p>
+<div class="grid g2" style="margin-top:14px">
+  <div>
+    <div class="lk"><img class="sp" src="${A.isologoFull}" alt=""><div class="aire" style="width:52px">aire</div><div class="otra">Aliado</div></div>
+    <p class="lk-cap"><b>Pieza de SP.</b> La invitación, el folleto, el posteo lo hace SP.</p>
+  </div>
+  <div>
+    <div class="lk"><div class="otra">Aliado</div><div class="aire" style="width:52px">aire</div><img class="sp" src="${A.isologoFull}" alt=""></div>
+    <p class="lk-cap"><b>Pieza del aliado.</b> SP acompaña; la voz es del otro.</p>
+  </div>
+</div>
+
+<h2 id="que-version-de-sp-usar" style="margin-top:44px">Qué versión de SP usar</h2>
+<p class="prose" style="margin-top:10px">La decide el fondo sobre el que caen las dos marcas, no el color del logo del
+  aliado. Es la misma regla de siempre, y acá se vuelve más fácil de romper porque uno mira el logo de al lado en vez
+  de mirar el fondo.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Fondo de la pieza</th><th>Versión de SP</th><th>Archivo</th></tr></thead>
+  <tbody>
+    <tr><td>Blanco o claro</td><td><b>Fullcolor</b></td><td><span class="mono">SP_Isologotipo_Fullcolor_RGB</span></td></tr>
+    <tr><td>Navy, turquesa, oscuro o foto</td><td><b>Blanca</b></td><td><span class="mono">SP_Isologotipo_Blanco_RGB</span></td></tr>
+    <tr><td>Una sola tinta</td><td><b>Negra</b> o navy</td><td><span class="mono">SP_Isologotipo_Negro_RGB</span></td></tr>
+  </tbody>
+</table></div>
+<div class="warn" style="margin-top:14px"><b>El error más común del lockup.</b> Poner el SP fullcolor sobre un fondo de
+  color porque el logo del aliado es de color y "hace juego". Sobre fondo de color o foto va la versión blanca,
+  siempre. Si el aliado necesita su versión de color y el fondo no se lo permite, el que cambia es el fondo.</div>
+
+<h2 id="se-igualan-por-peso-no-por-ancho" style="margin-top:44px">Se igualan por peso, no por ancho</h2>
+<p class="prose" style="margin-top:10px">Dos logos al mismo ancho casi nunca se ven del mismo tamaño. Entre los aliados
+  de SP están <b>Punto Farma</b>, que es apaisado (${ALIADOS.find(a=>a[0]==='puntofarma')[2]} × ${ALIADOS.find(a=>a[0]==='puntofarma')[3]} px, casi seis veces
+  más ancho que alto) y <b>Billio</b>, que es vertical (${ALIADOS.find(a=>a[0]==='billio')[2]} × ${ALIADOS.find(a=>a[0]==='billio')[3]} px). Puestos al mismo ancho,
+  Billio queda enorme y Punto Farma desaparece.</p>
+<p class="prose" style="margin-top:10px">La forma que funciona: igualar <b>la altura de las letras</b>, o —si uno es un
+  símbolo y el otro un logotipo— igualar el área que ocupa cada mancha. Es a ojo, y el ojo tiene razón: si parecen del
+  mismo tamaño, están bien, aunque los números digan otra cosa.</p>
+
+<h2 id="que-no-se-hace-nunca" style="margin-top:44px">Qué no se hace nunca</h2>
+<div class="stack" style="margin-top:14px">
+  <div class="card"><b>Encerrar las dos marcas en una caja común.</b> <span style="color:var(--muted)">Un recuadro que
+    las abraza las convierte en un logo nuevo que no existe.</span></div>
+  <div class="card"><b>Achicar SP por debajo de su mínimo para que entre.</b> <span style="color:var(--muted)">El
+    isologotipo no baja de 180 px en pantalla ni de 2,5 cm impreso. Si no entra, se pasa al isotipo — que aguanta
+    hasta 24 px y 8 mm— y no se fuerza el isologotipo.</span></div>
+  <div class="card"><b>Recolorear el logo del aliado para que combine con la paleta de SP.</b> <span style="color:var(--muted)">Es
+    su marca, no la nuestra. Va con sus colores o en blanco, si el aliado tiene versión blanca.</span></div>
+  <div class="card"><b>Mezclar el orden dentro de una misma campaña.</b> <span style="color:var(--muted)">SP a la
+    izquierda en el folleto y a la derecha en el banner se lee como descuido.</span></div>
+  <div class="card"><b>Sumar tres o más marcas sin jerarquía.</b> <span style="color:var(--muted)">Una fila de logos
+    todos iguales no dice nada. Si son varios, van en una franja aparte, más chicos, con un rótulo que explique qué
+    son —y ahí SP no va en la franja: va arriba, como dueña de la pieza.</span></div>
+</div>
+<div class="note" style="margin-top:18px"><b>Estas reglas están escritas, no acordadas.</b> Salen de las medidas que
+  este centro ya publica y de lo que se ve en las piezas de hoy, pero no pasaron todavía por el diseñador ni por los
+  aliados. Sirven para trabajar; conviene confirmarlas antes de tratarlas como definitivas.
+  <span class="pill p-gap" style="margin-left:4px">Sin confirmar</span></div>`;
+
+V['/red'] = () => `
+<div class="eyebrow">Red</div>
+<h1>Aliados y prestadores</h1>
+<p class="verdict long">Las marcas de esta página no son de SP. Se usan para piezas donde ese aliado participa, y para nada más.</p>
+<p class="lede prose">SP trabaja con dos grupos distintos que suelen confundirse. Los <b>aliados</b> son comercios y
+  servicios donde el socio tiene descuentos. Los <b>prestadores</b> son quienes atienden: sanatorios, laboratorios,
+  centros de imágenes. Son dos listas, dos usos y dos permisos distintos.</p>
+
+<h2 id="los-aliados" style="margin-top:44px">Los aliados</h2>
+<p class="prose" style="margin-top:10px">Doce marcas, las mismas que muestra el sitio de socios.</p>
+<div class="ally-grid" style="margin-top:16px">
+  ${ALIADOS.map(([k,n,w,h,s])=>`<div class="ally">
+    <div class="box"><img src="assets/aliados/${k}.webp" alt="Logo de ${esc(n)}" loading="lazy"></div>
+    <div class="nm">${esc(n)}</div>
+    <div class="mt">${w} × ${h} px · ${kb(s)}</div>
+  </div>`).join('')}
+</div>
+<div class="packrow" style="margin-top:18px"><div class="pack">
+  <div class="t">Los doce logos</div>
+  <div class="s">Tal como están hoy: archivos de web. Incluye un LEEME con la advertencia de abajo.</div>
+  <a class="dl" download="SP_Aliados_Pack.zip" href="${A.zipAliados}">Descargar · ${kb(A.zipAliadosSize)}</a>
+</div></div>
+
+<div class="warn" style="margin-top:22px"><b>Ninguno de estos archivos sirve para imprenta, y el número lo dice.</b>
+  Miden entre ${Math.min(...ALIADOS.map(a=>a[2]))} y ${Math.max(...ALIADOS.map(a=>a[2]))} píxeles de ancho: a 300 dpi son
+  entre <b>${cmPrint(Math.min(...ALIADOS.map(a=>a[2])))} y ${cmPrint(Math.max(...ALIADOS.map(a=>a[2])))} cm</b>. El más chico, Billio, tiene
+  ${ALIADOS.find(a=>a[0]==='billio')[2]} píxeles de ancho — dos milímetros impresos. Alcanzan para una franja de logos en una
+  web y para nada más. Para cualquier pieza impresa hay que pedirle a cada aliado su archivo vectorial.
+  <span class="pill p-gap" style="margin-left:4px">Bloqueante para imprenta</span></div>
+
+<div class="note" style="margin-top:16px"><b>Sobre el permiso.</b> SP usa estas marcas por el acuerdo comercial que
+  tiene con cada aliado, y en la práctica el permiso es tácito: hay contrato de trabajo conjunto y a los aliados
+  suele gustarles aparecer. Aun así, <b>el permiso por escrito para redistribuir el logo todavía no está</b>, y
+  conviene pedirlo junto con el vectorial — es el mismo mensaje.
+  <span class="pill p-gap" style="margin-left:4px">Pendiente</span></div>
+
+<h3 style="margin-top:26px">Qué se puede hacer con estos logos</h3>
+<div class="grid g2" style="margin-top:12px">
+  <div class="card"><b>Sí</b><p style="font-size:13.5px;color:var(--muted);margin-top:6px">Piezas de SP donde ese aliado
+    participa: el beneficio, la promoción conjunta, la franja de aliados. Siempre con su forma, su color y su aire,
+    y con las reglas de <a href="#/lockup">Marca junto a otra marca</a>.</p></div>
+  <div class="card"><b>No</b><p style="font-size:13.5px;color:var(--muted);margin-top:6px">Piezas donde el aliado no
+    participa, para sugerir un respaldo que no dio, recoloreados, deformados, ni en material de un tercero que no sea
+    de SP.</p></div>
+</div>
+
+<h2 id="prestadores" style="margin-top:44px">Prestadores</h2>
+<p class="prose" style="margin-top:10px">Son quienes atienden: sanatorios, laboratorios, centros de imágenes, clínicas.
+  Es una lista distinta de la de aliados, con un permiso distinto, y <b>hoy no existe como material de marca</b>.</p>
+<div class="warn" style="margin-top:14px"><b>El espacio está, el contenido no.</b> El sitio de socios muestra
+  <i>tipos</i> de servicio —sanatorio, laboratorio, maternidad, emergencias— y no nombres ni logos. Para llenar esta
+  sección hace falta, de SP: la lista de quiénes entran, el logo de cada uno en archivo vectorial, y la confirmación
+  de que el contrato permite mostrarlo. Sin las tres cosas no se publica nada acá.
+  <span class="pill p-gap" style="margin-left:4px">Pendiente</span></div>
+<p class="prose" style="margin-top:14px">Mientras tanto, para una pieza que necesite hablar de la red, lo que se usa es
+  <b>la Guía Médica del sitio de socios</b>, que es donde la red vive actualizada. Una lista pegada en un folleto
+  envejece; un enlace no.</p>
+
+<h2 id="profesionales-y-sanatorios" style="margin-top:44px">Profesionales y sanatorios</h2>
+<p class="prose" style="margin-top:10px">Fotos de médicos, de equipos y de los lugares donde se atiende. Tampoco existen
+  todavía, y este es el material más delicado de los tres, por una razón que no es de marca.</p>
+<div class="warn" style="margin-top:14px"><b>La foto de una persona necesita el permiso de esa persona.</b> No alcanza
+  con que la sacamos nosotros ni con que trabaje con SP: hace falta su consentimiento para <i>ese</i> uso, y una página
+  pública de descarga es el uso más amplio que existe. Antes de subir una sola foto de alguien hay que tener, por
+  cada persona, su autorización escrita, para qué usos, y cómo se da de baja si cambia de opinión.
+  <span class="pill p-gap" style="margin-left:4px">Pendiente</span></div>
+<h3 style="margin-top:24px">Qué foto sirve, cuando lleguen</h3>
+<div class="stack" style="margin-top:12px">
+  <div class="card"><b>Personas reales, mirando a cámara.</b> <span style="color:var(--muted)">Nada de banco de
+    imágenes internacional. Una sala de espera de Asunción se reconoce; una foto genérica se nota.</span></div>
+  <div class="card"><b>Sin sonrisa cuando el tema es serio.</b> <span style="color:var(--muted)">Un diagnóstico
+    difícil no se ilustra con gente contenta.</span></div>
+  <div class="card"><b>Horizontal y vertical de cada toma.</b> <span style="color:var(--muted)">La misma foto va a
+    tener que entrar en un posteo cuadrado, en una historia vertical y en un encabezado apaisado.</span></div>
+  <div class="card"><b>Sin datos de pacientes en el encuadre.</b> <span style="color:var(--muted)">Pantallas,
+    planillas, carteles con nombres: se revisa el fondo antes de disparar, no después.</span></div>
+</div>
+
+<div class="note" style="margin-top:22px"><b>Por qué estas tres cosas están en la misma página.</b> Las tres son marcas
+  o imágenes que <b>no son de SP</b>. La regla que las une es una sola: se usan para piezas de SP donde esa persona o
+  esa marca participa, con su permiso, y no se reparten para otra cosa.</div>`;
+
 V['/faltantes'] = () => `
 <div class="eyebrow">Terceros</div>
 <h1>Qué falta y qué llegó</h1>
@@ -1050,6 +1248,12 @@ V['/faltantes'] = () => `
       <td><span class="pill p-mid">Importante</span></td>
     </tr>
     <tr>
+      <td><b>Vectoriales de los 12 aliados</b><br><span style="color:var(--muted)">los pide SP, los hace cada aliado</span></td>
+      <td>Los archivos que tenemos miden de 29 a 124 px de ancho: entre 0,2 y 1,0 cm impresos. No entra ninguna pieza gráfica con eso.</td>
+      <td><span style="color:var(--muted)">El que cada aliado tenga —<span class="mono">.svg</span>, <span class="mono">.eps</span> o <span class="mono">.pdf</span></span></td>
+      <td><span class="pill p-gap">Bloqueante</span></td>
+    </tr>
+    <tr>
       <td><b>Set de íconos</b></td>
       <td>El sitio de clientes ya usa íconos, pero cada uno se dibujó suelto y el grosor del trazo va de 1,7 a 4.
         No hay set ni regla escrita.</td>
@@ -1077,7 +1281,10 @@ V['/faltantes'] = () => `
   <tbody>
     <tr><td><b>Dueño y correo de marca</b></td><td>El centro no tiene todavía a quién derivar una consulta. Es lo más barato de resolver y lo que más traba.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
     <tr><td><b>Circuito de aprobación de piezas</b></td><td>A quién se le manda una pieza, con cuánta anticipación y quién responde. Hoy no hay plazo ni responsable.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
-    <tr><td><b>Reglas de lockup con aliados</b></td><td>SP convive hoy con más de diez marcas en sus piezas y no está escrito cómo se acomodan.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td><b>Confirmar las reglas de lockup</b></td><td>Ya están escritas en <a href="#/lockup">Marca junto a otra marca</a>, derivadas de las medidas que este centro publica. Falta que las mire el diseñador y que los aliados sepan que existen.</td><td><span class="pill p-mid">Casi</span></td></tr>
+    <tr><td><b>Permiso escrito de los 12 aliados</b></td><td>Hoy el permiso es tácito: hay acuerdo comercial y a los aliados suele gustarles aparecer. Conviene pedirlo por escrito junto con el vectorial, que es el mismo mensaje.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td><b>La lista de prestadores</b></td><td>Quiénes entran, el logo de cada uno y la confirmación de que el contrato permite mostrarlo. El espacio está armado en <a href="#/red">Aliados y prestadores</a>; falta el contenido.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td><b>Consentimiento para las fotos de profesionales</b></td><td>Por cada persona: su autorización escrita, para qué usos y cómo se da de baja. Sin eso no sube ninguna foto de nadie.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
     <tr><td><b>Confirmar los dos tamaños mínimos</b></td><td>Los valores publicados son una propuesta corregida, no una medición. La regla que este centro publica tiene que ser verdadera.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
     <tr><td><b>Criterio de fotografía escrito</b></td><td>Hay material, falta el criterio. Sin él cada proveedor elige por su cuenta.</td><td><span class="pill p-mid">Menor</span></td></tr>
     <tr><td>Abrir <span class="mono">SP_Paleta.ase</span> en Illustrator</td><td>El archivo se leyó de vuelta y es correcto según la especificación: 62 bloques, 9 grupos y las tres tintas CMYK con sus valores. Falta la confirmación final, que es abrirlo en Adobe una vez.</td><td><span class="pill p-mid">Casi</span></td></tr>
@@ -1100,6 +1307,7 @@ V['/faltantes'] = () => `
 <div class="tbl-scroll" style="margin-top:14px"><table>
   <thead><tr><th>Fecha</th><th>Qué entró</th><th>Dónde está</th></tr></thead>
   <tbody>
+    <tr><td class="tnum">07/08/2026</td><td><b>Los 12 logos de aliados</b> — Farmatotal, Punto Farma, Assist Card, Farmacia San José, Óptica Meister, Promedik, Billio, Acuidarte, Charpentier, Fisio Spa, Barberos López y Upalala. Venían del sitio de socios; son archivos de web y no sirven para imprenta.</td><td><span class="mono">assets/aliados/</span></td></tr>
     <tr><td class="tnum">07/08/2026</td><td><b>Seis tipografías para instalar</b> — Nunito Sans SemiBold y ExtraBold, Inter Regular, Medium, SemiBold y Bold, en <span class="mono">.ttf</span>. Antes solo había <span class="mono">.woff2</span>, que no se instala en Illustrator, Word ni Canva.</td><td><span class="mono">assets/fonts/</span></td></tr>
     <tr><td class="tnum">06/08/2026</td><td><b>Los 18 archivos de marca</b> — isologotipo en 4 versiones, isotipo en 4, cinco favicons, dos marcas de agua y tres fotos de perfil. Todos PNG.</td><td><span class="mono">assets/logos/</span></td></tr>
     <tr><td class="tnum">06/08/2026</td><td><b>La paleta en formato Adobe</b> — <span class="mono">SP_Paleta.ase</span>, más los colores en CSS, Sass y JSON para quien programa.</td><td><span class="mono">descargas/</span></td></tr>
@@ -1117,6 +1325,10 @@ V['/cambios'] = () => `
 <div class="tbl-scroll" style="margin-top:22px"><table>
   <thead><tr><th>Fecha</th><th>Versión</th><th>Qué cambió</th></tr></thead>
   <tbody>
+    <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>Entran los aliados, y las reglas para ponerlos al lado de SP.</b> Los 12 logos vivían solo en el sitio de socios; ahora están acá, con su pack. Y hay página nueva de lockup: cuánto aire va entre dos marcas —dos veces la "a", derivado del área de resguardo que este centro ya publicaba—, cuál va primero, qué versión de SP usar y qué no se hace nunca. Se sumaron también el espacio de prestadores y el de fotos de profesionales: los dos sin contenido todavía, con lo que hace falta para llenarlos.</td></tr>
+    <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>Cuarta corrección al manual anterior: el isologotipo no dice "MEDICINA PREPAGA".</b> El sitio afirmaba que el texto del isologotipo era "SALUD PROTEGIDA MEDICINA PREPAGA", y que por debajo del mínimo "MEDICINA PREPAGA deja de leerse". Se miró el archivo: dice <b>SALUD PROTEGIDA</b> en dos líneas y nada más. La línea que se pierde primero es PROTEGIDA, que es la más larga. El mínimo de 180 px no cambia; cambia el porqué.</td></tr>
+    <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>El área de resguardo se medía con una letra que no existe.</b> La regla decía "la altura de la letra «a» del logotipo", pero el logotipo va todo en mayúsculas: no hay ninguna "a" minúscula que medir. Ahora dice la <b>A</b> de SALUD. La medida no cambia — cambia que ahora se puede señalar cuál es.</td></tr>
+    <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>Los logos de aliados no sirven para imprenta, y ahora se dice.</b> Medidos: de 29 a 124 px de ancho, o sea de 0,2 a 1,0 cm a 300 dpi. Billio tiene 29 px — dos milímetros impresos. Estaban en el sitio de socios sin ninguna advertencia, así que un diseñador podía bajarlos y enterarse recién en la imprenta.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.2</td><td><b>Página nueva: <a href="#/faltantes">Qué falta y qué llegó</a>.</b> Los faltantes estaban en una sola lista que mezclaba tres cosas distintas —lo que se le encarga a un diseñador, lo que decide SP y funciones de este sitio— con seis vocabularios de estado para clasificarlos. Ahora están separados por quién los resuelve, cada archivo pedido lleva el nombre exacto con el que tiene que volver, y hay un pedido en texto listo para copiar y mandar. Se agregó además el registro de qué archivo entró y cuándo, que antes no existía.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.1</td><td><b>Las tipografías no se podían instalar.</b> La descarga traía solo <span class="mono">.woff2</span>, que es formato de navegador: no se instala en Illustrator, Word ni Canva. Ahora van también los seis <span class="mono">.ttf</span>, y el sitio explica cuál usar.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.1</td><td><b>Reescrito para quien no es diseñador.</b> "Contraste" pasó a ser <b>"Qué color va en el texto"</b>, con la regla en palabras y una comparación que se ve. Los ratios quedan plegados bajo <i>Para quien programa</i>. Se tradujeron doce términos más: tokens, lockup, formatos locales, SIL OFL, dpi y RGB/CMYK, entre otros.</td></tr>
@@ -1156,7 +1368,7 @@ function pagerFor(id){
     <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
     <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
   </nav>
-  <div class="stamp">Actualizado el 07/08/2026 · Centro de Marca v1.2</div>`;
+  <div class="stamp">Actualizado el 07/08/2026 · Centro de Marca v1.3</div>`;
 }
 function route(){
   const raw=location.hash.slice(1)||'/';
