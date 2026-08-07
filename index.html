@@ -998,7 +998,7 @@ function railFor(id){
 function pagerFor(id){
   const i=PAGES.findIndex(p=>p.id===id); if(i<0)return'';
   const prev=PAGES[i-1], next=PAGES[i+1];
-  return `<nav class="pager">
+  return `<nav class="pager" aria-label="Página anterior y siguiente">
     <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
     <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
   </nav>
