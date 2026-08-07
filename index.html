@@ -181,7 +181,12 @@ tr:last-child td{border-bottom:0}
 .f-over b{background:var(--amber);color:#1D1D1B;font-family:var(--d);font-size:12px;padding:4px 9px;border-radius:5px;transform:rotate(-6deg)}
 .lockup{display:flex;align-items:center;gap:9px}
 .lockup em{font-family:var(--d);font-style:normal;font-weight:800;font-size:17px;color:var(--navy);letter-spacing:-.01em}
+/* El azul del lockup necesita las DOS reglas, igual que .bad .stage acá arriba: con
+   solo [data-theme="dark"] el color se aplica cuando alguien toca el interruptor, pero
+   no cuando el sistema operativo ya está en oscuro y nadie lo tocó — que es el caso
+   más común. Ahí quedaba navy sobre fondo oscuro: 1,55:1. */
 :root[data-theme="dark"] .lockup em{color:#9FC4E6}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .lockup em{color:#9FC4E6}}
 
 /* ---------- descargas ---------- */
 .asset{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
@@ -199,7 +204,7 @@ tr:last-child td{border-bottom:0}
 .asset .mt{margin-top:5px;font-size:11.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:7px;align-items:center}
 .fmt{font-family:var(--d);font-size:9.5px;font-weight:800;letter-spacing:.06em;background:var(--surface-2);color:var(--muted);padding:2px 6px;border-radius:4px}
 .dl{display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-family:var(--d);font-weight:700;font-size:12.5px;
- color:var(--teal-text);border:1px solid var(--line-strong);padding:5px 11px;border-radius:8px;background:var(--surface)}
+ color:var(--teal-text);border:1px solid var(--line-strong);padding:5px 11px;border-radius:8px;background:var(--surface);cursor:pointer}
 .dl:hover{border-color:var(--teal);background:var(--teal-wash)}
 .packrow{display:flex;flex-wrap:wrap;gap:12px}
 .pack{flex:1 1 210px;border:1px solid var(--line);border-radius:12px;padding:15px;background:var(--surface)}
@@ -302,6 +307,7 @@ const PAGES = [
   {id:'/descargas-tipografias',t:'Tipografías',    g:'Descargas'},
   {id:'/descargas-paleta',     t:'Paleta y códigos de color',g:'Descargas'},
   {id:'/agencias',    t:'Para agencias y proveedores', g:'Terceros'},
+  {id:'/faltantes',   t:'Qué falta y qué llegó', g:'Terceros', sub:['Para encargar a un diseñador','Lo que resuelve SP','El pedido, listo para copiar','Lo último que llegó']},
   {id:'/cambios',     t:'Versión y cambios',   g:'Terceros'},
 ];
 
@@ -944,6 +950,159 @@ V['/legal'] = () => `
 <div class="note" style="margin-top:14px"><b>El logo es una obra aparte.</b> Está trazado a curvas: es un
   dibujo, no texto compuesto. Por eso se usa y se distribuye sin depender de ninguna licencia tipográfica.</div>`;
 
+/* El pedido va como texto plano y en una sola constante: se copia y se manda por
+   donde sea. Si alguna vez cambia la lista de faltantes, este texto cambia con ella
+   — es la misma información dicha para que la lea un proveedor, no una tabla. */
+const PEDIDO = [
+'Hola. Necesitamos los archivos vectoriales de la marca Salud Protegida.',
+'',
+'Hoy solo tenemos PNG. El isologotipo más grande que tenemos es de 759 x 284 px:',
+'a 300 dpi eso da 6,4 cm de ancho. No sirve para imprenta ni para gran formato.',
+'',
+'Lo que necesitamos, en este orden:',
+'',
+'1. Isologotipo vectorial en RGB (.svg), en las cuatro versiones que ya existen',
+'   en PNG: fullcolor, blanco, navy y negro.',
+'2. Isologotipo vectorial en CMYK (.eps), las mismas cuatro versiones.',
+'3. Isotipo (el símbolo solo, sin texto) en .svg y en .eps, en turquesa, blanco,',
+'   navy y negro.',
+'',
+'Sobre los nombres: los archivos tienen que volver con esta forma exacta, porque',
+'nuestro sitio los referencia por nombre y un rename lo rompe.',
+'',
+'   SP_Isologotipo_Fullcolor_RGB.svg',
+'   SP_Isologotipo_Fullcolor_CMYK.eps',
+'   SP_Isotipo_Turquesa_RGB.svg',
+'   SP_Isotipo_Turquesa_CMYK.eps',
+'',
+'...y así con cada versión, cambiando Fullcolor por Blanco, Navy o Negro.',
+'',
+'Tres cosas más:',
+'- El logo va trazado a curvas, no como texto compuesto con una tipografía.',
+'- El isologotipo tiene proporción 759 x 284 (2,673:1). Respetarla exactamente.',
+'- Los colores, las reglas de uso y el área de resguardo están publicados en',
+'  https://nelargon.github.io/sp-brandcenter/',
+'',
+'Gracias.'
+].join('\n');
+
+V['/faltantes'] = () => `
+<div class="eyebrow">Terceros</div>
+<h1>Qué falta y qué llegó</h1>
+<p class="verdict long">Este centro no tiene todavía un solo archivo vectorial. Todo lo demás que falta se puede esperar; esto no.</p>
+<p class="lede prose">Esta página sirve para dos cosas: saber <b>qué pedir y a quién</b> sin tener que reconstruirlo cada vez,
+  y ver <b>qué entró último</b>, para que nadie produzca una pieza con una versión vieja de la marca.</p>
+
+<div class="warn" style="margin-top:24px"><b>El bloqueante, con el número medido.</b> El isologotipo más grande que existe hoy
+  es un PNG de <span class="mono">759 × 284</span> px. A 300 dpi —la calidad que pide una imprenta— eso da
+  <b>6,4 cm de ancho</b>: más chico que una tarjeta personal. El isotipo llega a 14,9 cm. Para un banner, una vidriera
+  o un cartel no alcanza, y no hay forma de agrandarlo sin que se pixele.
+  <span class="pill p-gap" style="margin-left:4px">Bloqueante</span></div>
+
+<h2 id="para-encargar-a-un-disenador" style="margin-top:44px">Para encargar a un diseñador</h2>
+<p class="prose" style="margin-top:10px">Cada fila trae <b>el nombre exacto con el que tiene que volver el archivo</b>. No es un capricho:
+  el sitio referencia los archivos por nombre y es lo que ve el proveedor cuando descarga, así que un archivo que
+  vuelve con otro nombre hay que renombrarlo a mano y se rompe en dos lugares. Con esa columna, lo que entrega el
+  diseñador entra al centro sin tocar nada.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Qué falta</th><th>Para qué se necesita</th><th>Con qué nombre vuelve</th><th>Prioridad</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><b>Isologotipo vectorial RGB</b><br><span style="color:var(--muted)">las 4 versiones</span></td>
+      <td>Es el que sirve para pantalla y web a cualquier tamaño sin pixelarse. Hoy no existe.</td>
+      <td><span class="mono">SP_Isologotipo_Fullcolor_RGB.svg</span><br><span class="mono" style="color:var(--muted)">…_Blanco_ · …_Navy_ · …_Negro_</span></td>
+      <td><span class="pill p-gap">Bloqueante</span></td>
+    </tr>
+    <tr>
+      <td><b>Isologotipo vectorial CMYK</b><br><span style="color:var(--muted)">las 4 versiones</span></td>
+      <td>Es el único que una imprenta acepta sin reclamar. Sin esto no hay folletos, ni cartelería, ni gran formato.</td>
+      <td><span class="mono">SP_Isologotipo_Fullcolor_CMYK.eps</span><br><span class="mono" style="color:var(--muted)">…_Blanco_ · …_Navy_ · …_Negro_</span></td>
+      <td><span class="pill p-gap">Bloqueante</span></td>
+    </tr>
+    <tr>
+      <td><b>Isotipo vectorial</b><br><span style="color:var(--muted)">RGB y CMYK</span></td>
+      <td>El símbolo solo, que es lo que la matriz de uso indica para espacios chicos y para sellos grandes.</td>
+      <td><span class="mono">SP_Isotipo_Turquesa_RGB.svg</span><br><span class="mono">SP_Isotipo_Turquesa_CMYK.eps</span></td>
+      <td><span class="pill p-gap">Bloqueante</span></td>
+    </tr>
+    <tr>
+      <td><b>Membrete A4</b></td>
+      <td>Es lo que más se pide y lo que más se improvisa. Cada área arma el suyo y ninguno se parece al otro.</td>
+      <td><span class="mono">SP_Membrete_A4.pdf</span> <span style="color:var(--muted)">+ el editable</span></td>
+      <td><span class="pill p-mid">Importante</span></td>
+    </tr>
+    <tr>
+      <td><b>Plantilla de presentación</b><br><span style="color:var(--muted)">16:9</span></td>
+      <td>Mismo problema que el membrete, y se ve más: una presentación sale de la empresa y la mira un cliente.</td>
+      <td><span class="mono">SP_Presentacion_16-9.potx</span></td>
+      <td><span class="pill p-mid">Importante</span></td>
+    </tr>
+    <tr>
+      <td><b>Firma de correo</b></td>
+      <td>Hoy cada persona arma la suya. Es la pieza de marca que más veces por día ve alguien de afuera.</td>
+      <td><span class="mono">SP_Firma_Correo.html</span></td>
+      <td><span class="pill p-mid">Importante</span></td>
+    </tr>
+    <tr>
+      <td><b>Imagen para compartir</b><br><span style="color:var(--muted)">1200 × 630 px</span></td>
+      <td>Es la que aparece cuando alguien pega un link de SP en WhatsApp o en Facebook. Sin ella el link sale gris.</td>
+      <td><span class="mono">SP_Compartir_1200x630.png</span></td>
+      <td><span class="pill p-mid">Importante</span></td>
+    </tr>
+    <tr>
+      <td><b>Set de íconos</b></td>
+      <td>El sitio de clientes ya usa íconos, pero cada uno se dibujó suelto y el grosor del trazo va de 1,7 a 4.
+        No hay set ni regla escrita.</td>
+      <td><span class="mono">SP_Icono_[nombre].svg</span></td>
+      <td><span class="pill p-mid">Menor</span></td>
+    </tr>
+  </tbody>
+</table></div>
+<div class="note" style="margin-top:16px"><b>Antes de encargar los vectoriales, preguntá si ya existen.</b> Un logo trazado a
+  curvas casi siempre existió alguna vez, en la computadora de quien lo dibujó. Recuperar el original cuesta un
+  mensaje; redibujarlo cuesta un presupuesto, y el redibujo nunca queda idéntico.</div>
+
+<h2 id="lo-que-resuelve-sp" style="margin-top:44px">Lo que resuelve SP</h2>
+<p class="prose" style="margin-top:10px">Esto no se encarga afuera: son decisiones, confirmaciones o archivos que se
+  consiguen solos. Están acá para que no se mezclen con el pedido y no terminen en el presupuesto de un diseñador.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Qué falta</th><th>Por qué importa</th><th>Estado</th></tr></thead>
+  <tbody>
+    <tr><td><b>Dueño y correo de marca</b></td><td>El centro no tiene todavía a quién derivar una consulta. Es lo más barato de resolver y lo que más traba.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td><b>Circuito de aprobación de piezas</b></td><td>A quién se le manda una pieza, con cuánta anticipación y quién responde. Hoy no hay plazo ni responsable.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td><b>Reglas de lockup con aliados</b></td><td>SP convive hoy con más de diez marcas en sus piezas y no está escrito cómo se acomodan.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td><b>Confirmar los dos tamaños mínimos</b></td><td>Los valores publicados son una propuesta corregida, no una medición. La regla que este centro publica tiene que ser verdadera.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
+    <tr><td><b>Criterio de fotografía escrito</b></td><td>Hay material, falta el criterio. Sin él cada proveedor elige por su cuenta.</td><td><span class="pill p-mid">Menor</span></td></tr>
+    <tr><td>Abrir <span class="mono">SP_Paleta.ase</span> en Illustrator</td><td>El archivo se leyó de vuelta y es correcto según la especificación: 62 bloques, 9 grupos y las tres tintas CMYK con sus valores. Falta la confirmación final, que es abrirlo en Adobe una vez.</td><td><span class="pill p-mid">Casi</span></td></tr>
+    <tr><td>Nunito Sans en pesos 400 y 500</td><td>Se entregan el 600 y el 800, que es lo que la regla permite para títulos. El resto se baja libre de Google Fonts — no hace falta diseñador.</td><td><span class="pill p-mid">Menor</span></td></tr>
+    <tr><td>Buscador y filtros en este sitio</td><td>Con más archivos se vuelve necesario. Hoy son 18 y se ven de un vistazo.</td><td><span class="pill p-mid">Menor</span></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="el-pedido-listo-para-copiar" style="margin-top:44px">El pedido, listo para copiar</h2>
+<p class="prose" style="margin-top:10px">Esto es la primera tabla dicha en el idioma de quien lo va a producir, con el
+  número medido y los nombres de archivo adentro. Copialo y mandalo como está.</p>
+<div class="card" style="margin-top:14px">
+  <button class="dl" data-copy="${esc(PEDIDO)}" data-ok="Copiado ✓" style="margin:0 0 14px">Copiar el pedido</button>
+  <div class="mono" style="white-space:pre-wrap;line-height:1.62;color:var(--body)">${esc(PEDIDO)}</div>
+</div>
+
+<h2 id="lo-ultimo-que-llego" style="margin-top:44px">Lo último que llegó</h2>
+<p class="prose" style="margin-top:10px">Solo archivos: qué entró, cuándo y dónde está. Los cambios del sitio en sí
+  —textos, correcciones, reglas— viven en <a href="#/cambios">Versión y cambios</a>.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Fecha</th><th>Qué entró</th><th>Dónde está</th></tr></thead>
+  <tbody>
+    <tr><td class="tnum">07/08/2026</td><td><b>Seis tipografías para instalar</b> — Nunito Sans SemiBold y ExtraBold, Inter Regular, Medium, SemiBold y Bold, en <span class="mono">.ttf</span>. Antes solo había <span class="mono">.woff2</span>, que no se instala en Illustrator, Word ni Canva.</td><td><span class="mono">assets/fonts/</span></td></tr>
+    <tr><td class="tnum">06/08/2026</td><td><b>Los 18 archivos de marca</b> — isologotipo en 4 versiones, isotipo en 4, cinco favicons, dos marcas de agua y tres fotos de perfil. Todos PNG.</td><td><span class="mono">assets/logos/</span></td></tr>
+    <tr><td class="tnum">06/08/2026</td><td><b>La paleta en formato Adobe</b> — <span class="mono">SP_Paleta.ase</span>, más los colores en CSS, Sass y JSON para quien programa.</td><td><span class="mono">descargas/</span></td></tr>
+    <tr><td class="tnum">20/07/2026</td><td><b>Nunito Sans reemplaza a Gilroy</b> como tipografía display de la marca. Gilroy era comercial y su licencia anual no se podía sostener; Nunito Sans es libre y se puede repartir.</td><td><span class="mono">assets/fonts/</span></td></tr>
+  </tbody>
+</table></div>
+<div class="note" style="margin-top:18px"><b>Cuando llegue algo nuevo.</b> El archivo entra a <span class="mono">assets/</span>
+  con su nombre canónico, aparece en la página de descargas que le corresponde, y se anota acá arriba con su fecha
+  —todo en el mismo cambio. Un archivo que entró y no se anotó es un archivo que nadie va a encontrar.</div>`;
+
 V['/cambios'] = () => `
 <div class="eyebrow">Terceros</div>
 <h1>Versión y cambios</h1>
@@ -951,6 +1110,7 @@ V['/cambios'] = () => `
 <div class="tbl-scroll" style="margin-top:22px"><table>
   <thead><tr><th>Fecha</th><th>Versión</th><th>Qué cambió</th></tr></thead>
   <tbody>
+    <tr><td class="tnum">07/08/2026</td><td>1.2</td><td><b>Página nueva: <a href="#/faltantes">Qué falta y qué llegó</a>.</b> Los faltantes estaban en una sola lista que mezclaba tres cosas distintas —lo que se le encarga a un diseñador, lo que decide SP y funciones de este sitio— con seis vocabularios de estado para clasificarlos. Ahora están separados por quién los resuelve, cada archivo pedido lleva el nombre exacto con el que tiene que volver, y hay un pedido en texto listo para copiar y mandar. Se agregó además el registro de qué archivo entró y cuándo, que antes no existía.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.1</td><td><b>Las tipografías no se podían instalar.</b> La descarga traía solo <span class="mono">.woff2</span>, que es formato de navegador: no se instala en Illustrator, Word ni Canva. Ahora van también los seis <span class="mono">.ttf</span>, y el sitio explica cuál usar.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.1</td><td><b>Reescrito para quien no es diseñador.</b> "Contraste" pasó a ser <b>"Qué color va en el texto"</b>, con la regla en palabras y una comparación que se ve. Los ratios quedan plegados bajo <i>Para quien programa</i>. Se tradujeron doce términos más: tokens, lockup, formatos locales, SIL OFL, dpi y RGB/CMYK, entre otros.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.1</td><td><b>Contraste del propio sitio corregido.</b> Un auditor recorrió las 13 páginas en los dos temas midiendo el color computado de cada texto: 25 elementos en claro y 14 en oscuro no llegaban al mínimo que este mismo sitio publica. Ahora son cero.</td></tr>
@@ -961,21 +1121,15 @@ V['/cambios'] = () => `
   </tbody>
 </table></div>
 <h2 style="margin-top:38px">Lo que falta</h2>
-<div class="tbl-scroll" style="margin-top:14px"><table>
-  <thead><tr><th>Qué</th><th>Por qué importa</th><th>Estado</th></tr></thead>
-  <tbody>
-    <tr><td><b>Vectoriales SVG y EPS en CMYK</b></td><td>Sin esto no hay imprenta ni gran formato.</td><td><span class="pill p-gap">Bloqueante</span></td></tr>
-    <tr><td>Confirmar los dos tamaños mínimos</td><td>La regla publicada tiene que ser verdadera.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
-    <tr><td>Dueño y correo de marca</td><td>El centro necesita a quién preguntarle.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
-    <tr><td>Circuito de aprobación de piezas</td><td>Hoy no hay plazo ni responsable definido.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
-    <tr><td>Reglas de lockup con aliados</td><td>Ya hay más de diez conviviendo con la marca.</td><td><span class="pill p-gap">Pendiente</span></td></tr>
-    <tr><td>Guía de fotografía e iconografía</td><td>Hay material, no hay criterio escrito.</td><td><span class="pill p-mid">Nivel 4</span></td></tr>
-    <tr><td>Abrir <span class="mono">SP_Paleta.ase</span> en Illustrator</td><td>El archivo se leyó de vuelta y es correcto según la especificación del formato: 62 bloques, 9 grupos y las tres tintas CMYK con sus valores. Falta la confirmación final, que es abrirlo en Adobe una vez.</td><td><span class="pill p-mid">Casi</span></td></tr>
-    <tr><td>Nunito Sans en pesos 400 y 500 para instalar</td><td>Hoy se entregan el 600 y el 800, que es lo que la regla permite para títulos. Falta el resto por si alguien lo necesita.</td><td><span class="pill p-mid">Menor</span></td></tr>
-    <tr><td>Plantillas: membrete, presentación, firma</td><td>Es lo que más se pide y lo que más se improvisa.</td><td><span class="pill p-mid">Nivel 4</span></td></tr>
-    <tr><td>Buscador, filtros y selección múltiple</td><td>Con más archivos se vuelve necesario.</td><td><span class="pill p-mid">Nivel 5</span></td></tr>
-  </tbody>
-</table></div>`;
+<p class="prose" style="margin-top:10px">La lista de faltantes se mudó a su propia página —
+  <a href="#/faltantes">Qué falta y qué llegó</a>— y vive solo ahí. Ahora está separada en lo que
+  <b>se le encarga a un diseñador</b>, con el nombre exacto que tiene que tener cada archivo, y lo que
+  <b>resuelve SP</b> puertas adentro. Se mudó entera, en un solo lugar: dos copias de la misma lista se
+  separan con el tiempo y nunca se sabe cuál es la buena.</p>
+<div class="warn" style="margin-top:16px"><b>El bloqueante sigue siendo el mismo.</b> No hay archivos vectoriales.
+  El isologotipo más grande es un PNG de <span class="mono">759 × 284</span> px, que a 300 dpi da 6,4 cm de ancho:
+  no alcanza para imprenta ni para gran formato.
+  <span class="pill p-gap" style="margin-left:4px">Bloqueante</span></div>`;
 
 /* ---------- router ---------- */
 function railFor(id){
@@ -995,7 +1149,7 @@ function pagerFor(id){
     <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
     <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
   </nav>
-  <div class="stamp">Actualizado el 07/08/2026 · Centro de Marca v1.1</div>`;
+  <div class="stamp">Actualizado el 07/08/2026 · Centro de Marca v1.2</div>`;
 }
 function route(){
   const raw=location.hash.slice(1)||'/';
@@ -1023,7 +1177,10 @@ document.addEventListener('click',()=>document.querySelectorAll('[data-nav]').fo
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-copy]'); if(!b) return;
   const v=b.dataset.copy; const old=b.textContent;
-  navigator.clipboard?.writeText(v).then(()=>{b.textContent=v+' ✓';setTimeout(()=>b.textContent=old,1100)}).catch(()=>{});
+  /* El acuse repite el valor copiado, que es lo correcto para un hex. Un pedido de
+     treinta líneas no entra en un botón: ahí el bloque declara su propio data-ok. */
+  const ok=b.dataset.ok || (v+' ✓');
+  navigator.clipboard?.writeText(v).then(()=>{b.textContent=ok;setTimeout(()=>b.textContent=old,1100)}).catch(()=>{});
 });
 
 const root=document.documentElement;
