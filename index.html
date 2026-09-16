@@ -954,8 +954,11 @@ V['/agencias'] = () => `
   de SP que te contrató. <span class="pill p-gap" style="margin-left:4px">Pendiente</span></div>
 
 <div class="note" style="margin-top:16px"><b>Nota sobre aliados.</b> SP convive hoy con más de diez marcas aliadas en sus
-  piezas, y las reglas de ese lockup conjunto todavía no están escritas. Si tu pieza necesita mostrar la marca de SP
-  junto a otra, preguntá antes de maquetar.</div>`;
+  piezas, y las reglas para maquetar eso ya están escritas: cuánto aire va entre las dos marcas, cuál va primero, qué
+  versión de SP usar según el fondo y cómo se igualan de tamaño dos logos de formas distintas. Están en
+  <a href="#/lockup" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Marca junto a otra marca</a>,
+  y no son medidas nuevas: salen del área de resguardo que este mismo centro ya publica. Maquetá con ellas — la pieza
+  igual pasa por aprobación antes de salir, como cualquiera donde el logo de SP aparece al lado de otro.</div>`;
 
 V['/legal'] = () => `
 <div class="eyebrow">Intro</div>
@@ -1325,6 +1328,7 @@ V['/cambios'] = () => `
 <div class="tbl-scroll" style="margin-top:22px"><table>
   <thead><tr><th>Fecha</th><th>Versión</th><th>Qué cambió</th></tr></thead>
   <tbody>
+    <tr><td class="tnum">16/09/2026</td><td>1.3.1</td><td><b>La página de agencias contradecía a la de lockup.</b> Decía que las reglas para poner la marca de SP junto a otra "todavía no están escritas" y mandaba a preguntar antes de maquetar. Pero <a href="#/lockup" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Marca junto a otra marca</a> existe desde la 1.3, con la separación, cuál va primero, qué versión usar según el fondo y cómo se igualan los tamaños. Un proveedor leía eso y preguntaba algo que el sitio ya contestaba. La nota ahora lleva a las reglas y conserva lo que sí sigue siendo cierto: la pieza pasa por aprobación igual.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>Entran los aliados, y las reglas para ponerlos al lado de SP.</b> Los 12 logos vivían solo en el sitio de socios; ahora están acá, con su pack. Y hay página nueva de lockup: cuánto aire va entre dos marcas —dos veces la "a", derivado del área de resguardo que este centro ya publicaba—, cuál va primero, qué versión de SP usar y qué no se hace nunca. Se sumaron también el espacio de prestadores y el de fotos de profesionales: los dos sin contenido todavía, con lo que hace falta para llenarlos.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>Cuarta corrección al manual anterior: el isologotipo no dice "MEDICINA PREPAGA".</b> El sitio afirmaba que el texto del isologotipo era "SALUD PROTEGIDA MEDICINA PREPAGA", y que por debajo del mínimo "MEDICINA PREPAGA deja de leerse". Se miró el archivo: dice <b>SALUD PROTEGIDA</b> en dos líneas y nada más. La línea que se pierde primero es PROTEGIDA, que es la más larga. El mínimo de 180 px no cambia; cambia el porqué.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>El área de resguardo se medía con una letra que no existe.</b> La regla decía "la altura de la letra «a» del logotipo", pero el logotipo va todo en mayúsculas: no hay ninguna "a" minúscula que medir. Ahora dice la <b>A</b> de SALUD. La medida no cambia — cambia que ahora se puede señalar cuál es.</td></tr>
@@ -1368,7 +1372,7 @@ function pagerFor(id){
     <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
     <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
   </nav>
-  <div class="stamp">Actualizado el 07/08/2026 · Centro de Marca v1.3</div>`;
+  <div class="stamp">Actualizado el 16/09/2026 · Centro de Marca v1.3.1</div>`;
 }
 function route(){
   const raw=location.hash.slice(1)||'/';
