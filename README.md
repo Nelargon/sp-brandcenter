@@ -163,6 +163,13 @@ contraste deliberadamente incorrecto y los fondos con gradiente quedan
 fuera del cálculo automático: no equivale a una certificación completa
 de accesibilidad.
 
+Tras revisión independiente se comprueba también abrir, cerrar y reabrir el
+mismo fragmento por clic y por Enter, con foco en el destino. El anillo de
+foco distingue superficies: turquesa brillante sobre el encabezado navy
+(4,75:1 en ambos temas); en los desplegables usa el turquesa de texto de
+cada tema (6,37:1 en claro y 10,55:1 en oscuro). Estas regresiones se prueban
+en 390 y 1440 px, además de repetir la batería de 160 vistas.
+
 Para retomar en Claude u otra sesión:
 
 1. Leer este README y `CLAUDE.md`; localizar el PR en borrador de la rama
