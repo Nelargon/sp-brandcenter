@@ -272,39 +272,133 @@ tr:last-child td{border-bottom:0}
   .navwrap.hide-sm{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+
+/* Primera entrega: Inicio y Color por tareas, sin cambiar los tokens de color. */
+:root{--r-xs:10px;--r-sm:12px;--r-md:16px;--r-lg:20px;--sombra-toque:0 1px 2px rgba(0,27,52,.06),0 3px 10px rgba(0,27,52,.05)}
+:focus-visible{outline-color:var(--teal-text)}
+.card,.pack,.qcard,.ally,.sw,.tech,.tbl-scroll,.bad,.lk{border-radius:var(--r-md)}
+.dl,.navbtn,.drop{border-radius:var(--r-sm)}
+.navbtn{padding:10px 14px;min-height:44px}
+.navbtn[aria-expanded="true"]{background:rgba(255,255,255,.16);color:#fff}
+.task-nav{display:flex;gap:6px;margin-left:auto}
+.drop a{min-height:44px;display:flex;align-items:center}
+.navwrap:last-child .drop{left:auto;right:0}
+.copy,.dl{min-height:44px}
+.copy,.dl,.task-link,.resource-link,.focus-action{transition:transform .12s ease,background .15s ease,border-color .15s ease}
+.dl,.focus-action{box-shadow:var(--sombra-toque)}
+.copy:active,.dl:active,.focus-action:active{transform:scale(.97)}
+.copy-status{font-family:var(--t);font-size:12px;color:var(--teal-text);margin-top:8px;min-height:20px}
+.copy-status:empty{min-height:0;margin:0}
+.primary-swatch .copy-status,.primary-swatch .copy-fallback{grid-column:1/-1}
+[hidden]{display:none!important}
+.detail-body h2[id]{scroll-margin-top:calc(var(--bar) + 20px)}
+.copy-failed{color:var(--no)}
+.copy-fallback{width:100%;min-height:44px;font:14px var(--t);padding:8px;border:1px solid var(--line-strong);border-radius:var(--r-sm);margin-top:8px;color:var(--body);background:var(--surface)}
+.shell.is-focus{display:block}
+.shell.is-focus .rail{display:none}
+.shell.is-focus .main{padding:30px 40px 46px}
+.shell.is-focus .wrap{max-width:1040px;margin:auto}
+.site-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px;margin-top:28px;color:var(--muted);font-size:12px}
+.site-footer a{text-decoration:underline;text-underline-offset:3px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.focus-intro{margin:24px 0 28px}
+.focus-intro h1{font-size:46px;line-height:1.1}
+.focus-intro p{margin-top:12px;max-width:670px;font-size:17px}
+.focus-crumb{color:var(--muted);font-size:12px}
+.welcome{padding:30px 0}
+.welcome h1{font-size:52px;line-height:1.1;max-width:650px}
+.welcome p{font-size:18px;max-width:650px;margin-top:18px}
+.task-list{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;border-top:1px solid var(--line)}
+.task-link{display:block;border-bottom:1px solid var(--line);padding:24px 0;position:relative}
+.task-link h2{font-size:23px;margin:0 35px 7px 0}
+.task-link p{font-size:14px;max-width:380px}
+.task-arrow{position:absolute;right:2px;top:24px;color:var(--teal-text);font-size:24px}
+.task-link:hover h2{color:var(--teal-text)}
+.quick-resources{margin-top:32px;padding:24px 28px;background:var(--teal-wash);border:1px solid var(--line);border-radius:var(--r-lg)}
+.quick-top{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.quick-top h2{margin:0;font-size:21px}
+.quick-top>a{font-size:13px;color:var(--teal-text);text-decoration:underline}
+.quick-links{display:flex;gap:12px;margin-top:17px;flex-wrap:wrap}
+.resource-link{display:flex;align-items:center;gap:20px;background:var(--surface);padding:12px 16px;border:1px solid var(--line-strong);border-radius:var(--r-sm);box-shadow:var(--sombra-toque);flex:1;min-height:48px;font:700 15px var(--d);color:var(--ink)}
+.resource-link span:last-child{margin-left:auto;color:var(--teal-text)}
+.resource-link:active{transform:scale(.98)}
+.home-guideline{font-size:14px;color:var(--muted);margin-top:20px}
+.focus-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:24px}
+.focus-panel{background:var(--surface);border:1px solid var(--line);padding:24px;border-radius:var(--r-lg)}
+.focus-panel h2{font-size:23px;line-height:1.25;margin:7px 0 10px}
+.focus-panel>p{font-size:14px}
+.color-example{background:#E6F7F6;color:#3D3D3D;padding:25px;margin:21px 0 15px;border-radius:var(--r-md);border:1px solid #E1E9E9}
+.color-example .eyebrow{color:#006B66}
+.color-example h3{font-size:28px;line-height:1.15;color:#003B71;margin:10px 0 13px;font-weight:800;max-width:320px}
+.color-example p{max-width:340px;font-size:14px}
+.color-example a{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;background:#006B66;color:#fff;border:0;border-radius:var(--r-sm);padding:12px 18px;font:800 14px var(--d);box-shadow:var(--sombra-toque)}
+.focus-caption{font-size:12px!important;color:var(--muted);max-width:450px}
+.primary-swatches{display:grid;gap:12px;margin-top:20px}
+.primary-swatch{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:14px;padding:12px;border:1px solid var(--line);border-radius:var(--r-md)}
+.primary-chip{height:52px;border-radius:var(--r-xs)}
+.primary-swatch b{display:block;font:800 15px var(--d);color:var(--ink)}
+.primary-swatch small{display:block;color:var(--muted);font-size:12px}
+.primary-swatch .copy{font:600 12px var(--t);background:var(--surface);color:var(--teal-text);border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:9px 12px;box-shadow:var(--sombra-toque);min-width:110px;text-align:center}
+.primary-swatch .copy span{display:block;font-size:11px;color:var(--muted);font-weight:400}
+.focus-action{display:inline-flex;align-items:center;min-height:48px;background:var(--navy);color:#fff;border-radius:var(--r-sm);padding:12px 17px;font:800 15px var(--d);margin-top:20px}
+.focus-details{margin-top:24px;display:grid;gap:12px}
+.focus-details>.tech{border-radius:var(--r-md)}
+.focus-details>.tech>summary{min-height:56px;font-size:16px}
+.detail-body{padding:4px 0 20px}
+.detail-body>h2:first-child{margin-top:4px!important}
+.hub-list{margin-top:26px;border-top:1px solid var(--line)}
+.hub-list .task-link p{max-width:66ch}
+.bar .brand-label{display:none;color:#fff}
+.bar .themebtn{min-width:44px;min-height:44px}
+.navbtn.current-task{background:rgba(255,255,255,.14)}
+.is-focus h1,.is-focus h2{color:var(--navy)}
+:root[data-theme="dark"] .is-focus h1,:root[data-theme="dark"] .is-focus h2{color:var(--ink)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .is-focus h1,:root:not([data-theme="light"]) .is-focus h2{color:var(--ink)}}
+@supports(corner-shape:squircle){.focus-panel,.quick-resources{corner-shape:squircle;border-radius:calc(var(--r-lg)*1.8)}}
+@media(max-width:900px){
+ :root{--bar:120px}
+ .bar{height:var(--bar);flex-wrap:wrap;align-content:center;gap:8px 12px}
+ .bar .brand-label{display:block;font:700 16px var(--d)}
+ .task-nav{order:3;width:100%;margin:0;justify-content:space-between;gap:0}
+ .navbtn{font-size:12px;padding:8px 4px;gap:3px;white-space:nowrap}
+ .drop{position:fixed;top:var(--bar);left:14px!important;right:14px!important;min-width:0;max-height:calc(100dvh - var(--bar) - 20px);overflow:auto}
+ .burger{margin-left:auto;width:auto;min-width:44px;height:44px;padding:0 10px;font:700 13px var(--d)}
+ .shell.is-focus .main{padding:22px 20px 30px}
+ .focus-layout,.task-list{grid-template-columns:1fr}
+ .welcome{padding:28px 0 26px}
+ .welcome h1{font-size:36px}
+ .welcome p{font-size:16px;margin-top:15px}
+ .task-link{padding:20px 0}
+ .task-link h2{font-size:22px}
+ .task-arrow{top:20px}
+ .quick-resources{padding:20px;margin-top:26px}
+ .quick-top{display:block}
+ .quick-top>a{display:inline-block;margin-top:7px}
+ .quick-links{flex-direction:column;margin-top:15px}
+ .resource-link{width:100%;flex:auto}
+ .focus-intro h1{font-size:38px}
+ .focus-intro p{font-size:16px}
+ .focus-panel{padding:20px}
+ .primary-swatch{grid-template-columns:42px 1fr auto;gap:8px;padding:10px}
+ .primary-chip{height:44px}
+ .primary-swatch b{font-size:14px}
+ .primary-swatch small{font-size:11px}
+ .primary-swatch .copy{min-width:104px;padding:8px}
+ .color-example{padding:22px}
+ .color-example h3{font-size:26px}
+ .focus-details{margin-top:18px}
+ .site-footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){.copy:active,.dl:active,.focus-action:active,.resource-link:active{transform:none}}
+
 </style>
 </head>
 <body>
 
-<header class="bar">
-  <a href="#/" aria-label="Centro de Marca de Salud Protegida"
-     ><img class="logo-full" src="assets/logos/SP_Isologotipo_Blanco_RGB.png" alt="Salud Protegida"
-     ><img class="logo-icon" src="assets/logos/SP_Isotipo_Blanco_RGB.png" alt="Salud Protegida"></a>
-  <div class="navwrap hide-sm" data-nav>
-    <button class="navbtn" data-drop>Guía de marca <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
-    <div class="drop">
-      <a href="#/empeza">Empezá acá</a>
-      <a href="#/logo">Logo y variantes</a>
-      <a href="#/color">Color</a>
-      <a href="#/tipografia">Tipografía</a>
-      <a href="#/voz">Voz y lenguaje</a>
-      <a href="#/formatos">Cifras, fechas y plata</a>
-    </div>
-  </div>
-  <div class="navwrap hide-sm" data-nav>
-    <button class="navbtn" data-drop>Descargas <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg></button>
-    <div class="drop">
-      <a href="#/descargas-logos">Logos</a>
-      <a href="#/descargas-tipografias">Tipografías</a>
-      <a href="#/descargas-paleta">Paleta y códigos de color</a>
-    </div>
-  </div>
-  <div class="navwrap hide-sm"><a class="navbtn" href="#/agencias">Para agencias</a></div>
-  <div class="navwrap hide-sm"><a class="navbtn" href="#/legal">Legal</a></div>
-  <div class="spacer"></div>
-  <button class="themebtn" id="theme" title="Cambiar tema" aria-label="Cambiar entre tema claro y oscuro">◐</button>
-  <button class="burger" id="burger" aria-label="Abrir índice">☰</button>
-</header>
+<header class="bar"><a href="#/" aria-label="Centro de Marca de Salud Protegida"><img class="logo-full" src="assets/logos/SP_Isologotipo_Blanco_RGB.png" alt="Salud Protegida"><img class="logo-icon" src="assets/logos/SP_Isotipo_Blanco_RGB.png" alt="Salud Protegida"></a><span class="brand-label">Centro de Marca</span><button class="themebtn" id="theme" title="Cambiar tema" aria-label="Cambiar entre tema claro y oscuro">◐</button><button class="burger" id="burger" aria-expanded="false" aria-controls="rail">Índice</button><nav class="task-nav" aria-label="Tareas del centro de marca"><div class="navwrap" data-nav><button class="navbtn" id="task-toggle-0" data-drop aria-expanded="false" aria-controls="task-menu-0">Recursos <span aria-hidden="true">⌄</span></button><div class="drop" id="task-menu-0" aria-labelledby="task-toggle-0"><a href="#/recursos">Ver recursos →</a><a href="#/descargas-logos">Logos</a><a href="#/descargas-tipografias">Tipografías</a><a href="#/descargas-paleta">Paleta y códigos</a><a href="#/red">Aliados y prestadores</a></div></div>
+<div class="navwrap" data-nav><button class="navbtn" id="task-toggle-1" data-drop aria-expanded="false" aria-controls="task-menu-1">Diseñar <span aria-hidden="true">⌄</span></button><div class="drop" id="task-menu-1" aria-labelledby="task-toggle-1"><a href="#/disenar">Ver diseñar →</a><a href="#/logo">Logo y variantes</a><a href="#/color">Color</a><a href="#/tipografia">Tipografía</a><a href="#/lockup">Marca junto a otra marca</a></div></div>
+<div class="navwrap" data-nav><button class="navbtn" id="task-toggle-2" data-drop aria-expanded="false" aria-controls="task-menu-2">Escribir <span aria-hidden="true">⌄</span></button><div class="drop" id="task-menu-2" aria-labelledby="task-toggle-2"><a href="#/escribir">Ver escribir →</a><a href="#/voz">Voz y lenguaje</a><a href="#/formatos">Cifras, fechas y plata</a></div></div>
+<div class="navwrap" data-nav><button class="navbtn" id="task-toggle-3" data-drop aria-expanded="false" aria-controls="task-menu-3">Antes de entregar <span aria-hidden="true">⌄</span></button><div class="drop" id="task-menu-3" aria-labelledby="task-toggle-3"><a href="#/entregar">Ver antes de entregar →</a><a href="#/agencias">Para agencias y proveedores</a><a href="#/legal">Uso legal de la marca</a><a href="#/empeza">Empezá acá</a></div></div></nav></header>
 
 <div class="shell">
   <nav class="rail" id="rail" aria-label="Índice del centro de marca"></nav>
@@ -344,6 +438,8 @@ const cmPrint = px => (px/300*2.54).toFixed(1).replace('.',',');
 const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const anchor = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-');
 const kb = n => n<1024 ? n+' B' : (n<1048576 ? Math.round(n/1024)+' KB' : (n/1048576).toFixed(1)+' MB');
+
+const TASKS = [{"id":"/recursos","title":"Recursos","body":"Descargá logos, tipografías y paleta. El archivo correcto para cada uso.","routes":["/descargas-logos","/descargas-tipografias","/descargas-paleta","/red"]},{"id":"/disenar","title":"Diseñar","body":"Aplicá logo, color y tipografía. Reglas breves con ejemplos.","routes":["/logo","/color","/tipografia","/lockup"]},{"id":"/escribir","title":"Escribir","body":"Encontrá la voz, las palabras y los formatos. Textos claros, cercanos y concretos.","routes":["/voz","/formatos"]},{"id":"/entregar","title":"Antes de entregar","body":"Revisá usos, permisos y aprobación. Qué podés hacer y qué necesitás consultar.","routes":["/agencias","/legal","/empeza"]}];
 
 /* ---------- contenido ---------- */
 const swatch = (nm,hex,extra='') => `<div class="sw"><div class="chip" style="background:${hex}"></div>
@@ -430,47 +526,18 @@ const ASSETS_LOGOS = [
 const V = {};
 
 V['/'] = () => `
-<section class="hero">
-  <div class="eyebrow">Salud Protegida</div>
-  <h1>Centro de Marca</h1>
-  <p>Todo lo que hace falta para usar la marca bien: los archivos, las reglas y los límites.
-     Si trabajás con nosotros o para nosotros, esta es la única fuente.</p>
-</section>
-
-<div class="stack-lg" style="margin-top:34px">
-<section>
-  <h2>Por dónde empezar</h2>
-  <div class="grid g4" style="margin-top:14px">
-    <a class="qcard" href="#/logo"><div class="top bg-light"><img src="${A.isologoFull}" alt="" style="width:118px"></div>
-      <div class="bot"><div class="t">Logo</div><div class="s">Versiones, resguardo, mínimos y los once errores más comunes</div></div></a>
-    <a class="qcard" href="#/color"><div class="top" style="background:linear-gradient(120deg,#00BCB4 0 34%,#003B71 34% 67%,#F5A623 67%)"></div>
-      <div class="bot"><div class="t">Color</div><div class="s">Hex, Pantone y CMYK, con los pares de contraste ya resueltos</div></div></a>
-    <a class="qcard" href="#/tipografia"><div class="top bg-light" style="display:grid;place-items:center">
-      <span style="font-family:var(--d);font-weight:800;font-size:40px;color:#003B71;letter-spacing:-.02em">Aa</span></div>
-      <div class="bot"><div class="t">Tipografía</div><div class="s">Nunito Sans para titular, Inter para leer — y las dos se bajan acá</div></div></a>
-    <a class="qcard" href="#/agencias"><div class="top" style="background:var(--navy-wash);display:grid;place-items:center">
-      <span style="font-family:var(--d);font-weight:800;font-size:15px;color:var(--teal-text)">Para agencias</span></div>
-      <div class="bot"><div class="t">Trabajás con SP</div><div class="s">Qué podés hacer con la marca, qué no, y a quién preguntarle</div></div></a>
-  </div>
-</section>
-
-<section>
-  <h2>Bajate el paquete completo</h2>
-  <div class="packrow" style="margin-top:14px">
-    <div class="pack"><div class="t">Logos</div><div class="s">18 archivos PNG: isologotipo, isotipo, perfiles, marcas de agua y favicons.</div>
-      <a class="dl" download="SP_Logos_Pack.zip" href="${A.zipLogos}">Descargar · ${kb(A.zipLogosSize)}</a></div>
-    <div class="pack"><div class="t">Tipografías</div><div class="s">Nunito Sans e Inter, para instalar en tu computadora y para la web.</div>
-      <a class="dl" download="SP_Tipografias.zip" href="${A.zipFonts}">Descargar · ${kb(A.zipFontsSize)}</a></div>
-    <div class="pack"><div class="t">Paleta</div><div class="s">Muestras .ase para Illustrator, más tokens en CSS, SCSS y JSON.</div>
-      <a class="dl" download="SP_Paleta.zip" href="${A.zipPal}">Descargar · ${kb(A.zipPalSize)}</a></div>
-  </div>
-</section>
-
-<div class="warn"><b>Falta el logo en formato de imprenta.</b> Hoy solo hay imágenes de pantalla (PNG).
+<div class="focus-crumb">Centro de Marca</div>
+<section class="welcome"><h1>La marca, lista<br>para trabajar.</h1><p>Encontrá los archivos y las reglas para crear piezas de Salud Protegida. Elegí lo que necesitás hacer.</p></section>
+<section class="task-list" aria-label="Elegí tu tarea"><a class="task-link" href="#/recursos"><h2>Recursos</h2><p>Descargá logos, tipografías y paleta. El archivo correcto para cada uso.</p><span class="task-arrow" aria-hidden="true">→</span></a>
+<a class="task-link" href="#/disenar"><h2>Diseñar</h2><p>Aplicá logo, color y tipografía. Reglas breves con ejemplos.</p><span class="task-arrow" aria-hidden="true">→</span></a>
+<a class="task-link" href="#/escribir"><h2>Escribir</h2><p>Encontrá la voz, las palabras y los formatos. Textos claros, cercanos y concretos.</p><span class="task-arrow" aria-hidden="true">→</span></a>
+<a class="task-link" href="#/entregar"><h2>Antes de entregar</h2><p>Revisá usos, permisos y aprobación. Qué podés hacer y qué necesitás consultar.</p><span class="task-arrow" aria-hidden="true">→</span></a></section>
+<section class="quick-resources"><div class="quick-top"><h2>Lo que más se usa</h2><a href="#/recursos">Ver todos los recursos →</a></div><div class="quick-links"><a class="resource-link" href="#/descargas-logos"><span>Logos</span><span aria-hidden="true">→</span></a><a class="resource-link" href="#/descargas-paleta"><span>Paleta</span><span aria-hidden="true">→</span></a><a class="resource-link" href="#/descargas-tipografias"><span>Tipografías</span><span aria-hidden="true">→</span></a></div></section>
+<p class="home-guideline">Cercana, clara, honesta y serena. Las reglas y los ejemplos de este centro ayudan a que cada pieza se vea y suene como SP.</p>
+<div class="warn" style="margin-top:20px"><b>Falta el logo en formato de imprenta.</b> Hoy solo hay imágenes de pantalla (PNG).
   El isologotipo mide 759 píxeles de ancho: impreso a buena calidad eso son <b>6,4 cm</b> — no da para tapa
   de folleto, banner ni vía pública.
-  Hasta que existan el SVG y el EPS en CMYK, <b>ninguna pieza de imprenta grande puede salir de acá</b>.</div>
-</div>`;
+  Hasta que existan el SVG y el EPS en CMYK, <b>ninguna pieza de imprenta grande puede salir de acá</b>.</div>`;
 
 V['/empeza'] = () => `
 <div class="eyebrow">Intro</div>
@@ -566,14 +633,18 @@ V['/logo'] = () => `
 <p style="margin-top:12px;font-size:13px;color:var(--muted)">
   <span class="pill p-gap">Falta archivo</span> señala lo que hoy no se puede hacer por falta de vectoriales, no algo prohibido.</p>`;
 
-V['/color'] = () => {
-  const fails = CONTRAST.filter(c=>c.cuerpo==='✗');
-  return `
-<div class="eyebrow">Identidad visual</div>
-<h1>Color</h1>
-<p class="verdict">El turquesa es el color primario de Salud Protegida y tiene que predominar siempre.</p>
-
-<h2 id="nucleo" style="margin-top:44px">Núcleo</h2>
+V['/color'] = () => `
+<div class="focus-crumb">Diseñar / Color</div>
+<div class="focus-intro"><h1>Color</h1><p>Una base tranquila, un color que ordena y un acento que guía. El turquesa identifica a SP; el texto siempre tiene que poder leerse.</p></div>
+<div class="focus-layout">
+<section class="focus-panel"><div class="eyebrow">La regla en una pieza</div><h2>Dejá que una cosa se destaque.</h2><p>60% neutro · 30% de un color ancla · 10% de acento. No combines dos colores narrativos.</p>
+<div class="color-example"><div class="eyebrow">Ejemplo de aplicación</div><h3>Una marca cercana,<br>clara y serena.</h3><p>Inter para leer. Nunito Sans para titular. Un solo botón conduce al siguiente paso.</p><a href="#/color#que-color-va-en-el-texto">Ver cómo se aplica →</a></div><p class="focus-caption">El turquesa claro acompaña. El navy titula. El turquesa profundo permite leer el texto blanco del botón.</p></section>
+<section class="focus-panel"><div class="eyebrow">Para usar ahora</div><h2>Los colores principales</h2><p>Copiá el código para pantalla. Para imprimir, abrí los valores de tinta.</p><div class="primary-swatches"><div class="primary-swatch"><div class="primary-chip" style="background:#00BCB4" aria-hidden="true"></div><div><b>Turquesa SP</b><small>Identidad y acentos</small></div><button class="copy" data-copy="#00BCB4" aria-label="Copiar #00BCB4, Turquesa SP">#00BCB4<span>Copiar código</span></button></div>
+<div class="primary-swatch"><div class="primary-chip" style="background:#003B71" aria-hidden="true"></div><div><b>Azul marino SP</b><small>Títulos y color ancla</small></div><button class="copy" data-copy="#003B71" aria-label="Copiar #003B71, Azul marino SP">#003B71<span>Copiar código</span></button></div>
+<div class="primary-swatch"><div class="primary-chip" style="background:#1D1D1B" aria-hidden="true"></div><div><b>Negro SP</b><small>Texto</small></div><button class="copy" data-copy="#1D1D1B" aria-label="Copiar #1D1D1B, Negro SP">#1D1D1B<span>Copiar código</span></button></div></div>
+<a class="focus-action" download="SP_Paleta.zip" href="${A.zipPal}">Descargar paleta ↓</a><div class="warn" style="margin-top:18px"><b>¿La pieza va a imprenta?</b> El HEX es para pantalla. Usá CMYK o Pantone para evitar que el color salga distinto. <a href="#/color#nucleo" style="text-decoration:underline">Ver valores de tinta</a>.</div></section></div>
+<div class="focus-details">
+<details class="tech"><summary>Para imprenta</summary><div class="detail-body"><h2 id="nucleo" style="margin-top:44px">Núcleo</h2>
 <p class="prose" style="margin-top:10px">Tres colores sostienen la marca. Son los únicos con equivalencia de imprenta
   definida: si una pieza va a papel, estos son los valores que se le pasan al impresor.</p>
 <div class="note" style="margin-top:14px"><b>Los tres códigos, y para qué es cada uno.</b>
@@ -590,7 +661,8 @@ V['/color'] = () => {
 <div class="note" style="margin-top:16px"><b>La regla 60-30-10.</b> 60% de superficie neutra, 30% de un solo color ancla,
   10% de acento. El ámbar nunca es fondo de una sección grande: si domina visualmente, está mal usado.</div>
 
-<h2 id="escalas" style="margin-top:44px">Escalas</h2>
+</div></details>
+<details class="tech"><summary>Escalas y colores de apoyo</summary><div class="detail-body"><h2 id="escalas" style="margin-top:44px">Escalas</h2>
 <div class="stack" style="margin-top:16px">
   <div><div class="eyebrow" style="margin-bottom:8px">Turquesa</div><div class="grid g4">
     ${['#E6F7F6','#B3EAE7','#80DDD8','#00BCB4','#009690','#006B66'].map((h,i)=>swatch(['SP-50','SP-100','SP-200','SP-500','SP-700','SP-900'][i],h)).join('')}</div></div>
@@ -614,7 +686,8 @@ V['/color'] = () => {
     ${['#F8EDE6','#EBD0C0','#DDB29C','#C67B5C','#A05640','#7A3D2E'].map((h,i)=>swatch(['Terracota-50','Terracota-100','Terracota-200','Terracota-500','Terracota-700','Terracota-900'][i],h)).join('')}</div></div>
 </div>
 
-<h2 id="que-color-va-en-el-texto" style="margin-top:44px">Qué color va en el texto</h2>
+</div></details>
+<details class="tech"><summary>Qué color va en el texto</summary><div class="detail-body"><h2 id="que-color-va-en-el-texto" style="margin-top:44px">Qué color va en el texto</h2>
 <p class="verdict" style="margin-top:12px">El turquesa sirve para pintar, no para escribir.</p>
 <p class="prose" style="margin-top:14px">Un color puede quedar hermoso como fondo y ser ilegible como letra.
   Pasa siempre: alguien escribe un titular en turquesa <i>porque es el color de la marca</i>, y lo vuelve
@@ -650,7 +723,7 @@ V['/color'] = () => {
       <li><b>Navy</b> <span class="mono">#003B71</span> — títulos y textos con peso</li>
       <li><b>Turquesa 900</b> <span class="mono">#006B66</span> — cuando querés que se lea turquesa</li>
       <li>Los tonos <b>700 y 900</b> de Sage, Lavender y Terracota</li>
-      <li><b>Blanco</b> sobre navy o sobre turquesa 500</li>
+      <li><b>Blanco</b> sobre navy o sobre turquesa 900 <span class="mono">#006B66</span>; nunca sobre turquesa 500.</li>
     </ul>
   </div>
   <div class="card">
@@ -693,8 +766,8 @@ V['/color'] = () => {
       </tbody>
     </table></div>
   </div>
-</details>`;
-};
+</details></div></details>
+</div>`;
 
 V['/tipografia'] = () => `
 <div class="eyebrow">Identidad visual</div>
@@ -724,7 +797,7 @@ V['/tipografia'] = () => `
     <tr><td>H3</td><td>Nunito Sans</td><td class="tnum">18 px · 700</td><td>Negro SP</td></tr>
     <tr><td>Cuerpo</td><td>Inter</td><td class="tnum">16 px · 400 · interlínea 1,7</td><td>#3D3D3D</td></tr>
     <tr><td>Small</td><td>Inter</td><td class="tnum">14 px · 400</td><td>#6B6B6B</td></tr>
-    <tr><td>Caption</td><td>Inter</td><td class="tnum">12 px · 500</td><td>#9A9590</td></tr>
+    <tr><td>Caption</td><td>Inter</td><td class="tnum">12 px · 500</td><td>Secundario legible según el fondo: <span class="mono">--faint</span> (claro: #5D6A6A · oscuro: #849DA8)</td></tr>
     <tr><td>Datos y tablas</td><td>Inter</td><td>Cifras que alinean en columna <span class="tag-tec" style="margin-left:4px">CSS: tabular-nums</span></td><td>#3D3D3D</td></tr>
   </tbody>
 </table></div>
@@ -1354,65 +1427,93 @@ V['/cambios'] = () => `
   no alcanza para imprenta ni para gran formato.
   <span class="pill p-gap" style="margin-left:4px">Bloqueante</span></div>`;
 
+V['/recursos'] = () => `<div class="focus-intro"><h1>Recursos</h1><p>Descargá logos, tipografías y paleta. El archivo correcto para cada uso.</p></div><div class="hub-list"><a class="task-link" href="#/descargas-logos"><h2>Logos</h2><p>Paquete completo y archivos individuales. Revisá los límites para imprenta antes de usarlos.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/descargas-tipografias"><h2>Tipografías</h2><p>Nunito Sans e Inter. Archivos para instalar y para la web, con licencia libre.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/descargas-paleta"><h2>Paleta y códigos</h2><p>Muestras de color y archivos para Adobe, CSS, Sass y otras herramientas.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/red"><h2>Aliados y prestadores</h2><p>Logos de aliados, permisos y estado del material de prestadores y profesionales.</p><span class="task-arrow" aria-hidden="true">→</span></a></div>`;
+V['/disenar'] = () => `<div class="focus-intro"><h1>Diseñar</h1><p>Aplicá logo, color y tipografía. Reglas breves con ejemplos.</p></div><div class="hub-list"><a class="task-link" href="#/logo"><h2>Logo y variantes</h2><p>Versiones, resguardo, mínimos y usos indebidos.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/color"><h2>Color</h2><p>Regla, ejemplo, códigos y valores de imprenta.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/tipografia"><h2>Tipografía</h2><p>Nunito Sans para titular, Inter para leer.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/lockup"><h2>Marca junto a otra marca</h2><p>Separación, orden y peso visual cuando SP aparece junto a otra marca.</p><span class="task-arrow" aria-hidden="true">→</span></a></div>`;
+V['/escribir'] = () => `<div class="focus-intro"><h1>Escribir</h1><p>Encontrá la voz, las palabras y los formatos. Textos claros, cercanos y concretos.</p></div><div class="hub-list"><a class="task-link" href="#/voz"><h2>Voz y lenguaje</h2><p>Voz, trato y palabras que usamos.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/formatos"><h2>Cifras, fechas y plata</h2><p>Cómo escribir cifras, fechas, moneda y teléfonos.</p><span class="task-arrow" aria-hidden="true">→</span></a></div>`;
+V['/entregar'] = () => `<div class="focus-intro"><h1>Antes de entregar</h1><p>Revisá usos, permisos y aprobación. Qué podés hacer y qué necesitás consultar.</p></div><div class="hub-list"><a class="task-link" href="#/agencias"><h2>Para agencias y proveedores</h2><p>Qué podés hacer, qué necesita aprobación y qué no se hace.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/legal"><h2>Uso legal de la marca</h2><p>Uso de marca y licencias de las tipografías.</p><span class="task-arrow" aria-hidden="true">→</span></a><a class="task-link" href="#/empeza"><h2>Empezá acá</h2><p>Las tres reglas esenciales y el propósito de este centro.</p><span class="task-arrow" aria-hidden="true">→</span></a></div>`;
+
 /* ---------- router ---------- */
+function taskFor(id){return TASKS.find(t=>t.id===id||t.routes.includes(id));}
 function railFor(id){
-  let html=''; let last=null;
-  PAGES.forEach(p=>{
-    if(!p.g){return}
-    if(p.g!==last){html+=`<div class="grp">${esc(p.g)}</div>`;last=p.g}
-    html+=`<a href="#${p.id}" class="${p.id===id?'on':''}">${esc(p.t)}</a>`;
-    if(p.id===id && p.sub){p.sub.forEach(s=>{html+=`<a class="sub" href="#${p.id}#${anchor(s)}">${esc(s)}</a>`})}
-  });
-  return `<a href="#/" class="${id==='/'?'on':''}" style="font-family:var(--d);font-weight:700">Inicio</a>`+html;
+ const task=taskFor(id);
+ if(!task)return '<a href="#/">Inicio</a><a href="#/entregar">Antes de entregar</a>';
+ let html='<a href="#/">Inicio</a><div class="grp">'+esc(task.title)+'</div>';
+ html+='<a href="#'+task.id+'" '+(id===task.id?'aria-current="page"':'')+'>Ver '+esc(task.title.toLowerCase())+'</a>';
+ task.routes.forEach(route=>{
+  const p=PAGES.find(p=>p.id===route);
+  html+='<a href="#'+p.id+'" class="'+(p.id===id?'on':'')+'" '+(p.id===id?'aria-current="page"':'')+'>'+esc(p.t)+'</a>';
+  if(p.id===id&&p.sub)p.sub.forEach(sub=>html+='<a class="sub" href="#'+p.id+'#'+anchor(sub)+'">'+esc(sub)+'</a>');
+ });
+ return html;
 }
-function pagerFor(id){
-  const i=PAGES.findIndex(p=>p.id===id); if(i<0)return'';
-  const prev=PAGES[i-1], next=PAGES[i+1];
-  return `<nav class="pager" aria-label="Página anterior y siguiente">
-    <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
-    <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
-  </nav>
-  <div class="stamp">Actualizado el 16/09/2026 · Centro de Marca v1.3.1</div>`;
+function pagerFor(){
+ return '<footer class="site-footer"><span>Salud Protegida · Centro de Marca</span><nav class="footer-links" aria-label="Información del centro"><a href="#/legal">Uso y permisos</a><a href="#/faltantes">Qué falta y qué llegó</a><a href="#/cambios">Versión y cambios</a></nav></footer><div class="stamp">Centro de Marca · Inicio y Color reorganizados el 01/10/2026</div>';
+}
+function closeNavigation(restoreFocus=false){
+ const open=document.querySelector('[data-nav].on');
+ document.querySelectorAll('[data-nav]').forEach(n=>{n.classList.remove('on');n.querySelector('[data-drop]').setAttribute('aria-expanded','false')});
+ if(restoreFocus&&open)open.querySelector('[data-drop]').focus();
+}
+function closeRail(){document.getElementById('rail').classList.remove('open');document.getElementById('burger').setAttribute('aria-expanded','false')}
+function revealAnchor(el){
+ for(let parent=el.parentElement;parent;parent=parent.parentElement)if(parent.tagName==='DETAILS')parent.open=true;
 }
 function route(){
   const raw=location.hash.slice(1)||'/';
   const [id,frag]=raw.split('#');
   const view=V[id]||V['/'];
   document.getElementById('view').innerHTML=view()+pagerFor(id);
+  document.querySelector('.shell').classList.toggle('is-focus',id==='/'||id==='/color');
+  document.getElementById('burger').hidden=id==='/'||id==='/color';
+  const task=taskFor(id);document.querySelectorAll('[data-nav]').forEach((n,i)=>{const active=task===TASKS[i];n.querySelector('[data-drop]').classList.toggle('current-task',active)});
+  document.title=(id==='/'?'Centro de Marca':(PAGES.find(p=>p.id===id)?.t||task?.title||'Centro de Marca'))+' · Salud Protegida';
   document.getElementById('rail').innerHTML=railFor(id);
-  document.querySelectorAll('[data-nav]').forEach(n=>n.classList.remove('on'));
-  if(frag){const el=document.getElementById(frag); if(el){el.scrollIntoView({block:'start'})} else {scrollTo(0,0)}}
+  closeNavigation();
+  if(frag){const el=document.getElementById(frag); if(el){revealAnchor(el);el.scrollIntoView({block:'start'})} else {scrollTo(0,0)}}
   else scrollTo(0,0);
-  if(innerWidth<=900) document.getElementById('rail').classList.remove('open');
+  closeRail();
 }
 addEventListener('hashchange',route);
 
 document.querySelectorAll('[data-drop]').forEach(b=>{
-  b.addEventListener('click',e=>{
-    e.stopPropagation();
-    const w=b.parentElement, was=w.classList.contains('on');
-    document.querySelectorAll('[data-nav]').forEach(n=>n.classList.remove('on'));
-    if(!was) w.classList.add('on');
-  });
+ b.addEventListener('click',e=>{
+  e.stopPropagation();const w=b.parentElement,was=w.classList.contains('on');closeNavigation();
+  if(!was){w.classList.add('on');b.setAttribute('aria-expanded','true')}
+ });
+ b.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();closeNavigation();b.parentElement.classList.add('on');b.setAttribute('aria-expanded','true');b.parentElement.querySelector('.drop a').focus()}});
 });
-document.addEventListener('click',()=>document.querySelectorAll('[data-nav]').forEach(n=>n.classList.remove('on')));
-
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-copy]'); if(!b) return;
-  const v=b.dataset.copy; const old=b.textContent;
-  /* El acuse repite el valor copiado, que es lo correcto para un hex. Un pedido de
-     treinta líneas no entra en un botón: ahí el bloque declara su propio data-ok. */
-  const ok=b.dataset.ok || (v+' ✓');
-  navigator.clipboard?.writeText(v).then(()=>{b.textContent=ok;setTimeout(()=>b.textContent=old,1100)}).catch(()=>{});
+document.addEventListener('click',e=>{if(!e.target.closest('[data-nav]')||e.target.closest('.drop a'))closeNavigation()});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Escape'){closeNavigation(true);if(document.getElementById('rail').classList.contains('open')){closeRail();document.getElementById('burger').focus()}}
 });
-
+document.addEventListener('focusin',e=>{if(!e.target.closest('[data-nav]'))closeNavigation()});
+function copyFeedback(button,message,failed){
+ let status=button.parentElement.querySelector('.copy-status');
+ if(!status){status=document.createElement('div');status.className='copy-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');button.parentElement.append(status)}
+ status.classList.toggle('copy-failed',failed);status.textContent=message;
+}
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('[data-copy]');if(!b)return;
+ const value=b.dataset.copy;
+ try{
+  if(!navigator.clipboard?.writeText)throw new Error('clipboard unavailable');
+  await navigator.clipboard.writeText(value);
+  copyFeedback(b,b.dataset.ok||('Copiado: '+value),false);
+  b.parentElement.querySelector('.copy-fallback')?.remove();
+ }catch{
+  copyFeedback(b,'No se pudo copiar automáticamente. Seleccioná el texto de abajo y copialo.',true);
+  let field=b.parentElement.querySelector('.copy-fallback');
+  if(!field){field=document.createElement('textarea');field.className='copy-fallback';field.readOnly=true;field.setAttribute('aria-label','Texto para copiar manualmente');b.parentElement.append(field)}
+  field.value=value;field.focus();field.select();
+ }
+});
 const root=document.documentElement;
 document.getElementById('theme').addEventListener('click',()=>{
   const dark=matchMedia('(prefers-color-scheme:dark)').matches;
   const cur=root.dataset.theme||(dark?'dark':'light');
   root.dataset.theme = cur==='dark'?'light':'dark';
 });
-document.getElementById('burger').addEventListener('click',()=>document.getElementById('rail').classList.toggle('open'));
+document.getElementById('burger').addEventListener('click',()=>{const open=document.getElementById('rail').classList.toggle('open');document.getElementById('burger').setAttribute('aria-expanded',String(open));if(open)document.getElementById('rail').querySelector('a')?.focus()});
 
 route();
 </script>
