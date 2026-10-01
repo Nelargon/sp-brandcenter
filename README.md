@@ -110,3 +110,80 @@ Y las tres originales:
 
 Cada push a `main` publica a GitHub Pages. No hay CI de build porque no hay
 build: el chequeo es abrir el sitio.
+
+## Continuidad: primera entrega de Inicio y Color (01/10/2026)
+
+**Estado de revisión:** propuesta implementada en la rama
+`codex/brandcenter-inicio-color-20261001`, destinada a un PR en borrador.
+Esta entrega no autoriza merge, despliegue ni publicación. Consultar el PR
+de esa rama para el SHA final, las comprobaciones y el estado vigente.
+
+### Alcance y decisiones
+
+La dirección aprobada es simplificar la experiencia del Centro de Marca:
+primero la tarea, después la regla y finalmente el detalle técnico. La
+referencia visual de esta entrega son las propuestas de Inicio y Color
+revisadas; el home de lanzamiento de SP aporta aprendizajes de jerarquía,
+espacio y claridad, sin trasladar objetivos de venta al manual.
+
+- Inicio ofrece cuatro entradas: **Recursos, Diseñar, Escribir y Antes de
+  entregar**. Los mismos grupos ordenan el encabezado y el índice contextual.
+- Color muestra primero un ejemplo de uso, los dos colores principales y
+  la descarga real de paleta. Imprenta, escalas y reglas de texto permanecen
+  disponibles en bloques desplegables; los enlaces directos abren el bloque
+  correspondiente.
+- Nunito Sans conserva títulos y etiquetas; Inter conserva el texto de
+  lectura. Navy ordena la jerarquía en claro. Turquesa oscuro sirve al texto
+  y las acciones que necesitan contraste. Los radios se diferencian por
+  función (10, 12, 16 y 20 px); la sombra de toque corresponde a controles.
+- Se mantienen rutas anteriores, archivos canónicos, datos de color,
+  permisos, advertencias y pendientes. El contenido de las demás páginas
+  se conserva, salvo la aclaración del caption en Tipografía para reflejar
+  el color secundario legible que ya usa cada tema.
+- Se corrige una contradicción de Color: blanco para texto sobre navy o
+  turquesa **900**, nunca turquesa 500. No cambia la paleta.
+- Menús con teclado y Escape, foco visible, restauración de foco, alternativa
+  de copiado manual y respeto por movimiento reducido forman parte de
+  esta entrega.
+
+Las nuevas rutas son `#/recursos`, `#/disenar`, `#/escribir` y
+`#/entregar`. Las 16 rutas anteriores siguen disponibles. Uso y permisos,
+pendientes y versión mantienen acceso desde el pie. Los assets, descargas
+y el workflow de publicación no se modifican.
+
+### Comprobaciones y cómo retomar
+
+La validación local usa Chrome con las fuentes reales: 20 rutas en 360,
+390, 430 y 1440 px, en temas claro y oscuro (160 combinaciones), sin
+desbordamiento horizontal ni errores de JavaScript. Se comprueban contraste
+de texto sobre fondos sólidos, navegación por teclado, Escape y foco,
+anclas que despliegan detalles, copiado exitoso y bloqueado, destino de
+descarga, índice móvil y movimiento reducido. Las demostraciones de
+contraste deliberadamente incorrecto y los fondos con gradiente quedan
+fuera del cálculo automático: no equivale a una certificación completa
+de accesibilidad.
+
+Tras revisión independiente se comprueba también abrir, cerrar y reabrir el
+mismo fragmento por clic y por Enter, con foco en el destino. El anillo de
+foco distingue superficies: turquesa brillante sobre el encabezado navy
+(4,75:1 en ambos temas); en los desplegables usa el turquesa de texto de
+cada tema (6,37:1 en claro y 10,55:1 en oscuro). Estas regresiones se prueban
+en 390 y 1440 px, además de repetir la batería de 160 vistas.
+
+Para retomar en Claude u otra sesión:
+
+1. Leer este README y `CLAUDE.md`; localizar el PR en borrador de la rama
+   indicada y comprobar su estado antes de editar.
+2. Revalidar `main` y el SHA del PR. La base de esta entrega fue
+   `618217c14b9447fa6667c38a78913d47cce7e748`.
+3. Mantener la primera entrega en Inicio, Color y navegación; los cambios
+   editoriales o rediseños de otras secciones son propuestas posteriores,
+   pendientes de revisión. Brand Atlas no constituye una norma de SP.
+4. Repetir las comprobaciones en el SHA que se proponga revisar, especialmente
+   ambas apariencias, tamaños móviles, enlaces y acceso a los detalles.
+5. Registrar en el PR cualquier cambio de alcance y sus pruebas. El workflow
+   actual publica al hacer push a `main`; no usar merge o push a `main`
+   como forma de obtener una vista previa.
+
+Este registro resume decisiones de producto y estado técnico; no contiene
+conversaciones privadas ni información estratégica interna.
