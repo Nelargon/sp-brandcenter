@@ -19,6 +19,7 @@ ni trabajar con una versión vieja de la marca.
 | `assets/logos/` | Los 18 archivos de marca, con nombres canónicos. |
 | `assets/aliados/` | Los 12 logos de aliados. **Marcas de terceros**, no de SP — ver abajo. |
 | `assets/fonts/` | Nunito Sans e Inter (woff2 variable) con sus licencias SIL OFL. |
+| `assets/iconos/` | Los 26 íconos de SP en SVG (`SP_Icono_[Nombre].svg`). Salen del archivo de íconos del sitio de clientes (`sp-prototipo`, `app/components/iconos-sp.js`): si allá se suma uno, se regenera acá. |
 | `descargas/` | Los paquetes `.zip` y la paleta en `.ase`, CSS, SCSS y JSON. |
 
 ## Marcas que no son de SP
@@ -54,8 +55,8 @@ al año y no debe depender de que un pipeline siga funcionando dentro de dos.
 
 ## Qué es público y qué no
 
-Este repo publica **lo aplicable**: logos, color, tipografía, reglas de uso y
-formatos. Nada de esto es exposición nueva — los logos ya se sirven desde
+Este repo publica **lo aplicable**: logos, color, tipografía, íconos, reglas de uso,
+formatos y el formato de las presentaciones. Nada de esto es exposición nueva — los logos ya se sirven desde
 `sp-prototipo`, los colores viven en su CSS y las dos tipografías son libres.
 
 **No entra acá** y sigue viviendo en `sp-interno`: qué puede prometer SP hoy
