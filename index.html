@@ -248,6 +248,38 @@ tr:last-child td{border-bottom:0}
 .qcard .t{font-family:var(--d);font-weight:800;font-size:15px;color:var(--ink)}
 .qcard .s{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.45}
 
+/* ---------- íconos ---------- */
+.ico-cell .prev{height:104px}
+.ico-cell .prev img{width:64px;height:64px;max-width:none;max-height:none}
+.ico-row{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}
+.ico-row img{width:52px;height:52px;display:block}
+
+/* ---------- presentaciones ----------
+   Las láminas de muestra y las familias de color son islas con colores FIJOS, como
+   las tarjetas .demo de Color: muestran cómo se ve una lámina, que no cambia con el
+   tema de este sitio. Por eso no van por token. */
+.slide{aspect-ratio:16/9;border-radius:10px;border:1px solid var(--line);position:relative;overflow:hidden;
+ padding:6% 7%;display:flex;flex-direction:column;justify-content:space-between}
+.slide .bandita{position:absolute;left:0;top:0;right:0;height:3.5%;background:#00BCB4}
+.slide .lg{align-self:start;padding:5px 10px;border:1.5px dashed currentColor;border-radius:5px;white-space:nowrap;
+ font-family:var(--d);font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.slide .ey{font-family:var(--d);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.slide .tt{font-family:var(--d);font-weight:800;font-size:clamp(16px,2.4vw,23px);line-height:1.1;margin-top:5px}
+.slide .st{font-size:12px;margin-top:5px;line-height:1.35}
+.slide.navy{background:#003B71;color:#FFFFFF}
+.slide.navy .ey{color:#00BCB4}
+.slide.navy .st{color:#BFD8E0}
+.slide.claro{background:#F6F8F8;color:#003B71;border-color:#D5E3E6}
+.slide.claro .ey{color:#006B66}
+.slide.claro .st{color:#3D3D3D}
+.fam{border-radius:12px;padding:14px 14px 13px;border:1px solid rgba(0,0,0,.05)}
+.fam .fl{font-family:var(--d);font-size:15px;font-weight:800}
+.fam .fu{font-size:12.5px;color:#3D3D3D;margin-top:3px;line-height:1.4}
+.fam .fh{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:#3D3D3D;margin-top:8px}
+.semaf{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center}
+.semaf span{display:inline-flex;align-items:center;gap:9px;font-weight:600;color:var(--ink)}
+.semaf i{display:inline-block;flex:none}
+
 /* ---------- pie de página ---------- */
 .pager{display:flex;justify-content:space-between;gap:18px;margin-top:52px;padding-top:22px;border-top:1px solid var(--line)}
 .pager a{font-size:13.5px}
@@ -289,6 +321,8 @@ tr:last-child td{border-bottom:0}
       <a href="#/tipografia">Tipografía</a>
       <a href="#/voz">Voz y lenguaje</a>
       <a href="#/formatos">Cifras, fechas y plata</a>
+      <a href="#/iconos">Íconos</a>
+      <a href="#/presentaciones">Presentaciones</a>
     </div>
   </div>
   <div class="navwrap hide-sm" data-nav>
@@ -297,6 +331,7 @@ tr:last-child td{border-bottom:0}
       <a href="#/descargas-logos">Logos</a>
       <a href="#/descargas-tipografias">Tipografías</a>
       <a href="#/descargas-paleta">Paleta y códigos de color</a>
+      <a href="#/iconos#el-set-completo">Íconos</a>
     </div>
   </div>
   <div class="navwrap hide-sm"><a class="navbtn" href="#/agencias">Para agencias</a></div>
@@ -312,7 +347,7 @@ tr:last-child td{border-bottom:0}
 </div>
 
 <script>
-const A = {"isologoFull": "assets/logos/SP_Isologotipo_Fullcolor_RGB.png", "isologoFullSize": 16397, "isologoWhite": "assets/logos/SP_Isologotipo_Blanco_RGB.png", "isologoWhiteSize": 14770, "isologoNavy": "assets/logos/SP_Isologotipo_Navy_RGB.png", "isologoNavySize": 14853, "isologoBlack": "assets/logos/SP_Isologotipo_Negro_RGB.png", "isologoBlackSize": 14810, "isotipoTurq": "assets/logos/SP_Isotipo_Turquesa_RGB.png", "isotipoTurqSize": 163754, "isotipoTurqPrev": "assets/miniaturas/SP_Isotipo_Turquesa_RGB_mini.png", "isotipoWhite": "assets/logos/SP_Isotipo_Blanco_RGB.png", "isotipoWhiteSize": 163906, "isotipoWhitePrev": "assets/miniaturas/SP_Isotipo_Blanco_RGB_mini.png", "isotipoNavy": "assets/logos/SP_Isotipo_Navy_RGB.png", "isotipoNavySize": 163766, "isotipoNavyPrev": "assets/miniaturas/SP_Isotipo_Navy_RGB_mini.png", "isotipoBlack": "assets/logos/SP_Isotipo_Negro_RGB.png", "isotipoBlackSize": 163675, "isotipoBlackPrev": "assets/miniaturas/SP_Isotipo_Negro_RGB_mini.png", "perfilTurq": "assets/logos/SP_Perfil_Turquesa_1024.png", "perfilTurqSize": 74164, "perfilTurqPrev": "assets/miniaturas/SP_Perfil_Turquesa_1024_mini.png", "perfilNavy": "assets/logos/SP_Perfil_Navy_1024.png", "perfilNavySize": 80315, "perfilNavyPrev": "assets/miniaturas/SP_Perfil_Navy_1024_mini.png", "perfilBlanco": "assets/logos/SP_Perfil_Blanco_1024.png", "perfilBlancoSize": 82515, "perfilBlancoPrev": "assets/miniaturas/SP_Perfil_Blanco_1024_mini.png", "marcaAguaTurq": "assets/logos/SP_MarcaDeAgua_Turquesa15.png", "marcaAguaTurqSize": 123933, "marcaAguaTurqPrev": "assets/miniaturas/SP_MarcaDeAgua_Turquesa15_mini.png", "marcaAguaBlanco": "assets/logos/SP_MarcaDeAgua_Blanco30.png", "marcaAguaBlancoSize": 154189, "marcaAguaBlancoPrev": "assets/miniaturas/SP_MarcaDeAgua_Blanco30_mini.png", "favicon512": "assets/logos/SP_Favicon_512.png", "favicon512Size": 57154, "favicon512Prev": "assets/miniaturas/SP_Favicon_512_mini.png", "favicon192": "assets/logos/SP_Favicon_192.png", "favicon192Size": 18633, "favicon64": "assets/logos/SP_Favicon_64.png", "favicon64Size": 5264, "favicon32": "assets/logos/SP_Favicon_32.png", "favicon32Size": 1889, "faviconIco": "assets/logos/SP_Favicon.ico", "faviconIcoSize": 11959, "fontNunito": "assets/fonts/NunitoSans-Variable.woff2", "fontNunitoSize": 49648, "fontInter": "assets/fonts/Inter-Variable.woff2", "fontInterSize": 349132, "ttfNunitoSemi": "assets/fonts/NunitoSans-SemiBold.ttf", "ttfNunitoSemiSize": 106832, "ttfNunitoExtra": "assets/fonts/NunitoSans-ExtraBold.ttf", "ttfNunitoExtraSize": 106804, "ttfInterReg": "assets/fonts/Inter_18pt-Regular.ttf", "ttfInterRegSize": 342680, "ttfInterMed": "assets/fonts/Inter_18pt-Medium.ttf", "ttfInterMedSize": 343200, "ttfInterSemi": "assets/fonts/Inter_18pt-SemiBold.ttf", "ttfInterSemiSize": 343828, "ttfInterBold": "assets/fonts/Inter_18pt-Bold.ttf", "ttfInterBoldSize": 344152, "oflNunito": "assets/fonts/OFL-NunitoSans.txt", "oflNunitoSize": 4395, "oflInter": "assets/fonts/OFL-Inter.txt", "oflInterSize": 4377, "zipLogos": "descargas/SP_Logos_Pack.zip", "zipLogosSize": 1279603, "zipFonts": "descargas/SP_Tipografias.zip", "zipFontsSize": 1174661, "zipPal": "descargas/SP_Paleta.zip", "zipPalSize": 2960, "ase": "descargas/SP_Paleta.ase", "aseSize": 2386, "css": "descargas/SP_Tokens.css", "cssSize": 1306, "scss": "descargas/SP_Tokens.scss", "scssSize": 1052, "json": "descargas/SP_Tokens.json", "jsonSize": 1799, "zipAliados": "descargas/SP_Aliados_Pack.zip", "zipAliadosSize": 48605};
+const A = {"isologoFull": "assets/logos/SP_Isologotipo_Fullcolor_RGB.png", "isologoFullSize": 16397, "isologoWhite": "assets/logos/SP_Isologotipo_Blanco_RGB.png", "isologoWhiteSize": 14770, "isologoNavy": "assets/logos/SP_Isologotipo_Navy_RGB.png", "isologoNavySize": 14853, "isologoBlack": "assets/logos/SP_Isologotipo_Negro_RGB.png", "isologoBlackSize": 14810, "isotipoTurq": "assets/logos/SP_Isotipo_Turquesa_RGB.png", "isotipoTurqSize": 163754, "isotipoTurqPrev": "assets/miniaturas/SP_Isotipo_Turquesa_RGB_mini.png", "isotipoWhite": "assets/logos/SP_Isotipo_Blanco_RGB.png", "isotipoWhiteSize": 163906, "isotipoWhitePrev": "assets/miniaturas/SP_Isotipo_Blanco_RGB_mini.png", "isotipoNavy": "assets/logos/SP_Isotipo_Navy_RGB.png", "isotipoNavySize": 163766, "isotipoNavyPrev": "assets/miniaturas/SP_Isotipo_Navy_RGB_mini.png", "isotipoBlack": "assets/logos/SP_Isotipo_Negro_RGB.png", "isotipoBlackSize": 163675, "isotipoBlackPrev": "assets/miniaturas/SP_Isotipo_Negro_RGB_mini.png", "perfilTurq": "assets/logos/SP_Perfil_Turquesa_1024.png", "perfilTurqSize": 74164, "perfilTurqPrev": "assets/miniaturas/SP_Perfil_Turquesa_1024_mini.png", "perfilNavy": "assets/logos/SP_Perfil_Navy_1024.png", "perfilNavySize": 80315, "perfilNavyPrev": "assets/miniaturas/SP_Perfil_Navy_1024_mini.png", "perfilBlanco": "assets/logos/SP_Perfil_Blanco_1024.png", "perfilBlancoSize": 82515, "perfilBlancoPrev": "assets/miniaturas/SP_Perfil_Blanco_1024_mini.png", "marcaAguaTurq": "assets/logos/SP_MarcaDeAgua_Turquesa15.png", "marcaAguaTurqSize": 123933, "marcaAguaTurqPrev": "assets/miniaturas/SP_MarcaDeAgua_Turquesa15_mini.png", "marcaAguaBlanco": "assets/logos/SP_MarcaDeAgua_Blanco30.png", "marcaAguaBlancoSize": 154189, "marcaAguaBlancoPrev": "assets/miniaturas/SP_MarcaDeAgua_Blanco30_mini.png", "favicon512": "assets/logos/SP_Favicon_512.png", "favicon512Size": 57154, "favicon512Prev": "assets/miniaturas/SP_Favicon_512_mini.png", "favicon192": "assets/logos/SP_Favicon_192.png", "favicon192Size": 18633, "favicon64": "assets/logos/SP_Favicon_64.png", "favicon64Size": 5264, "favicon32": "assets/logos/SP_Favicon_32.png", "favicon32Size": 1889, "faviconIco": "assets/logos/SP_Favicon.ico", "faviconIcoSize": 11959, "fontNunito": "assets/fonts/NunitoSans-Variable.woff2", "fontNunitoSize": 49648, "fontInter": "assets/fonts/Inter-Variable.woff2", "fontInterSize": 349132, "ttfNunitoSemi": "assets/fonts/NunitoSans-SemiBold.ttf", "ttfNunitoSemiSize": 106832, "ttfNunitoExtra": "assets/fonts/NunitoSans-ExtraBold.ttf", "ttfNunitoExtraSize": 106804, "ttfInterReg": "assets/fonts/Inter_18pt-Regular.ttf", "ttfInterRegSize": 342680, "ttfInterMed": "assets/fonts/Inter_18pt-Medium.ttf", "ttfInterMedSize": 343200, "ttfInterSemi": "assets/fonts/Inter_18pt-SemiBold.ttf", "ttfInterSemiSize": 343828, "ttfInterBold": "assets/fonts/Inter_18pt-Bold.ttf", "ttfInterBoldSize": 344152, "oflNunito": "assets/fonts/OFL-NunitoSans.txt", "oflNunitoSize": 4395, "oflInter": "assets/fonts/OFL-Inter.txt", "oflInterSize": 4377, "zipLogos": "descargas/SP_Logos_Pack.zip", "zipLogosSize": 1279603, "zipFonts": "descargas/SP_Tipografias.zip", "zipFontsSize": 1174661, "zipPal": "descargas/SP_Paleta.zip", "zipPalSize": 2960, "ase": "descargas/SP_Paleta.ase", "aseSize": 2386, "css": "descargas/SP_Tokens.css", "cssSize": 1306, "scss": "descargas/SP_Tokens.scss", "scssSize": 1052, "json": "descargas/SP_Tokens.json", "jsonSize": 1799, "zipAliados": "descargas/SP_Aliados_Pack.zip", "zipAliadosSize": 48605, "zipIconos": "descargas/SP_Iconos_Pack.zip", "zipIconosSize": 16106};
 const CONTRAST = [{"fg": "Turquesa 500", "fgh": "#00BCB4", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Turquesa 700", "fgh": "#009690", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.64, "cuerpo": "✗", "grande": "AA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "Blanco", "bgh": "#FFFFFF", "r": 6.37, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "Blanco", "bgh": "#FFFFFF", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Cuerpo", "fgh": "#3D3D3D", "bg": "Blanco", "bgh": "#FFFFFF", "r": 10.86, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Secundario", "fgh": "#6B6B6B", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.33, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Ambar 500", "fgh": "#F5A623", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.03, "cuerpo": "✗", "grande": "✗"}, {"fg": "Ambar 700", "fgh": "#C47E00", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.32, "cuerpo": "✗", "grande": "AA"}, {"fg": "Sage 500", "fgh": "#7FB396", "bg": "Blanco", "bgh": "#FFFFFF", "r": 2.39, "cuerpo": "✗", "grande": "✗"}, {"fg": "Sage 700", "fgh": "#457A5A", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.02, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Lavender 500", "fgh": "#9B84C0", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.25, "cuerpo": "✗", "grande": "AA"}, {"fg": "Lavender 700", "fgh": "#6F5A95", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.88, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Terracota 500", "fgh": "#C67B5C", "bg": "Blanco", "bgh": "#FFFFFF", "r": 3.29, "cuerpo": "✗", "grande": "AA"}, {"fg": "Terracota 700", "fgh": "#A05640", "bg": "Blanco", "bgh": "#FFFFFF", "r": 5.38, "cuerpo": "AA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Navy 500", "bgh": "#003B71", "r": 11.27, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Blanco", "fgh": "#FFFFFF", "bg": "Turquesa 500", "bgh": "#00BCB4", "r": 2.37, "cuerpo": "✗", "grande": "✗"}, {"fg": "Navy 500", "fgh": "#003B71", "bg": "SP-50", "bgh": "#E6F7F6", "r": 10.19, "cuerpo": "AAA", "grande": "AAA"}, {"fg": "Turquesa 900", "fgh": "#006B66", "bg": "SP-50", "bgh": "#E6F7F6", "r": 5.77, "cuerpo": "AA", "grande": "AAA"}];
 
 /* ---- estructura de navegación: id, título, grupo, sub-secciones ---- */
@@ -327,6 +362,8 @@ const PAGES = [
   {id:'/tipografia',  t:'Tipografía',          g:'Identidad visual'},
   {id:'/voz',         t:'Voz y lenguaje',      g:'Identidad visual'},
   {id:'/formatos',    t:'Cifras, fechas y plata', g:'Identidad visual'},
+  {id:'/iconos',      t:'Íconos',              g:'Identidad visual', sub:['La regla','Tamaños','Si ninguno sirve','El set completo']},
+  {id:'/presentaciones', t:'Presentaciones',   g:'Identidad visual', sub:['Dos modos','La portada','Tipografía y tamaños','Color en los datos','Los tipos de lámina','Qué gráfico para qué','Informes con datos','Antes de entregar']},
   {id:'/descargas-logos',      t:'Logos',          g:'Descargas'},
   {id:'/descargas-tipografias',t:'Tipografías',    g:'Descargas'},
   {id:'/descargas-paleta',     t:'Paleta y códigos de color',g:'Descargas'},
@@ -463,6 +500,8 @@ V['/'] = () => `
       <a class="dl" download="SP_Tipografias.zip" href="${A.zipFonts}">Descargar · ${kb(A.zipFontsSize)}</a></div>
     <div class="pack"><div class="t">Paleta</div><div class="s">Muestras .ase para Illustrator, más tokens en CSS, SCSS y JSON.</div>
       <a class="dl" download="SP_Paleta.zip" href="${A.zipPal}">Descargar · ${kb(A.zipPalSize)}</a></div>
+    <div class="pack"><div class="t">Íconos</div><div class="s">Los 26 íconos de SP en SVG, dibujados a mano, con su regla.</div>
+      <a class="dl" download="SP_Iconos_Pack.zip" href="${A.zipIconos}">Descargar · ${kb(A.zipIconosSize)}</a></div>
   </div>
 </section>
 
@@ -801,6 +840,307 @@ V['/formatos'] = () => `
   </tbody>
 </table></div>`;
 
+/* Los íconos: nombre del archivo, para qué sirven y peso medido. Salen del archivo
+   de íconos del sitio de clientes (sp-prototipo, app/components/iconos-sp.js): una
+   sola mano para todo SP. Primero los dibujados para informes y presentaciones. */
+const ICONOS_INF = [
+  ['Megafono','La pauta, los avisos',1573],['Celular','El feed, las redes',1641],['Personas','La audiencia, las personas',1301],
+  ['Uno','Número 1',853],['Dos','Número 2',901],['Tres','Número 3',935],['Cuatro','Número 4',867],
+  ['Turnos','El período, un turno',1359],['Pagos','La inversión, un pago',1601],['Espera','Tiempos y plazos',1047],
+  ['Consejo','Una idea, un consejo',1171],['Listo','Algo resuelto',1351],
+];
+const ICONOS_SITIO = [
+  ['Plan','El plan',1443],['Credencial','La credencial',1561],['Red','La red médica',1055],['Hospital','Un centro médico',1243],
+  ['Orden','Una orden médica',1507],['Letra','La letra chica, a la vista',1643],['Domicilio','Atención en casa',1449],
+  ['Mental','Salud mental',1461],['Enviar','Enviar, contactar',1229],['Papel','Entender el plan',1303],
+  ['Escudo','Prevención',1099],['Corazon','Primeros años',967],['Sol','Vivir más años',1297],['Libro','Una nota, una lectura',1093],
+];
+const icoSrc = n => `assets/iconos/SP_Icono_${n}.svg`;
+const icoCard = ([n,use,size]) => `
+  <div class="asset ico-cell"><div class="prev bg-light"><img src="${icoSrc(n)}" alt=""></div>
+    <div class="info"><div class="fn">SP_Icono_${n}.svg</div>
+      <div class="mt"><span class="fmt">SVG</span><span class="tnum">${kb(size)}</span></div>
+      <div style="font-size:12.5px;color:var(--muted);margin-top:6px">${esc(use)}</div>
+      <a class="dl" download="SP_Icono_${n}.svg" href="${icoSrc(n)}">Descargar</a></div></div>`;
+
+V['/iconos'] = () => `
+<div class="eyebrow">Identidad visual</div>
+<h1>Íconos</h1>
+<p class="verdict long">Los íconos de SP están dibujados a mano, todos por la misma mano, y cada uno tiene que ganarse su lugar.</p>
+<p class="lede prose">Trazo blanco, repasado, sobre una mancha turquesa que no es un círculo perfecto. El trazo no cierra
+  del todo a propósito: se nota que lo hizo una persona. Son los mismos en el sitio de clientes y en las presentaciones,
+  y funcionan igual sobre fondo claro, navy o turquesa, porque traen su propia base.</p>
+
+<div class="grid g3" style="margin-top:22px">
+  <div class="asset"><div class="prev bg-light"><div class="ico-row"><img src="${icoSrc('Red')}" alt=""><img src="${icoSrc('Megafono')}" alt=""><img src="${icoSrc('Uno')}" alt=""></div></div>
+    <div class="info"><div class="fn">Sobre fondo claro</div></div></div>
+  <div class="asset"><div class="prev bg-navy"><div class="ico-row"><img src="${icoSrc('Red')}" alt=""><img src="${icoSrc('Megafono')}" alt=""><img src="${icoSrc('Uno')}" alt=""></div></div>
+    <div class="info"><div class="fn">Sobre navy</div></div></div>
+  <div class="asset"><div class="prev bg-teal"><div class="ico-row"><img src="${icoSrc('Red')}" alt=""><img src="${icoSrc('Megafono')}" alt=""><img src="${icoSrc('Uno')}" alt=""></div></div>
+    <div class="info"><div class="fn">Sobre turquesa</div></div></div>
+</div>
+
+<h2 id="la-regla" style="margin-top:44px">La regla</h2>
+<ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
+  <li><b>Se usan tal cual vienen.</b> No se recolorean, no se les saca la mancha y no se les cambia el grosor del
+      trazo. La mancha es lo que los hace funcionar en cualquier fondo.</li>
+  <li><b>Siempre al lado de un texto, nunca solos.</b> El ícono acompaña; lo que dice, lo dice el texto.</li>
+  <li><b>Se ganan su lugar.</b> Van cuando ubican (la pauta, el feed, la red médica), cuando numeran (los pasos o los
+      hallazgos de un informe) o cuando le dan calidez a una lista. En un botón que ya dice «Guía Médica», sobran.</li>
+  <li><b>No se mezclan con íconos de librería</b> como Lucide, Material o Font Awesome. Al lado de estos se nota que
+      son de otra mano.</li>
+  <li><b>Las señales de uso quedan simples.</b> Las flechas, la cruz de cerrar, la lupa, el logo de WhatsApp y el
+      teléfono de urgencias no llevan mancha ni trazo a mano.</li>
+</ul>
+
+<h2 id="tamanos" style="margin-top:44px">Tamaños</h2>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Dónde</th><th>Tamaño</th><th>Nota</th></tr></thead>
+  <tbody>
+    <tr><td><b>Pantalla</b><br><span style="color:var(--muted)">web, app, correo</span></td><td class="tnum">20 a 60 px</td><td>Por debajo de 20 px el trazo se empasta.</td></tr>
+    <tr><td><b>Presentación</b><br><span style="color:var(--muted)">lienzo de 1920 × 1080</span></td><td class="tnum">56 a 112 px</td><td>Siempre al lado de un título o de una línea de texto.</td></tr>
+    <tr><td><b>Impresión</b></td><td>—</td><td>El SVG se agranda sin perder nitidez, pero falta definir el color de la mancha en CMYK.
+      <span class="pill p-gap" style="margin-left:4px">Pendiente</span></td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="si-ninguno-sirve" style="margin-top:44px">Si ninguno sirve</h2>
+<p class="prose" style="margin-top:10px">Se le pide a SP. El ícono nuevo se dibuja con la misma mano, en un cuadro de
+  48 × 48 y con trazos que no cierran perfecto. Después se prueba en su lugar y a su tamaño real, y recién ahí entra al
+  set para todos. <b>No se dibuja afuera</b>: aunque se parezca, es otra mano, y en un año habría dos estilos.</p>
+<div class="note" style="margin-top:14px"><b>Así entró el 4.</b> El 06/10/2026 una presentación necesitó numerar cuatro
+  decisiones y solo había tres números. Se dibujó el 4, se probó al lado del 1, el 2 y el 3, y entró al set.</div>
+
+<h2 id="el-set-completo" style="margin-top:44px">El set completo</h2>
+<div class="packrow" style="margin-top:14px">
+  <div class="pack"><div class="t">Los 26 íconos</div><div class="s">En SVG, con nombres canónicos y un léeme con la regla.</div>
+    <a class="dl" download="SP_Iconos_Pack.zip" href="${A.zipIconos}">Descargar · ${kb(A.zipIconosSize)}</a></div>
+</div>
+<h3 style="margin-top:28px">Para informes y presentaciones</h3>
+<div class="grid g4" style="margin-top:12px">${ICONOS_INF.map(icoCard).join('')}</div>
+<h3 style="margin-top:28px">Del sitio de clientes</h3>
+<div class="grid g4" style="margin-top:12px">${ICONOS_SITIO.map(icoCard).join('')}</div>
+<p style="margin-top:14px;font-size:13px;color:var(--muted)">«Para qué» es el uso más común, no el único: un ícono sirve
+  donde lo que dibuja ayude a ubicar.</p>
+
+<details class="tech" style="margin-top:24px">
+  <summary><span class="tag-tec">Para quien programa</span> Cómo están hechos</summary>
+  <div style="padding:16px 0 4px" class="prose">
+    <ul style="margin:0;padding-left:18px;font-size:14.5px" class="stack">
+      <li>Cada dibujo vive en un cuadro de <span class="mono">48 × 48</span>; el archivo trae
+          <span class="mono">width</span> y <span class="mono">height</span> de 96.</li>
+      <li>La mancha es <span class="mono">#007D77</span>, un tono entre Turquesa 700 y 900 que usa el sitio de clientes y
+          que todavía no figura en la <a href="#/color" style="color:var(--teal-text);text-decoration:underline">paleta</a>.
+          El trazo blanco sobre ella da <b>5,0:1</b>.</li>
+      <li>El repasado es el mismo trazo dibujado dos veces: la segunda al 45 % de opacidad, corrida un píxel y apenas girada.</li>
+      <li>La fuente es <span class="mono">app/components/iconos-sp.js</span> del sitio de clientes, y en la web se ponen con su
+          componente <span class="mono">IconoSP</span>. Los SVG de este centro salen de ese archivo: si se agrega un ícono allá,
+          se regenera acá.</li>
+    </ul>
+  </div>
+</details>`;
+
+V['/presentaciones'] = () => `
+<div class="eyebrow">Identidad visual</div>
+<h1>Presentaciones</h1>
+<p class="verdict long">Una lámina de SP se entiende sola: dice su conclusión en pocas palabras, y el resto es la prueba.</p>
+<p class="lede prose">Vale para cualquier presentación que se arme para SP o en su nombre: una propuesta, un informe de
+  una campaña o de redes, una capacitación. El lienzo es 16:9, de <span class="tnum">1920 × 1080</span>. Si la armás con
+  PowerPoint, Keynote, Canva u otra herramienta, lo que se revisa es el PDF que sale de ahí.</p>
+
+<h2 id="dos-modos" style="margin-top:44px">Dos modos: para presentar y para leer</h2>
+<p class="prose" style="margin-top:10px">Antes de armar se decide cómo se va a usar. Si se usa de las dos maneras, se arma la
+  de leer y, aparte, una versión corta para presentar.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th></th><th>Para presentar</th><th>Para leer</th></tr></thead>
+  <tbody>
+    <tr><td><b>Cuándo</b></td><td>En vivo, proyectada: una charla, una capacitación, una reunión.</td><td>Se manda por correo o como PDF: un informe de resultados, el anexo de una propuesta.</td></tr>
+    <tr><td><b>El título</b></td><td>Abre el tema. En una charla no anticipa el remate.</td><td><b>Dice la conclusión</b> en una oración: «Agosto consiguió más respuesta y perdió alcance», no «Resultados de agosto».</td></tr>
+    <tr><td><b>La lámina</b></td><td>Una idea y poco texto. Lo demás lo dice quien presenta.</td><td>Se sostiene sola: el título, la prueba y una línea que dice qué significa.</td></tr>
+    <tr><td><b>Portada</b></td><td>En navy.</td><td>En fondo claro.</td></tr>
+    <tr><td><b>Pie</b></td><td>La fuente y la fecha, si hay un dato.</td><td>La fuente y el período a la izquierda; la página («3 / 12») a la derecha.</td></tr>
+    <tr><td><b>Largo</b></td><td>El que pida la charla.</td><td>Un informe mensual, de 10 a 13 láminas. El detalle va al anexo.</td></tr>
+    <tr><td><b>Cierre</b></td><td>Una frase y el agradecimiento.</td><td>Una o dos frases que resumen el período, sin «gracias».</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="la-portada" style="margin-top:44px">La portada</h2>
+<p class="prose" style="margin-top:10px">Siempre la misma forma: el logo arriba a la izquierda y abajo el rótulo, el título y
+  el subtítulo. En un informe, el subtítulo dice el período completo: «del 1 al 31 de agosto».</p>
+<div class="grid g2" style="margin-top:16px">
+  <figure style="margin:0"><div class="slide navy"><div class="bandita"></div><div class="lg">Logo blanco</div>
+    <div><div class="ey">Rótulo</div><div class="tt">Título de la presentación</div><div class="st">Subtítulo, en una línea</div></div></div>
+    <figcaption class="lk-cap"><b>Para presentar:</b> fondo navy, isologotipo blanco.</figcaption></figure>
+  <figure style="margin:0"><div class="slide claro"><div class="bandita"></div><div class="lg">Logo a color</div>
+    <div><div class="ey">Informe mensual</div><div class="tt">Instagram en agosto</div><div class="st">Pauta y feed, del 1 al 31 de agosto</div></div></div>
+    <figcaption class="lk-cap"><b>Para leer:</b> fondo claro, isologotipo a color.</figcaption></figure>
+</div>
+<div class="note" style="margin-top:16px"><b>El logo va en la portada y en el cierre.</b> Adentro no: el pie lleva la fuente y
+  la página. Se usa el archivo de <a href="#/descargas-logos" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Logos</a>,
+  nunca redibujado, y respetando su <a href="#/logo" style="color:var(--teal-text);font-weight:600;text-decoration:underline">tamaño mínimo</a>.</div>
+
+<h2 id="tipografia-y-tamanos" style="margin-top:44px">Tipografía y tamaños</h2>
+<ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
+  <li><b>Nunito Sans ExtraBold</b> para portadas, títulos, frases grandes y cifras grandes.
+      <b>Nunito Sans Bold</b> para rótulos en mayúsculas, con un poco de espaciado entre letras.</li>
+  <li><b>Inter</b> para todo lo que se lee como oración: textos, listas, tablas y fuentes. En tablas y cifras, con números tabulares.</li>
+  <li><b>Ninguna otra fuente.</b> Las dos se bajan en <a href="#/descargas-tipografias" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Tipografías</a>.</li>
+  <li><b>Nada por debajo de 24 px</b> en el lienzo de 1920 × 1080: ni un pie, ni una celda. Si no entra, son dos láminas o va al anexo.</li>
+  <li>Los tamaños salen de una sola escala: <span class="mono">140 · 120 · 96 · 88 · 72 · 64 · 56 · 44 · 40 · 36 · 32 · 28 · 24</span>.</li>
+  <li>Márgenes de 128 px. Títulos en Tipo Oración y sin punto final.</li>
+</ul>
+
+<h2 id="color-en-los-datos" style="margin-top:44px">Color en los datos</h2>
+<p class="prose" style="margin-top:10px">Un gráfico de SP puede tener más color que turquesa y azul, siempre que cada color
+  diga algo. <b>Si se suma un color, la leyenda o el rótulo dicen qué es.</b> Todos salen de las escalas de
+  <a href="#/color" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Color</a>.</p>
+
+<h3 style="margin-top:24px">Familias</h3>
+<p class="prose" style="margin-top:6px;font-size:14.5px">El fondo de cada grupo de cifras de un tablero, con su rótulo en el tono oscuro de la misma escala.</p>
+<div class="grid g4" style="margin-top:12px">
+  <div class="fam" style="background:#E6EDF4"><div class="fl" style="color:#003B71">Llegada</div><div class="fu">Cuánta gente lo vio</div><div class="fh">Navy-50 · rótulo Navy-500</div></div>
+  <div class="fam" style="background:#F3EFF8"><div class="fl" style="color:#4A3A6E">Respuesta</div><div class="fu">Qué hizo la gente</div><div class="fh">Lavender-50 · rótulo Lavender-900</div></div>
+  <div class="fam" style="background:#E6F7F6"><div class="fl" style="color:#006B66">Utilidad</div><div class="fu">Lo guardó o lo compartió</div><div class="fh">SP-50 · rótulo SP-900</div></div>
+  <div class="fam" style="background:#F8EDE6"><div class="fl" style="color:#A05640">Propuesta</div><div class="fu">Lo que falta decidir. Lo decidido nunca va acá</div><div class="fh">Terracota-50 · rótulo Terracota-700</div></div>
+</div>
+
+<h3 style="margin-top:24px">Series de un gráfico, en este orden</h3>
+<div class="grid g4" style="margin-top:12px">
+  ${swatch('1 · Navy-500','#003B71')}${swatch('2 · Turquesa SP','#00BCB4')}${swatch('3 · Lavender-500','#9B84C0')}${swatch('4 · Terracota-200','#DDB29C')}${swatch('5 · Navy-200','#B3C7DB')}
+</div>
+<ul class="prose stack" style="margin:14px 0 0;padding-left:20px;font-size:14.5px">
+  <li>Cada barra o punto lleva <b>su valor escrito</b>, al lado o adentro.</li>
+  <li>El período con el que se compara va en <b>Navy-200</b> y el del informe, en color.</li>
+  <li><b>Una sola serie, un solo color.</b> Cinco barras de cinco colores, sin leyenda, dicen que hay cinco categorías cuando son cinco valores de lo mismo.</li>
+  <li>Para destacar un grupo, ese grupo va en color y el resto en Navy-200, con la leyenda que dice qué es cada uno.</li>
+</ul>
+
+<h3 style="margin-top:24px">El semáforo</h3>
+<div class="card" style="margin-top:12px">
+  <div class="semaf">
+    <span><i style="width:18px;height:18px;border-radius:50%;background:#2E7D32"></i>En meta</span>
+    <span><i style="width:16px;height:16px;background:#F5A623;transform:rotate(45deg)"></i>Atención</span>
+    <span><i style="width:17px;height:17px;border-radius:2px;background:#C62828"></i>Lejos de la meta</span>
+  </div>
+  <ul style="margin:14px 0 0;padding-left:18px;font-size:14.5px" class="stack">
+    <li><b>Siempre con su forma y su palabra.</b> Con el daltonismo más común, el verde y el rojo casi no se distinguen: la forma y la palabra son lo que se lee.</li>
+    <li><b>Se juzga contra la meta del período</b>, aprobada antes de que empiece. Sin meta, no hay semáforo.</li>
+    <li><b>Solo en informes internos.</b> En lo que ve un cliente, el rojo es solo de urgencias.</li>
+    <li>Verde, ámbar y rojo no se usan para nada más en el mismo informe.</li>
+  </ul>
+</div>
+
+<details class="tech" style="margin-top:16px">
+  <summary><span class="tag-tec">Para quien programa</span> Los códigos y los contrastes</summary>
+  <div style="padding:16px 0 4px">
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>Uso</th><th>Texto</th><th>Fondo</th><th>Ratio</th></tr></thead>
+      <tbody>
+        <tr><td>Rótulo Llegada</td><td class="mono">#003B71</td><td class="mono">#E6EDF4</td><td class="tnum">9,54:1</td></tr>
+        <tr><td>Rótulo Respuesta</td><td class="mono">#4A3A6E</td><td class="mono">#F3EFF8</td><td class="tnum">8,73:1</td></tr>
+        <tr><td>Rótulo Utilidad</td><td class="mono">#006B66</td><td class="mono">#E6F7F6</td><td class="tnum">5,77:1</td></tr>
+        <tr><td>Rótulo Propuesta</td><td class="mono">#A05640</td><td class="mono">#F8EDE6</td><td class="tnum">4,68:1</td></tr>
+        <tr><td>Valor adentro de una barra Lavender-500</td><td class="mono">#003B71</td><td class="mono">#9B84C0</td><td class="tnum">3,46:1 · solo desde 24 px</td></tr>
+        <tr><td>Valor adentro de una barra Terracota-200</td><td class="mono">#003B71</td><td class="mono">#DDB29C</td><td class="tnum">5,86:1</td></tr>
+        <tr><td>Valor adentro de una barra turquesa</td><td class="mono">#003B71</td><td class="mono">#00BCB4</td><td class="tnum">4,75:1</td></tr>
+        <tr><td>Valor adentro de una barra navy</td><td class="mono">#FFFFFF</td><td class="mono">#003B71</td><td class="tnum">11,27:1</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:12px;font-size:14px">Semáforo: verde <span class="mono">#2E7D32</span>, ámbar <span class="mono">#F5A623</span> (Ámbar-500),
+      rojo <span class="mono">#C62828</span>. El verde y el rojo no son de la paleta de marca: son el semáforo clásico, a propósito, y solo viven ahí.</p>
+  </div>
+</details>
+
+<h2 id="los-tipos-de-lamina" style="margin-top:44px">Los tipos de lámina</h2>
+<p class="prose" style="margin-top:10px">Una presentación se arma combinando estos tipos. Las láminas del mismo tipo comparten
+  estructura y ubicaciones: cuatro semanas de calendario son cuatro veces la misma grilla, no cuatro diseños.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>#</th><th>Tipo</th><th>Para qué</th></tr></thead>
+  <tbody>
+    <tr><td class="tnum">1</td><td><b>Portada</b></td><td>Siempre. En un informe, el tema y el período completo.</td></tr>
+    <tr><td class="tnum">2</td><td><b>Separador</b></td><td>Un cambio de bloque en una presentación larga.</td></tr>
+    <tr><td class="tnum">3</td><td><b>Idea</b></td><td>Una frase grande. La unidad básica.</td></tr>
+    <tr><td class="tnum">4</td><td><b>Capítulo de historia</b></td><td>Historias por etapas, en charlas y capacitaciones.</td></tr>
+    <tr><td class="tnum">5</td><td><b>Dato grande</b></td><td>Una cifra que cambia la decisión, dicha como se diría en voz alta.</td></tr>
+    <tr><td class="tnum">6</td><td><b>Tabla</b></td><td>Datos que se comparan con su número exacto.</td></tr>
+    <tr><td class="tnum">7</td><td><b>Tarjetas</b></td><td>Pilares, opciones o pasos: tres o cuatro.</td></tr>
+    <tr><td class="tnum">8</td><td><b>Foto y mensaje</b></td><td>Personas reales, con su consentimiento. Sin foto real, la lámina va sin imagen.</td></tr>
+    <tr><td class="tnum">9</td><td><b>Cita</b></td><td>La voz de un cliente, textual y verificada.</td></tr>
+    <tr><td class="tnum">10</td><td><b>Impacto</b></td><td>El momento que se recuerda, sobre turquesa. Una sola por presentación.</td></tr>
+    <tr><td class="tnum">11</td><td><b>Pregunta o acción</b></td><td>Lo que se decide o lo que se lleva la sala.</td></tr>
+    <tr><td class="tnum">12</td><td><b>Participación</b></td><td>Una dinámica, con el tiempo en una píldora ámbar.</td></tr>
+    <tr><td class="tnum">13</td><td><b>Cierre</b></td><td>Siempre. En un informe, una o dos frases que resumen el período.</td></tr>
+    <tr><td class="tnum">14</td><td><b>Respuesta</b></td><td>La lámina 2 de todo informe: tres hallazgos numerados y lo que se decide.</td></tr>
+    <tr><td class="tnum">15</td><td><b>Tablero</b></td><td>Hasta seis cifras, cada una con su comparación y su familia de color.</td></tr>
+    <tr><td class="tnum">16</td><td><b>Top 10 con su porqué</b></td><td>Las que más rindieron, en barras con su valor y una línea con su porqué.</td></tr>
+    <tr><td class="tnum">17</td><td><b>Base y meta</b></td><td>Las metas del período que viene, cada una con su porqué.</td></tr>
+    <tr><td class="tnum">18</td><td><b>Calendario</b></td><td>El plan, siempre con la misma grilla: día, formato, tema y qué se le pide a la persona.</td></tr>
+    <tr><td class="tnum">19</td><td><b>Límites de lectura</b></td><td>Obligatoria en todo informe con datos: lo que no se puede concluir.</td></tr>
+    <tr><td class="tnum">20</td><td><b>Las mejores, a la vista</b></td><td>En un informe de redes: las tres mejores con su captura real, en porcentaje y en número.</td></tr>
+    <tr><td class="tnum">21</td><td><b>Anexo</b></td><td>El detalle que no entra en el cuerpo, en fondo blanco.</td></tr>
+    <tr><td class="tnum">22</td><td><b>Hitos</b></td><td>Un plan por etapas: hasta cinco pasos, cada uno con su estado.</td></tr>
+    <tr><td class="tnum">23</td><td><b>Tabla con veredicto</b></td><td>Qué hacer con cada pieza: repetir, ajustar o cambiar el enfoque, con su porqué.</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="que-grafico-para-que" style="margin-top:44px">Qué gráfico para qué</h2>
+<p class="prose" style="margin-top:10px">La forma se elige por lo que se quiere mostrar, no por costumbre.</p>
+<div class="tbl-scroll" style="margin-top:14px"><table>
+  <thead><tr><th>Si querés mostrar…</th><th>Usá</th><th>Cómo</th></tr></thead>
+  <tbody>
+    <tr><td>Cómo cambió algo entre dos períodos</td><td><b>Barras agrupadas</b></td><td>El período anterior en Navy-200 y el actual en color; el número arriba de cada barra y el cambio en porcentaje arriba de cada grupo.</td></tr>
+    <tr><td>De qué está hecho un total</td><td><b>Una barra entera</b></td><td>Una barra al 100% por período; adentro, el porcentaje y la cantidad («47% · 9»).</td></tr>
+    <tr><td>Lo que pasó a lo largo de un mes</td><td><b>Una columna por pieza en su fecha</b></td><td>Un eje del 1 al último día, cada día a su distancia real, con la mediana punteada.</td></tr>
+    <tr><td>Una serie que sí es continua</td><td><b>Línea</b></td><td>Un valor por día, como el alcance diario de una cuenta. Primer y último valor escritos.</td></tr>
+    <tr><td>Cuánto falta para la meta</td><td><b>Avance con semáforo</b></td><td>Una fila por indicador: la barra llena es la meta; el valor y la meta en números («420 · 500»).</td></tr>
+    <tr><td>De dónde viene el cambio de una tasa</td><td><b>Barra partida en sus causas</b></td><td>Cuánto viene de lo de arriba de la división y cuánto de lo de abajo, dicho en palabras al lado.</td></tr>
+    <tr><td>Una parte chica de algo grande</td><td><b>Dos barras a escala</b></td><td>La parte y el todo en la misma escala, con los dos números.</td></tr>
+    <tr><td>Una proporción que sorprende</td><td><b>Cuadros para contar</b></td><td>Un cuadro por cosa en el primer bloque y uno por cada 1% en el segundo: «2 de cada 10 piezas, la mitad de las interacciones».</td></tr>
+    <tr><td>Las que más y las que menos rindieron</td><td><b>Las mejores a la vista</b> y <b>Top 10</b></td><td>Las tres mejores con su captura; después el top 10 en barras, y la tabla con veredicto para las que menos rindieron.</td></tr>
+    <tr><td>Una cifra que cambia la decisión</td><td><b>Dato grande</b></td><td>Dicha como se diría en voz alta, con la frase que la explica.</td></tr>
+  </tbody>
+</table></div>
+<div class="warn" style="margin-top:16px"><b>No van:</b> torta ni dona (el ojo compara mal ángulos), gráficos con dos escalas,
+  barras de colores sin leyenda, líneas que unen piezas sueltas (dibujan una tendencia que no existe) ni números sin su base.</div>
+
+<h2 id="informes-con-datos" style="margin-top:44px">Informes con datos</h2>
+<p class="prose" style="margin-top:10px">Un informe lindo con la base equivocada convence más rápido que uno feo, y nadie revisa
+  lo que se ve bien. Por eso un buen diseño no alcanza: los números se tienen que poder seguir.</p>
+<ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
+  <li><b>Cada cifra lleva su fuente y su período</b> en el pie, y una etiqueta en palabra:
+      <b>Medido</b>, <b>Supuesto</b>, <b>Inferencia</b> o <b>Proyección</b>.</li>
+  <li><b>Cada cifra técnica se explica en la misma lámina</b>, en palabras de todos los días: «llegó a unas 30 veces más
+      gente», no «es del orden del 3%». Las notas del orador amplían; no explican.</li>
+  <li><b>Un informe de un mes habla solo de ese mes</b>, del 1 al último día. Los números se bajan apenas cierra.</li>
+  <li><b>Períodos con distinta cantidad de piezas se comparan por pieza.</b> Un mes con más publicaciones «crece» solo.</li>
+  <li><b>Una tasa nunca va sola:</b> va con lo que la forma, y se dice cuál de las dos partes la movió.</li>
+  <li><b>Lo que coincide en el tiempo se dice como coincidencia</b>, no como causa.</li>
+  <li><b>Las piezas de redes se muestran con su captura real</b>, entera y vertical. Nunca un cuadro de relleno.</li>
+  <li><b>La jerga se traduce:</b> tablero (no <i>scorecard</i>), tasa de interacción (no <i>engagement</i>), las que menos
+      rindieron (no <i>underperformers</i>), qué le pedimos a la persona (no <i>CTA</i>).</li>
+  <li><b>Lo que la fuente no entrega se marca «no disponible»</b>, nunca se completa sin decirlo.</li>
+</ul>
+
+<h2 id="antes-de-entregar" style="margin-top:44px">Antes de entregar</h2>
+<ul class="prose stack" style="margin:12px 0 0;padding-left:20px">
+  <li><b>Revisá el PDF exportado</b>, página por página, no el archivo de origen. Las viñetas que salen como texto, los
+      títulos partidos letra por letra o una fuente que no es Nunito Sans ni Inter aparecen recién ahí.</li>
+  <li><b>Las partes suman el total</b> y cada variación se recalcula desde la base.</li>
+  <li><b>Nada decorativo que no diga algo:</b> ni formas abstractas, ni íconos de librería, ni fotos de stock.</li>
+  <li><b>Hacia afuera de SP no van</b> la inversión publicitaria ni los resultados propios sin el OK de Marketing, datos de
+      salud de una persona que se pueda identificar, ni el nombre de una persona al lado de una falla.</li>
+  <li><b>Una afirmación de cobertura, precio o plazo</b> necesita aprobación, como en cualquier pieza: ver
+      <a href="#/agencias" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Para agencias</a>.</li>
+  <li><b>El nombre del archivo</b> sigue la convención:
+      <span class="mono">AAAAMMDD_SP_Presentacion_16x9-[concepto]-[canal]_v[n]</span>.</li>
+</ul>
+
+<div class="warn" style="margin-top:26px"><b>Falta la plantilla de PowerPoint.</b> El formato está escrito acá, pero todavía no
+  hay un archivo <span class="mono">.potx</span> que lo traiga armado. Mientras tanto, se arma con estas reglas, los
+  <a href="#/iconos" style="font-weight:600;text-decoration:underline">íconos</a> y las dos tipografías.
+  Está pedida en <a href="#/faltantes" style="font-weight:600;text-decoration:underline">Qué falta y qué llegó</a>.
+  <span class="pill p-gap" style="margin-left:4px">Pendiente</span></div>`;
+
 V['/descargas-logos'] = () => `
 <div class="eyebrow">Descargas</div>
 <h1>Logos</h1>
@@ -926,6 +1266,9 @@ V['/agencias'] = () => `
   <li>Usar los archivos de este centro tal cual vienen, en cualquiera de las cuatro versiones aprobadas.</li>
   <li>Aplicar la paleta y las dos tipografías, incluyendo incrustarlas en una web que produzcas para SP.</li>
   <li>Maquetar piezas siguiendo la matriz de uso y el área de resguardo.</li>
+  <li>Usar los <a href="#/iconos" style="color:var(--teal-text);font-weight:600;text-decoration:underline">íconos</a> tal
+      cual vienen y armar presentaciones con el
+      <a href="#/presentaciones" style="color:var(--teal-text);font-weight:600;text-decoration:underline">formato de SP</a>.</li>
 </ul>
 
 <h2 style="margin-top:32px">Lo que necesita aprobación previa</h2>
@@ -935,6 +1278,7 @@ V['/agencias'] = () => `
   <li><b>Poner el logo de SP al lado de otro logo</b> en una misma pieza, incluido el de tu propia agencia.</li>
   <li><b>Afirmaciones sobre cobertura, precios o plazos.</b> Van contra la grilla vigente, no contra el borrador.</li>
   <li><b>Notas de prensa y publicaciones</b> que mencionen a SP.</li>
+  <li><b>Un ícono que no está en el set.</b> Se le pide a SP, que lo dibuja con la misma mano. No se dibuja afuera.</li>
 </ul>
 
 <h2 style="margin-top:32px">Lo que no se hace nunca</h2>
@@ -1234,7 +1578,8 @@ V['/faltantes'] = () => `
     </tr>
     <tr>
       <td><b>Plantilla de presentación</b><br><span style="color:var(--muted)">16:9</span></td>
-      <td>Mismo problema que el membrete, y se ve más: una presentación sale de la empresa y la mira un cliente.</td>
+      <td>El formato ya está escrito en <a href="#/presentaciones" style="text-decoration:underline">Presentaciones</a>. Falta el
+        archivo que lo trae armado, para que nadie empiece cada presentación desde cero.</td>
       <td><span class="mono">SP_Presentacion_16-9.potx</span></td>
       <td><span class="pill p-mid">Importante</span></td>
     </tr>
@@ -1256,20 +1601,14 @@ V['/faltantes'] = () => `
       <td><span style="color:var(--muted)">El que cada aliado tenga —<span class="mono">.svg</span>, <span class="mono">.eps</span> o <span class="mono">.pdf</span></span></td>
       <td><span class="pill p-gap">Bloqueante</span></td>
     </tr>
-    <tr>
-      <td><b>Set de íconos</b></td>
-      <td>El sitio de clientes ya usa íconos, pero cada uno se dibujó suelto y el grosor del trazo va de 1,7 a 4.
-        No hay set ni regla escrita.</td>
-      <td><span class="mono">SP_Icono_[nombre].svg</span></td>
-      <td><span class="pill p-mid">Menor</span></td>
-    </tr>
   </tbody>
 </table></div>
-<div class="warn" style="margin-top:16px"><b>Ojo con los nombres de las últimas cinco filas.</b> Los de los vectoriales
+<div class="warn" style="margin-top:16px"><b>Ojo con los nombres.</b> Los de los vectoriales
   —<span class="mono">.svg</span> en RGB y <span class="mono">.eps</span> en CMYK— ya estaban decididos: la convención
   de la marca dice que el nombre codifica el espacio de color, no el formato. Los del membrete, la presentación, la
-  firma, la imagen para compartir y los íconos son una <b>propuesta</b>: estiran la misma convención a piezas que
+  firma y la imagen para compartir son una <b>propuesta</b>: estiran la misma convención a piezas que
   todavía no existen. Sirven para pedir, pero conviene confirmarlos antes de que un proveedor entregue con ellos.
+  El de los íconos ya se usa desde el 06/10/2026: <span class="mono">SP_Icono_[Nombre].svg</span>.
   <span class="pill p-gap" style="margin-left:4px">Sin confirmar</span></div>
 
 <div class="note" style="margin-top:16px"><b>Antes de encargar los vectoriales, preguntá si ya existen.</b> Un logo trazado a
@@ -1310,6 +1649,7 @@ V['/faltantes'] = () => `
 <div class="tbl-scroll" style="margin-top:14px"><table>
   <thead><tr><th>Fecha</th><th>Qué entró</th><th>Dónde está</th></tr></thead>
   <tbody>
+    <tr><td class="tnum">06/10/2026</td><td><b>Los 26 íconos de SP</b> — en SVG, dibujados a mano con la misma mano que el sitio de clientes: 14 que ya usaba el sitio y 12 dibujados para informes y presentaciones, entre ellos los números del 1 al 4. Antes no había set ni regla escrita.</td><td><span class="mono">assets/iconos/</span><br><span class="mono">descargas/SP_Iconos_Pack.zip</span></td></tr>
     <tr><td class="tnum">07/08/2026</td><td><b>Los 12 logos de aliados</b> — Farmatotal, Punto Farma, Assist Card, Farmacia San José, Óptica Meister, Promedik, Billio, Acuidarte, Charpentier, Fisio Spa, Barberos López y Upalala. Venían del sitio de socios; son archivos de web y no sirven para imprenta.</td><td><span class="mono">assets/aliados/</span></td></tr>
     <tr><td class="tnum">07/08/2026</td><td><b>Seis tipografías para instalar</b> — Nunito Sans SemiBold y ExtraBold, Inter Regular, Medium, SemiBold y Bold, en <span class="mono">.ttf</span>. Antes solo había <span class="mono">.woff2</span>, que no se instala en Illustrator, Word ni Canva.</td><td><span class="mono">assets/fonts/</span></td></tr>
     <tr><td class="tnum">06/08/2026</td><td><b>Los 18 archivos de marca</b> — isologotipo en 4 versiones, isotipo en 4, cinco favicons, dos marcas de agua y tres fotos de perfil. Todos PNG.</td><td><span class="mono">assets/logos/</span></td></tr>
@@ -1328,6 +1668,8 @@ V['/cambios'] = () => `
 <div class="tbl-scroll" style="margin-top:22px"><table>
   <thead><tr><th>Fecha</th><th>Versión</th><th>Qué cambió</th></tr></thead>
   <tbody>
+    <tr><td class="tnum">06/10/2026</td><td>1.4</td><td><b>Página nueva: <a href="#/iconos" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Íconos</a>.</b> Los 26 íconos de SP, cada uno para bajar suelto o todos en un paquete, con la regla escrita: se usan tal cual vienen, siempre al lado de un texto, se ganan su lugar y, si ninguno sirve, se le pide uno nuevo a SP. La lista de faltantes decía que no había set ni regla, y que el trazo iba de 1,7 a 4: eso ya no era cierto desde que el sitio de clientes pasó a sus íconos propios.</td></tr>
+    <tr><td class="tnum">06/10/2026</td><td>1.4</td><td><b>Página nueva: <a href="#/presentaciones" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Presentaciones</a>.</b> El formato con el que se arma una presentación de SP: los dos modos (para presentar y para leer), la portada, la tipografía, el color en los datos con su semáforo, los 23 tipos de lámina, qué gráfico usar para qué y las reglas de los informes con datos. Sale de revisar informes mensuales reales: lo que funcionó en su diseño y lo que hizo falta para que sus números se pudieran seguir. La plantilla de PowerPoint sigue pendiente.</td></tr>
     <tr><td class="tnum">16/09/2026</td><td>1.3.1</td><td><b>La página de agencias contradecía a la de lockup.</b> Decía que las reglas para poner la marca de SP junto a otra "todavía no están escritas" y mandaba a preguntar antes de maquetar. Pero <a href="#/lockup" style="color:var(--teal-text);font-weight:600;text-decoration:underline">Marca junto a otra marca</a> existe desde la 1.3, con la separación, cuál va primero, qué versión usar según el fondo y cómo se igualan los tamaños. Un proveedor leía eso y preguntaba algo que el sitio ya contestaba. La nota ahora lleva a las reglas y conserva lo que sí sigue siendo cierto: la pieza pasa por aprobación igual.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>Entran los aliados, y las reglas para ponerlos al lado de SP.</b> Los 12 logos vivían solo en el sitio de socios; ahora están acá, con su pack. Y hay página nueva de lockup: cuánto aire va entre dos marcas —dos veces la "a", derivado del área de resguardo que este centro ya publicaba—, cuál va primero, qué versión de SP usar y qué no se hace nunca. Se sumaron también el espacio de prestadores y el de fotos de profesionales: los dos sin contenido todavía, con lo que hace falta para llenarlos.</td></tr>
     <tr><td class="tnum">07/08/2026</td><td>1.3</td><td><b>Cuarta corrección al manual anterior: el isologotipo no dice "MEDICINA PREPAGA".</b> El sitio afirmaba que el texto del isologotipo era "SALUD PROTEGIDA MEDICINA PREPAGA", y que por debajo del mínimo "MEDICINA PREPAGA deja de leerse". Se miró el archivo: dice <b>SALUD PROTEGIDA</b> en dos líneas y nada más. La línea que se pierde primero es PROTEGIDA, que es la más larga. El mínimo de 180 px no cambia; cambia el porqué.</td></tr>
@@ -1372,7 +1714,7 @@ function pagerFor(id){
     <div>${prev?`<a href="#${prev.id}"><span class="lb">${esc(prev.g||'Inicio')}</span><span class="tt">← ${esc(prev.t)}</span></a>`:''}</div>
     <div style="text-align:right">${next?`<a href="#${next.id}"><span class="lb">${esc(next.g)}</span><span class="tt">${esc(next.t)} →</span></a>`:''}</div>
   </nav>
-  <div class="stamp">Actualizado el 16/09/2026 · Centro de Marca v1.3.1</div>`;
+  <div class="stamp">Actualizado el 06/10/2026 · Centro de Marca v1.4</div>`;
 }
 function route(){
   const raw=location.hash.slice(1)||'/';
