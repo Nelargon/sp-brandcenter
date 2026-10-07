@@ -21,6 +21,7 @@ ni trabajar con una versión vieja de la marca.
 | `assets/fonts/` | Nunito Sans e Inter (woff2 variable) con sus licencias SIL OFL. |
 | `assets/iconos/` | Los 26 íconos de SP en SVG (`SP_Icono_[Nombre].svg`). Salen del archivo de íconos del sitio de clientes (`sp-prototipo`, `app/components/iconos-sp.js`): si allá se suma uno, se regenera acá. |
 | `descargas/` | Los paquetes `.zip` y la paleta en `.ase`, CSS, SCSS y JSON. |
+| `qa/revisar.mjs` | La revisión del sitio en un navegador: todas las rutas, los dos temas, cuatro anchos y el contraste de cada texto. Se corre con `node qa/revisar.mjs`; no es parte del sitio ni le agrega dependencias. |
 
 ## Marcas que no son de SP
 
@@ -110,4 +111,5 @@ Y las tres originales:
 ## Publicación
 
 Cada push a `main` publica a GitHub Pages. No hay CI de build porque no hay
-build: el chequeo es abrir el sitio.
+build: el chequeo es abrir el sitio y correr `node qa/revisar.mjs` antes de
+fusionar.
