@@ -378,17 +378,47 @@
 
   /* ---------- firma de correo (HTML) y WhatsApp (texto) ---------- */
   const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  /* La firma de correo: «B · La tuya, sin íconos» (lámina 82, Arturo, 07/10/2026).
+     - En Arial: el correo no carga las fuentes de la marca, y así la ve quien la recibe.
+     - El nombre en negrita y el apellido no (pedido de Arturo).
+     - Dos bloques que se apilan solos en un celular: una tabla fija de dos columnas se
+       salía 99 px a 390.
+     - El logo va ENLAZADO, no adjunto. Gmail lo deja enlazado, y Roundcube 1.6 solo
+       adjunta las imágenes subidas dentro de la firma (las pasa a data: y las extrae al
+       enviar); una dirección https queda como enlace. Si quien recibe bloquea las
+       imágenes (Roundcube lo hace de fábrica), ve «Salud Protegida» con el estilo del alt.
+     - El teléfono se lee «(021) 319 0000»; el +595 va solo en el tel: (sp-interno#164). */
+  const ARIAL = 'Arial,Helvetica,sans-serif';
+  const telEnlace = t => {
+    const dig = String(t || '').replace(/\D/g, '');
+    if (/^\+/.test(String(t).trim())) return dig ? 'tel:+' + dig : '';
+    if (/^0\d{8,9}$/.test(dig)) return 'tel:+595' + dig.slice(1);
+    return '';
+  };
   function htmlFirma(d) {
     const logoUrl = SP_CONTACTO.centroDeMarca + SP_LOGOS['isologo-color'].src;
     const cargo = [d.cargo, d.area].filter(Boolean).map(esc).join(' · ');
-    const tels = [d.telefono, d.celular].filter(Boolean).map(esc).join(' · ');
-    return '<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Inter,Arial,Helvetica,sans-serif;color:#3D3D3D;font-size:13px;line-height:1.5">'
-      + '<tr><td style="padding:0 0 10px"><img src="' + logoUrl + '" width="180" height="67" alt="Salud Protegida" style="display:block;width:180px;height:auto;border:0"></td></tr>'
-      + '<tr><td style="font-family:\'Nunito Sans\',Arial,Helvetica,sans-serif;font-size:16px;font-weight:800;color:#003B71">' + (esc(d.nombre) || 'Tu nombre') + '</td></tr>'
-      + (cargo ? '<tr><td style="color:#3D3D3D">' + cargo + '</td></tr>' : '')
-      + '<tr><td style="padding-top:8px;color:#3D3D3D">' + (tels ? tels + '<br>' : '') + (d.correo ? '<a href="mailto:' + esc(d.correo) + '" style="color:#00695F;text-decoration:none">' + esc(d.correo) + '</a><br>' : '')
-      + '<a href="https://' + SP_CONTACTO.web + '" style="color:#00695F;text-decoration:none">' + SP_CONTACTO.web + '</a></td></tr>'
-      + '</table>';
+    const enlace = (href, t, color) => '<a href="' + esc(href) + '" style="color:' + color + ';text-decoration:none">' + esc(t) + '</a>';
+    const linea = contenido => '<div style="font-size:14px;line-height:1.6;color:#3D3D3D;white-space:nowrap">' + contenido + '</div>';
+    const tel = t => { const h = telEnlace(t); return h ? enlace(h, t, '#3D3D3D') : esc(t); };
+    const nombre = (d.nombre || d.apellido)
+      ? '<span style="font-weight:700">' + esc(d.nombre) + '</span>' + (d.apellido ? ' <span style="font-weight:400">' + esc(d.apellido) + '</span>' : '')
+      : '<span style="font-weight:700">Tu nombre</span>';
+    const derecha = [
+      d.telefono && linea(tel(d.telefono)),
+      d.celular && linea(tel(d.celular)),
+      d.correo && linea(enlace('mailto:' + d.correo, d.correo, '#00695F')),
+      linea(enlace('https://' + SP_CONTACTO.web, SP_CONTACTO.web, '#00695F')),
+      d.direccion && linea(esc(d.direccion)),
+    ].filter(Boolean).join('');
+    return '<div style="font-size:0;line-height:0;font-family:' + ARIAL + '">'
+      + '<div style="display:inline-block;vertical-align:top;width:180px;padding:0 20px 14px 0;font-size:14px;line-height:1.45;font-family:' + ARIAL + '">'
+      + '<div style="font-size:19px;line-height:1.3;color:#003B71">' + nombre + '</div>'
+      + (cargo ? '<div style="font-size:14px;line-height:1.5;color:#3D3D3D;margin:2px 0 12px">' + cargo + '</div>' : '<div style="height:12px;line-height:12px;font-size:0">&nbsp;</div>')
+      + '<img src="' + logoUrl + '" width="180" height="67" alt="Salud Protegida" style="display:block;width:180px;height:auto;border:0;font-family:' + ARIAL + ';font-size:16px;font-weight:700;color:#003B71">'
+      + '</div>'
+      + '<div style="display:inline-block;vertical-align:top;border-left:1px solid #E8E8E8;padding:0 0 0 20px;font-size:14px;line-height:1.45;font-family:' + ARIAL + '">' + derecha + '</div>'
+      + '</div>';
   }
   function htmlWhatsApp(t) {
     return esc(t).replace(/\*([^*\n]+)\*/g, '<b>$1</b>').replace(/_([^_\n]+)_/g, '<i>$1</i>').replace(/~([^~\n]+)~/g, '<s>$1</s>');
@@ -508,12 +538,14 @@
     },
     firma: {
       nombre: 'Firma', html: d => htmlFirma(d), campos: [
-        { id: 'nombre', tipo: 'texto', et: 'Nombre y apellido', def: '', ph: 'Tu nombre' },
+        { id: 'nombre', tipo: 'texto', et: 'Nombre', def: '', ph: 'Por ejemplo: María José', ayuda: 'Va en negrita. Si tenés dos nombres, los dos acá.' },
+        { id: 'apellido', tipo: 'texto', et: 'Apellido', def: '', ph: 'Por ejemplo: Benítez' },
         { id: 'cargo', tipo: 'texto', et: 'Cargo', def: '', ph: 'Por ejemplo: Asesora comercial' },
         { id: 'area', tipo: 'texto', et: 'Área (opcional)', def: '' },
-        { id: 'telefono', tipo: 'texto', et: 'Teléfono', def: SP_CONTACTO.telefono },
+        { id: 'telefono', tipo: 'texto', et: 'Teléfono', def: SP_CONTACTO.telefono, ayuda: 'Como se lee en Paraguay. El enlace para llamar se arma solo.' },
         { id: 'celular', tipo: 'texto', et: 'Celular (opcional)', def: '', ph: '(0981) 654 234' },
         { id: 'correo', tipo: 'texto', et: 'Correo', def: '', ph: 'tu correo de SP' },
+        { id: 'direccion', tipo: 'texto', et: 'Dirección (opcional)', def: '', ph: 'Perú 222 esq. Eligio Ayala', ayuda: 'Solo si recibís gente en esa oficina.' },
       ],
     },
     mensaje: {
@@ -665,7 +697,7 @@
     }
     function lienzo() {
       const f = FORMATOS[estado.f];
-      if (f.html) elL.innerHTML = '<div class="vista-html" id="vista-html"></div><p class="medida">' + esc(f.nombre) + ' · el logo se carga desde el Centro de Marca, así se actualiza solo</p>';
+      if (f.html) elL.innerHTML = '<div class="vista-html" id="vista-html"></div><p class="medida">' + esc(f.nombre) + ' · Gmail: «Copiar la firma» y pegala en Configuración → Ver todos los ajustes → Firma. Roundcube: «Copiar el código» y pegalo en Configuración → Identidades → Firma, en modo HTML, con el botón de código fuente (<>). El logo va enlazado: no viaja como adjunto.</p>';
       else if (f.wa) elL.innerHTML = '<div class="fondo-wa"><div class="burbuja-wa" id="vista-wa"></div></div><p class="medida">' + esc(f.nota || '') + '</p>';
       else {
         elL.innerHTML = '<canvas id="lienzo" role="img" aria-label="Vista previa de la pieza"></canvas><p class="medida">' + esc(f.nombre + ' · ' + f.medida + (f.mm ? ' · 300 dpi' : ' px')) + (f.nota ? ' · ' + esc(f.nota) : '') + '</p>';
@@ -678,7 +710,7 @@
       const f = FORMATOS[estado.f], el = $('#salidas');
       const dis = frena ? ' disabled' : '';
       const b = [];
-      if (f.html) b.push('<button type="button" class="btn" data-sal="copiar-firma"' + dis + '>Copiar la firma</button>', '<button type="button" class="btn btn-2" data-sal="html"' + dis + '>Bajar .html</button>');
+      if (f.html) b.push('<button type="button" class="btn" data-sal="copiar-firma"' + dis + '>Copiar la firma</button>', '<button type="button" class="btn btn-2" data-sal="copiar-codigo"' + dis + '>Copiar el código</button>', '<button type="button" class="btn btn-2" data-sal="html"' + dis + '>Bajar .html</button>');
       else if (f.wa) b.push('<button type="button" class="btn" data-sal="copiar-wa"' + dis + '>Copiar el mensaje</button>');
       else {
         if (f.pdf) b.push('<button type="button" class="btn" data-sal="pdf"' + dis + '>Bajar PDF para imprenta</button>');
@@ -762,6 +794,10 @@
         const ok = await copiar($('#vista-html').innerText, htmlFirma(d));
         if (!ok) { const sel = window.getSelection(), rango = document.createRange(); rango.selectNodeContents($('#vista-html')); sel.removeAllRanges(); sel.addRange(rango); }
         r = { ok, msg: ok ? 'Firma copiada: pegala en la configuración de tu correo.' : 'No pude copiarla sola: quedó seleccionada, copiala con Ctrl+C.' };
+      } else if (tipo === 'copiar-codigo') {
+        // Roundcube pega la firma como código HTML (botón de código fuente del editor)
+        const ok = await copiar(htmlFirma(d));
+        r = { ok, msg: ok ? 'Código copiado: pegalo en la firma de Roundcube, en modo HTML, con el botón de código fuente.' : 'No pude copiarlo: usá «Bajar .html» y copiá el código desde el archivo.' };
       } else if (tipo === 'copiar-wa') {
         const ok = await copiar(d.mensaje);
         r = { ok, msg: ok ? 'Mensaje copiado.' : 'No pude copiarlo: seleccioná el texto del campo y copialo.' };
