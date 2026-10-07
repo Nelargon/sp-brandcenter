@@ -96,7 +96,8 @@
 
   /* Datos de contacto públicos (los del sitio: app/quote.js y app/layout.jsx) */
   const SP_CONTACTO = {
-    telefono: '+595 21 319 00 00',   // un solo número para WhatsApp, urgencias y teléfono
+    telefono: '(021) 319 0000',      // un solo número para WhatsApp, urgencias y teléfono; así se lee
+    telefonoEnlace: '+595213190000', // el +595 va solo dentro de los enlaces (tel:, WhatsApp)
     correo: 'hola@saludprotegida.com.py',
     web: 'saludprotegida.com.py',
     centroDeMarca: 'https://nelargon.github.io/sp-brandcenter/',
