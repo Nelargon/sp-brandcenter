@@ -47,13 +47,19 @@ cifras de cartera, precios, y cualquier análisis de mercado.
   no. Por eso llevan la especificidad explícita y un comentario.
 - **Verificaciones móviles: 360 / 390 / 430 px como mínimo.** El diagrama del
   área de resguardo ya desbordó una vez a 360.
-- **El sitio cumple sus propias reglas de contraste, y eso se mide.** Hay un
-  auditor que recorre las 13 rutas en los dos temas, lee el color computado de
-  cada texto sobre su fondo real y marca lo que no llega a 4,5:1. Ya encontró
-  que `--faint` reprobaba en claro (2,55) y raspaba en oscuro (4,44). **Antes de
-  tocar un token de color, correlo.** Ojo con dos falsos positivos conocidos: el
-  hero pinta con degradado (no tiene `background-color` medible) y las tarjetas
-  `.demo` fallan a propósito — son la demostración.
+- **El sitio cumple sus propias reglas de contraste, y eso se mide.** El
+  auditor es `node qa/revisar.mjs` (desde el 07/10/2026 vive en el repo; antes
+  se armaba a mano en cada sesión). Lee las rutas de `PAGES`, así que una página
+  nueva entra sola, y recorre todas en los dos temas y en 1280 / 430 / 390 /
+  360 px. Mide el color computado de cada texto sobre su fondo real (4,5:1, o
+  3:1 en texto grande) y además marca errores de consola, desborde a lo ancho,
+  imágenes rotas, páginas sin h1 y subtítulos del índice que no llevan a ninguna
+  sección. Ya encontró que `--faint` reprobaba en claro (2,55) y raspaba en
+  oscuro (4,44). **Antes de tocar un token de color, y antes de fusionar
+  cualquier cambio al sitio, correlo.** Los dos falsos positivos conocidos ya
+  quedan afuera solos: el hero pinta con degradado (no tiene `background-color`
+  medible) y las tarjetas `.demo` fallan a propósito — son la demostración.
+  Necesita Playwright instalado fuera del repo; el sitio sigue sin dependencias.
 - **Las miniaturas son una optimización de RED, no de bytes en general.** La
   grilla de descargas muestra `assets/miniaturas/` y descarga el archivo real.
   Solo existe miniatura donde de verdad ahorra: en los isologotipos y los
