@@ -154,6 +154,8 @@ td b{font-family:var(--lectura);font-weight:600;color:var(--ink)}
 .mal figcaption span{display:block;font-family:var(--lectura);font-weight:400;font-size:12px;color:var(--muted);margin-top:3px}
 .mal .asi-no{position:absolute;top:8px;left:8px;padding:2px 8px;border-radius:var(--r-xs);background:var(--estado-bg);color:var(--estado-ink);font-family:var(--display);font-weight:800;font-size:11.5px}
 /* Las escenas de error recrean el error a propósito: son la demostración, no estilo de la marca */
+/* Ojo: «.x-box span» también agarraba la etiqueta «Así no» (otro span) y la pintaba de
+   violeta, 1,34:1 (07/10/2026). Las reglas de las escenas la excluyen con :not(.asi-no). */
 .mal .x-recolor img{filter:hue-rotate(128deg) saturate(1.5)}
 .mal .x-stretch img{transform:scaleX(1.5)}
 .mal .x-rotate img{transform:rotate(-9deg)}
@@ -163,9 +165,9 @@ td b{font-family:var(--lectura);font-weight:600;color:var(--ink)}
 .mal .x-tiny img{width:40px}
 .mal .x-over b{position:absolute;padding:4px 9px;border-radius:5px;background:#F5A623;color:#1D1D1B;font-family:var(--display);font-size:12px;transform:rotate(-6deg)}
 .mal .escena.x-pattern{background-color:#F0F0F0;background-repeat:repeat;background-size:44px}
-.mal .x-box span{display:block;background:#6C3FA8;padding:12px 14px;border-radius:9px}
+.mal .x-box span:not(.asi-no){display:block;background:#6C3FA8;padding:12px 14px;border-radius:9px}
 .mal .x-box span img{width:100px}
-.mal .x-lockup span{display:flex;align-items:center;gap:6px;font-family:var(--display);font-weight:900;font-size:13px;color:#003B71}
+.mal .x-lockup span:not(.asi-no){display:flex;align-items:center;gap:6px;font-family:var(--display);font-weight:900;font-size:13px;color:#003B71}
 .mal .x-lockup span img{width:92px}
 
 /* Íconos */
@@ -269,7 +271,10 @@ textarea.campo{resize:vertical}
 
 /* Descargas y agencias */
 .paquetes{display:grid;gap:10px;margin-top:18px}
-.paquete{display:flex;flex-direction:column;gap:8px;align-items:flex-start;background:var(--blanco);border-radius:var(--r-lg);padding:18px;min-width:0}
+/* La tarjeta es blanca dentro de una sección navy: el color de texto se declara acá, o
+   hereda el celeste de .sec-navy y queda en 1,15:1 (pasó el 07/10/2026). */
+.paquete{display:flex;flex-direction:column;gap:8px;align-items:flex-start;background:var(--blanco);color:var(--text);border-radius:var(--r-lg);padding:18px;min-width:0}
+.paquete .btn{margin-top:auto}
 .paquete b{font-family:var(--display);font-weight:800;color:var(--navy);font-size:17px}
 .paquete p{font-size:14px;line-height:1.5}
 .tres{display:grid;gap:12px;margin-top:18px}

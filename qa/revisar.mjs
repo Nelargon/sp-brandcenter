@@ -1,7 +1,10 @@
 // Revisión del Centro de Marca en un navegador de verdad (07/10/2026).
 //
 // Recorre todas las rutas de PAGES (las lee del index.html, así una página nueva
-// entra sola), en los dos temas y en cuatro anchos, y revisa:
+// entra sola) y, desde el 07/10/2026, también vitrina.html, la fuente del
+// artifact «Marca Salud Protegida»: ahí se escapó un texto gris claro sobre
+// tarjeta blanca porque esta revisión no la miraba. Todo en los dos temas y en
+// cuatro anchos, y revisa:
 //   1. que no haya errores de JavaScript ni de consola;
 //   2. que nada desborde a lo ancho;
 //   3. que no haya imágenes rotas y que cada página tenga su h1;
@@ -11,7 +14,7 @@
 //
 // Dos falsos positivos conocidos quedan afuera a propósito: el hero, que pinta con
 // degradado y no tiene un color de fondo medible, y las tarjetas .demo, que fallan
-// porque son la demostración de lo que no se hace.
+// porque son la demostración de lo que no se hace (en la vitrina, «Así no»).
 //
 // Uso, desde la raíz del repo:   node qa/revisar.mjs
 // Necesita Playwright instalado fuera del repo (este sitio no tiene dependencias):
@@ -37,7 +40,9 @@ async function cargarPlaywright() {
   }
 }
 
-const TIPOS = { '.html':'text/html', '.js':'text/javascript', '.mjs':'text/javascript', '.css':'text/css',
+// Con charset: la vitrina no trae <meta charset> (claude.ai le pone el esqueleto) y,
+// sin él, el navegador lee «Así» como «AsÃ­» y mide otra página.
+const TIPOS = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.mjs':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8',
   '.png':'image/png', '.svg':'image/svg+xml', '.ico':'image/x-icon', '.woff2':'font/woff2', '.zip':'application/zip' };
 
 function servir() {
@@ -71,22 +76,53 @@ for (const tema of TEMAS) {
     const pagina = await ctx.newPage();
     let errores = [];
     pagina.on('pageerror', e => errores.push(e.message));
-    pagina.on('console', m => { if (m.type() === 'error') errores.push(m.text()); });
+    // Un recurso que falta se reporta con su dirección (la consola no la dice). El
+    // favicon queda afuera: la vitrina no trae <head> y el navegador lo pide igual.
+    pagina.on('console', m => { if (m.type() === 'error' && !/^Failed to load resource/.test(m.text())) errores.push(m.text()); });
+    pagina.on('response', r => { if (r.status() >= 400 && !r.url().endsWith('/favicon.ico')) errores.push(`${r.status()} ${r.url()}`); });
     for (const ruta of RUTAS) {
       await pagina.goto(`${base}#${ruta}`);
       await pagina.waitForLoadState('load');
       await pagina.waitForTimeout(150);
-      const r = await pagina.evaluate(async (medirContraste) => {
+      const r = await pagina.evaluate(revisarVista, { raiz: '#view', medir: ancho === 1280 });
+      anotar(r, `${ruta} · ${tema} · ${ancho} px`, errores);
+      errores = [];
+    }
+    // La vitrina: una sola página, sin índice lateral.
+    await pagina.goto(`${base}vitrina.html`);
+    await pagina.waitForLoadState('load');
+    await pagina.waitForTimeout(600);
+    const v = await pagina.evaluate(revisarVista, { raiz: 'body', medir: ancho === 1280 });
+    anotar(v, `vitrina · ${tema} · ${ancho} px`, errores);
+    errores = [];
+    await ctx.close();
+  }
+}
+await navegador.close();
+srv.close();
+
+function anotar(r, donde, errores) {
+  if (r.desborde > 0) fallas.push(`${donde}: desborda ${r.desborde} px a lo ancho`);
+  if (r.rotas.length) fallas.push(`${donde}: imágenes rotas ${r.rotas.join(', ')}`);
+  if (!r.h1) fallas.push(`${donde}: no tiene h1`);
+  if (r.anclas.length) fallas.push(`${donde}: el índice apunta a secciones que no existen: ${r.anclas.join(', ')}`);
+  r.contraste.forEach(c => fallas.push(`${donde}: contraste ${c}`));
+  errores.forEach(e => fallas.push(`${donde}: error ${e}`));
+}
+
+// Corre dentro de la página. raiz: dónde mirar ('#view' en el centro, 'body' en la vitrina).
+async function revisarVista({ raiz, medir: medirContraste }) {
         const out = { desborde: document.documentElement.scrollWidth - document.documentElement.clientWidth };
+        const R = document.querySelector(raiz);
         // Las miniaturas cargan «lazy»: si no se las pide, nunca terminan. Se piden
         // todas y se espera a lo sumo 5 segundos, para que una imagen trabada se
         // reporte como rota en vez de colgar la revisión.
-        const imgs = [...document.querySelectorAll('#view img')];
+        const imgs = [...R.querySelectorAll('img')];
         imgs.forEach(i => { i.loading = 'eager'; });
         const cargas = imgs.map(i => i.complete ? null : new Promise(ok => { i.addEventListener('load', ok); i.addEventListener('error', ok); }));
         await Promise.race([Promise.all(cargas), new Promise(ok => setTimeout(ok, 5000))]);
         out.rotas = imgs.filter(i => i.naturalWidth === 0).map(i => i.getAttribute('src'));
-        out.h1 = !!document.querySelector('#view h1');
+        out.h1 = !!R.querySelector('h1');
         out.anclas = [...document.querySelectorAll('#rail a.sub')]
           .map(a => a.getAttribute('href').split('#')[2]).filter(id => !document.getElementById(id));
         out.contraste = [];
@@ -104,7 +140,7 @@ for (const tema of TEMAS) {
           }
           return rgb(getComputedStyle(document.body).backgroundColor);
         };
-        document.querySelectorAll('#view *').forEach(el => {
+        R.querySelectorAll('*').forEach(el => {
           if (el.closest('.demo')) return;                              // falla a propósito
           const texto = [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim().length > 1);
           if (!texto) return;
@@ -119,26 +155,12 @@ for (const tema of TEMAS) {
             out.contraste.push(`${ratio.toFixed(2)}:1 · ${el.tagName.toLowerCase()} «${el.textContent.trim().slice(0, 50)}»`);
         });
         return out;
-      }, ancho === 1280);
-      const donde = `${ruta} · ${tema} · ${ancho} px`;
-      if (r.desborde > 0) fallas.push(`${donde}: desborda ${r.desborde} px a lo ancho`);
-      if (r.rotas.length) fallas.push(`${donde}: imágenes rotas ${r.rotas.join(', ')}`);
-      if (!r.h1) fallas.push(`${donde}: no tiene h1`);
-      if (r.anclas.length) fallas.push(`${donde}: el índice apunta a secciones que no existen: ${r.anclas.join(', ')}`);
-      r.contraste.forEach(c => fallas.push(`${donde}: contraste ${c}`));
-      errores.forEach(e => fallas.push(`${donde}: error ${e}`));
-      errores = [];
-    }
-    await ctx.close();
-  }
 }
-await navegador.close();
-srv.close();
 
-const total = RUTAS.length * TEMAS.length * ANCHOS.length;
+const total = (RUTAS.length + 1) * TEMAS.length * ANCHOS.length;
 if (fallas.length) {
-  console.log(`✗ ${fallas.length} fallas en ${total} vistas (${RUTAS.length} rutas × ${TEMAS.length} temas × ${ANCHOS.length} anchos):`);
+  console.log(`✗ ${fallas.length} fallas en ${total} vistas (${RUTAS.length} rutas y la vitrina × ${TEMAS.length} temas × ${ANCHOS.length} anchos):`);
   fallas.forEach(f => console.log('  ' + f));
   process.exit(1);
 }
-console.log(`✓ ${total} vistas sin fallas (${RUTAS.length} rutas × ${TEMAS.length} temas × ${ANCHOS.length} anchos).`);
+console.log(`✓ ${total} vistas sin fallas (${RUTAS.length} rutas y la vitrina × ${TEMAS.length} temas × ${ANCHOS.length} anchos).`);

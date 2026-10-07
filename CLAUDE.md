@@ -50,7 +50,10 @@ cifras de cartera, precios, y cualquier análisis de mercado.
 - **El sitio cumple sus propias reglas de contraste, y eso se mide.** El
   auditor es `node qa/revisar.mjs` (desde el 07/10/2026 vive en el repo; antes
   se armaba a mano en cada sesión). Lee las rutas de `PAGES`, así que una página
-  nueva entra sola, y recorre todas en los dos temas y en 1280 / 430 / 390 /
+  nueva entra sola, y desde el 07/10/2026 también revisa `vitrina.html`: antes no
+  la miraba, y en la vitrina se escaparon un texto en 1,15:1 y una etiqueta en
+  1,34:1 que el auditor nunca vio. Una página que el auditor no recorre no está
+  aprobada: está sin revisar. Recorre todo en los dos temas y en 1280 / 430 / 390 /
   360 px. Mide el color computado de cada texto sobre su fondo real (4,5:1, o
   3:1 en texto grande) y además marca errores de consola, desborde a lo ancho,
   imágenes rotas, páginas sin h1 y subtítulos del índice que no llevan a ninguna
