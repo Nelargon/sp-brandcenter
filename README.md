@@ -32,7 +32,7 @@ para mostrarla en tres minutos, y un **taller** que arma piezas con la marca ya
 puesta (post, historia, cuadrado, imagen para compartir, diapositivas, membrete A4,
 tarjeta personal, firma de correo y mensaje de WhatsApp) y revisa el texto con las
 reglas de la marca antes de dejarlas bajar. Nació el 07/10/2026 (dirección «B · La
-muestra», lámina 79 de `sp-prototipo/docs/diseno`).
+muestra», lámina 80 de `sp-prototipo/docs/diseno`).
 
 | Archivo | Qué es |
 |---|---|
