@@ -22,7 +22,7 @@ ni trabajar con una versión vieja de la marca.
 | `assets/iconos/` | Los 26 íconos de SP en SVG (`SP_Icono_[Nombre].svg`). Salen del archivo de íconos del sitio de clientes (`sp-prototipo`, `app/components/iconos-sp.js`): si allá se suma uno, se regenera acá. |
 | `descargas/` | Los paquetes `.zip` y la paleta en `.ase`, CSS, SCSS y JSON. |
 | `vitrina.html` · `vitrina/` | La fuente del artifact **Marca Salud Protegida**: la vitrina de la marca y el taller de piezas. Ver abajo. |
-| `qa/revisar.mjs` | La revisión del sitio en un navegador: todas las rutas, los dos temas, cuatro anchos y el contraste de cada texto. Se corre con `node qa/revisar.mjs`; no es parte del sitio ni le agrega dependencias. |
+| `qa/revisar.mjs` | La revisión del sitio en un navegador: todas las rutas y la vitrina, los dos temas, cuatro anchos y el contraste de cada texto. Se corre con `node qa/revisar.mjs`; no es parte del sitio ni le agrega dependencias. |
 
 ## La vitrina y el taller (artifact de claude.ai)
 

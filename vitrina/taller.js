@@ -690,7 +690,9 @@
     async function pintar() {
       const mi = ++turno, f = FORMATOS[estado.f], d = datosDe(estado.p);
       let av = [];
-      if (f.html) $('#vista-html').innerHTML = PLANTILLAS[estado.p].html(d);
+      // La vista previa toma el logo de acá mismo: el artifact no carga imágenes de
+      // otro sitio. Lo que se copia o se baja sigue con la dirección completa.
+      if (f.html) $('#vista-html').innerHTML = PLANTILLAS[estado.p].html(d).split(SP_CONTACTO.centroDeMarca).join('');
       else if (f.wa) $('#vista-wa').innerHTML = htmlWhatsApp(d.mensaje) || '&nbsp;';
       else {
         const tmp = document.createElement('canvas');
