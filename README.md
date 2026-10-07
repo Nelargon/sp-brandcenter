@@ -39,7 +39,7 @@ muestra», lámina 80 de `sp-prototipo/docs/diseno`).
 | `vitrina.html` | La página. Va sin `<!doctype>` ni `<head>` porque claude.ai le pone el esqueleto al publicar. |
 | `vitrina/estilos.css` | Los estilos. Los usa también la capa interna (`sp-interno/marca-interna/`). |
 | `vitrina/marca.js` | Los datos: **el logo vive en un solo lugar** (`SP_LOGOS`), más los íconos, los aliados, la matriz de uso y el contacto. El teléfono está dos veces a propósito: `telefono` es como lo lee la gente, «(021) 319 0000», y `telefonoEnlace` es el de los `tel:` y WhatsApp, el único lugar donde va el +595. |
-| `vitrina/taller.js` | El motor del taller: cada pieza se dibuja en un canvas al tamaño real (lo que se ve es lo que se baja), con su revisión de texto. |
+| `vitrina/taller.js` | El motor del taller: cada pieza se dibuja en un canvas al tamaño real (lo que se ve es lo que se baja), con su revisión de texto. La firma de correo es HTML: va en Arial (el correo no carga las fuentes de la marca), con el logo **enlazado** a este centro y no adjunto, y se pega en Gmail («Copiar la firma») o en Roundcube («Copiar el código»). |
 | `vitrina/pagina.js` | Lo que hace la página: grillas, descargas y las láminas de muestra. |
 
 - **No es un build.** El artifact carga estos archivos tal cual, los mismos
